@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "625429972609",
+    "project_id": "nex-notes",
+    "storage_bucket": "nex-notes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625429972609:android:15cd21d1921dcc97162f80",
+        "android_client_info": {
+          "package_name": "com.nitin.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625429972609-jc1u2b4uofuo9pk2bfsqjjigsqt296fc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtzXWNehRXea3mrszhRBNj6qf3aWw9C9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625429972609-jc1u2b4uofuo9pk2bfsqjjigsqt296fc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nitin.mynotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
