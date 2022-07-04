@@ -3,3 +3,4 @@ const verifyEmailRoute = '/verify/';
 const registerRoute = '/register/';
 const notesRoute = '/notes/';
 const homeRoute = '/home/';
+
