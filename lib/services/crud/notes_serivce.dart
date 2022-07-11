@@ -5,13 +5,19 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' show join;
 
-class NoteSerivce {
+class NotesSerivce {
   Database? _db;
 
   List<DatabaseNote> _notes = [];
 
+  static final NotesSerivce _shared = NotesSerivce._sharedInstance();
+  NotesSerivce._sharedInstance();
+  factory NotesSerivce() => _shared;
+
   final _notesStreamController =
       StreamController<List<DatabaseNote>>.broadcast();
+
+  Stream<List<DatabaseNote>> get allNotes => _notesStreamController.stream;
 
   Future<DatabaseUser> getOrCreateUser({required String email}) async {
     try {
@@ -35,6 +41,7 @@ class NoteSerivce {
     required DatabaseNote note,
     required String text,
   }) async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
 
     // make sure note exists
@@ -58,6 +65,7 @@ class NoteSerivce {
   }
 
   Future<Iterable<DatabaseNote>> getAllNote() async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final notes = await db.query(noteTable);
 
@@ -65,6 +73,7 @@ class NoteSerivce {
   }
 
   Future<DatabaseNote> getNote({required int id}) async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final notes = await db.query(
       noteTable,
@@ -85,6 +94,7 @@ class NoteSerivce {
   }
 
   Future<int> deleteAllNote() async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final numberOfDeletion = await db.delete(noteTable);
     _notes = [];
@@ -93,6 +103,7 @@ class NoteSerivce {
   }
 
   Future<void> deleteNote({required int id}) async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final deletedCount = await db.delete(
       noteTable,
@@ -108,6 +119,7 @@ class NoteSerivce {
   }
 
   Future<DatabaseNote> createNote({required DatabaseUser owner}) async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
 
     // make sure owner exists in the database with correct id
@@ -139,6 +151,7 @@ class NoteSerivce {
   }
 
   Future<DatabaseUser> getUser({required String email}) async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final results = await db.query(
       userTable,
@@ -154,6 +167,7 @@ class NoteSerivce {
   }
 
   Future<DatabaseUser> createUser({required String email}) async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final results = await db.query(
       userTable,
@@ -176,6 +190,7 @@ class NoteSerivce {
   }
 
   Future<void> deleteUser({required String email}) async {
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final deletedCount = await db.delete(
       userTable,
@@ -193,6 +208,14 @@ class NoteSerivce {
       throw DatabaseIsNotOpen();
     } else {
       return db;
+    }
+  }
+
+  Future<void> _ensureDbIsOpen() async {
+    try {
+      await open();
+    } on DatabaseAlreadyOpenException {
+      // empty
     }
   }
 
