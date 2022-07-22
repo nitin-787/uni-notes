@@ -6,13 +6,13 @@ typedef NoteCallback = void Function(CloudNote note);
 
 class NotesListView extends StatelessWidget {
   final Iterable<CloudNote> notes;
-  final NoteCallback onDelteNote;
+  final NoteCallback onDeleteNote;
   final NoteCallback onTap;
 
   const NotesListView({
     Key? key,
     required this.notes,
-    required this.onDelteNote,
+    required this.onDeleteNote,
     required this.onTap,
   }) : super(key: key);
 
@@ -36,7 +36,7 @@ class NotesListView extends StatelessWidget {
             onPressed: () async {
               final shouldDelete = await showDeleteDialog(context);
               if (shouldDelete) {
-                onDelteNote(note);
+                onDeleteNote(note);
               }
             },
             icon: const Icon(Icons.delete),
