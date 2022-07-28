@@ -85,7 +85,7 @@ class _RegisterViewState extends State<RegisterView> {
                       onPressed: () {
                         final email = _email.text;
                         final password = _password.text;
-                        context.read()<AuthBloc>().add(
+                        context.read<AuthBloc>().add(
                               AuthEventRegister(
                                 email,
                                 password,
@@ -96,7 +96,7 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                     TextButton(
                       onPressed: () {
-                        context.read()<AuthBloc>().add(
+                        context.read<AuthBloc>().add(
                               const AuthEventLogOut(),
                             );
                       },

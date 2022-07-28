@@ -65,8 +65,6 @@ class _HomePageState extends State<HomePage> {
           return const ForgotPasswordView();
         } else if (state is AuthStateRegistering) {
           return const RegisterView();
-        } else if (state is AuthStateRegistering) {
-          return const RegisterView();
         } else {
           return const Scaffold(
             body: Center(

@@ -26,7 +26,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                 "If you haven't received the email, Press the button below to resend it."),
             TextButton(
               onPressed: () {
-                context.read()<AuthBloc>().add(
+                context.read<AuthBloc>().add(
                       const AuthEventSendEmailVerification(),
                     );
               },
@@ -34,7 +34,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
             ),
             TextButton(
               onPressed: () {
-                context.read()<AuthBloc>().add(
+                context.read<AuthBloc>().add(
                       const AuthEventLogOut(),
                     );
               },
