@@ -20,6 +20,7 @@ void main() {
     MaterialApp(
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -35,14 +36,9 @@ void main() {
   );
 }
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     context.read<AuthBloc>().add(const AuthEventInitialize());
@@ -69,45 +65,34 @@ class _HomePageState extends State<HomePage> {
         } else if (state is AuthStateRegistering) {
           return const RegisterView();
         } else {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
+          return const Center(child: Text('unknown state'));
         }
       },
     );
   }
 }
 
-// class HomePage extends StatelessWidget {
-//   const HomePage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return FutureBuilder(
-//       future: AuthService.firebase().initialize(),
-//       builder: (context, snapshot) {
-//         switch (snapshot.connectionState) {
-//           case ConnectionState.done:
-//             final user = AuthService.firebase().currentUser;
-//             if (user != null) {
-//               if (user.isEmailVerified) {
-//               } else {
-//                 return const VerifyEmailView();
-//               }
-//             } else {
-//               return const LoginView();
-//             }
-//             return const NotesView();
-//           default:
-//             return const Center(
-//               child: CircularProgressIndicator(),
-//             );
-//         }
-//       },
-//     );
-//   }
+  //   return FutureBuilder(
+  //     future: AuthService.firebase().initialize(),
+  //     builder: (context, snapshot) {
+  //       switch (snapshot.connectionState) {
+  //         case ConnectionState.done:
+  //           final user = AuthService.firebase().currentUser;
+  //           if (user != null) {
+  //             if (user.isEmailVerified) {
+  //             } else {
+  //               return const VerifyEmailView();
+  //             }
+  //           } else {
+  //             return const LoginView();
+  //           }
+  //           return const NotesView();
+  //         default:
+  //           return const Center(
+  //             child: CircularProgressIndicator(),
+  //           );
+  //       }
+  //     },
+  //   );
+  // }
 // }
-
-
