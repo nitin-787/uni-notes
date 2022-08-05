@@ -13,6 +13,7 @@ import 'package:mynotes/views/notes/notes_view.dart';
 import 'package:mynotes/views/register_view.dart';
 import 'package:mynotes/views/verify_email_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mynotes/extentions/buildcontext/loc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +48,7 @@ class HomePage extends StatelessWidget {
         if (state.isLoading) {
           LoadingScreen().show(
             context: context,
-            text: state.loadingText ?? 'Please wait a moment',
+            text: state.loadingText ?? context.loc.loading_text,
           );
         } else {
           LoadingScreen().hide();
@@ -65,7 +66,9 @@ class HomePage extends StatelessWidget {
         } else if (state is AuthStateRegistering) {
           return const RegisterView();
         } else {
-          return const Center(child: Text('unknown state'));
+          return const Scaffold(
+            body: CircularProgressIndicator(),
+          );
         }
       },
     );
