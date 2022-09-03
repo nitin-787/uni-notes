@@ -6,6 +6,7 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
+import 'package:path/path.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -15,6 +16,9 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+
+  bool changeButton = false;
+  bool secondChangeButton = false;
   late final TextEditingController _email;
   late final TextEditingController _password;
 
@@ -64,10 +68,20 @@ class _LoginViewState extends State<LoginView> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                Image.asset("assets/icon/login.png", fit: BoxFit.cover,),
+                SizedBox(height: 20.0,),
                 Text(
-                  context.loc.login_view_prompt,
+                  "Welcome Login To Write Notes",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.blueAccent),
                 ),
-                TextField(
+                SizedBox(height: 20.0,),
+
+                Padding(
+
+                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+                  child: Column(
+                    children: [
+                                     TextField(
                   controller: _email,
                   enableSuggestions: false,
                   autocorrect: false,
@@ -84,40 +98,114 @@ class _LoginViewState extends State<LoginView> {
                   decoration: InputDecoration(
                     hintText: context.loc.password_text_field_placeholder,
                   ),
+                  
+                ),SizedBox(height: 20.0,),
+
+              InkWell(
+                onTap: () async {
+                  setState(() {
+                    changeButton = true;
+                  });
+
+                  await Future.delayed(Duration(seconds: 1));
+                  final email = _email.text;
+                  final password = _password.text;
+                  context.read<AuthBloc>().add(
+                    AuthEventLogIn(email, password),
+                  );
+                },
+                child: AnimatedContainer(
+                  duration: Duration(seconds: 1),
+                  alignment: Alignment.center,
+                  width: changeButton ? 40 : 150,
+                  height: 40,
+                  child: changeButton ? Icon(Icons.done, color: Colors.white,) : Text("Login", style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold,
+                    fontSize: 14,),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      // shape: changeButton ? BoxShape.circle : BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(changeButton ? 40 : 8)
+                      ),
                 ),
-                TextButton(
-                  onPressed: () async {
-                    final email = _email.text;
-                    final password = _password.text;
-                    context.read<AuthBloc>().add(
-                          AuthEventLogIn(
-                            email,
-                            password,
-                          ),
-                        );
-                  },
-                  child: Text(context.loc.login),
+              ),
+
+              SizedBox(height: 110.0,),
+
+              InkWell(
+                onTap: () async {
+                  setState(() {
+                    secondChangeButton = true;
+                  });
+
+                  await Future.delayed(Duration(seconds: 1));
+                  context.read<AuthBloc>().add(
+                    const AuthEventForgotPassword(),
+                  );
+                },
+                child: AnimatedContainer(
+                  duration: Duration(seconds: 1),
+                  alignment: Alignment.center,
+                  width: changeButton ? 40 : 100,
+                  height: 40,
+                  child: changeButton ? Icon(Icons.done, color: Colors.white,) : Text("Forget Password", style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold,
+                    fontSize: 10,),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      // shape: changeButton ? BoxShape.circle : BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(changeButton ? 40 : 6)
+                      ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    context.read<AuthBloc>().add(
-                          const AuthEventForgotPassword(),
-                        );
-                  },
-                  child: Text(
-                    context.loc.login_view_forgot_password,
-                  ),
+              ),
+
+
+                // TextButton(
+                //   onPressed: () {
+                //     context.read<AuthBloc>().add(
+                //           const AuthEventShouldRegister(),
+                //         );
+                //   },
+                //   child: Text(
+                //     context.loc.login_view_not_registered_yet,
+                //   ),
+                // )
+
+                SizedBox(height: 10.0,),
+
+              InkWell(
+                onTap: () async {
+                  setState(() {
+                    secondChangeButton = true;
+                  });
+
+                  await Future.delayed(Duration(seconds: 1));
+                  context.read<AuthBloc>().add(
+                    const AuthEventShouldRegister(),
+                  );
+                },
+                child: AnimatedContainer(
+                  duration: Duration(seconds: 1),
+                  alignment: Alignment.center,
+                  width: changeButton ? 40 : 150,
+                  height: 45,
+                  child: changeButton ? Icon(Icons.done, color: Colors.white,) : Text("Register", style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold,
+                    fontSize: 12,),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      // shape: changeButton ? BoxShape.circle : BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(changeButton ? 45 : 6)
+                      ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    context.read<AuthBloc>().add(
-                          const AuthEventShouldRegister(),
-                        );
-                  },
-                  child: Text(
-                    context.loc.login_view_not_registered_yet,
+              ),
+                    ],
                   ),
                 )
+
               ],
             ),
           ),
