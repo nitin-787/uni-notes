@@ -48,6 +48,10 @@ dependencies:
   equatable: ^2.0.3
   flutter_launcher_icons: ^0.9.3
   intl: ^0.17.0
+  file_picker: ^3.0.4
+  image_picker: ^0.8.5+3
+  fluttertoast: ^8.0.9
+  firebase_storage: ^10.3.7
 
 dev_dependencies:
   flutter_test:
