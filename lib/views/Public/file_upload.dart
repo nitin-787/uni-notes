@@ -116,7 +116,7 @@ class _FileUploadState extends State<FileUpload> {
       if (url != null && file != null) {
         Fluttertoast.showToast(
           msg: "file uloaded sucessfully",
-          textColor: Colors.red,
+          textColor: Colors.grey,
         );
       } else {
         Fluttertoast.showToast(
