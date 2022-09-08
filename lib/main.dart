@@ -8,15 +8,20 @@ import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/services/auth/firebase_auth_provider.dart';
 import 'package:mynotes/views/login_view.dart';
 import 'package:mynotes/views/notes/create_update_note_view.dart';
-import 'package:mynotes/views/notes/forgot_password_view.dart';
+import 'package:mynotes/views/forgot_password_view.dart';
 import 'package:mynotes/views/notes/notes_view.dart';
 import 'package:mynotes/views/register_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mynotes/views/verify_email_view.dart';
+import 'package:mynotes/extentions/buildcontext/loc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -32,14 +37,9 @@ void main() {
   );
 }
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     context.read<AuthBloc>().add(const AuthEventInitialize());
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         if (state.isLoading) {
           LoadingScreen().show(
             context: context,
-            text: state.loadingText ?? 'Please wait a moment',
+            text: state.loadingText ?? context.loc.loading_text,
           );
         } else {
           LoadingScreen().hide();
@@ -65,13 +65,9 @@ class _HomePageState extends State<HomePage> {
           return const ForgotPasswordView();
         } else if (state is AuthStateRegistering) {
           return const RegisterView();
-        } else if (state is AuthStateRegistering) {
-          return const RegisterView();
         } else {
           return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
+            body: CircularProgressIndicator(),
           );
         }
       },
@@ -79,34 +75,27 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// class HomePage extends StatelessWidget {
-//   const HomePage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return FutureBuilder(
-//       future: AuthService.firebase().initialize(),
-//       builder: (context, snapshot) {
-//         switch (snapshot.connectionState) {
-//           case ConnectionState.done:
-//             final user = AuthService.firebase().currentUser;
-//             if (user != null) {
-//               if (user.isEmailVerified) {
-//               } else {
-//                 return const VerifyEmailView();
-//               }
-//             } else {
-//               return const LoginView();
-//             }
-//             return const NotesView();
-//           default:
-//             return const Center(
-//               child: CircularProgressIndicator(),
-//             );
-//         }
-//       },
-//     );
-//   }
+  //   return FutureBuilder(
+  //     future: AuthService.firebase().initialize(),
+  //     builder: (context, snapshot) {
+  //       switch (snapshot.connectionState) {
+  //         case ConnectionState.done:
+  //           final user = AuthService.firebase().currentUser;
+  //           if (user != null) {
+  //             if (user.isEmailVerified) {
+  //             } else {
+  //               return const VerifyEmailView();
+  //             }
+  //           } else {
+  //             return const LoginView();
+  //           }
+  //           return const NotesView();
+  //         default:
+  //           return const Center(
+  //             child: CircularProgressIndicator(),
+  //           );
+  //       }
+  //     },
+  //   );
+  // }
 // }
-
-

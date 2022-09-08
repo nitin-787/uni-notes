@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 
@@ -15,32 +16,42 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verify Email'),
+        title: Text(
+          context.loc.verify_email,
+        ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            const Text(
-                "We've sentt you an email Verification. Please open it to verify your email account."),
-            const Text(
-                "If you haven't received the email, Press the button below to resend it."),
-            TextButton(
-              onPressed: () {
-                context.read()<AuthBloc>().add(
-                      const AuthEventSendEmailVerification(),
-                    );
-              },
-              child: const Text('send verification email'),
-            ),
-            TextButton(
-              onPressed: () {
-                context.read()<AuthBloc>().add(
-                      const AuthEventLogOut(),
-                    );
-              },
-              child: const Text('Restart'),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  context.loc.verify_email_view_prompt,
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  context.read<AuthBloc>().add(
+                        const AuthEventSendEmailVerification(),
+                      );
+                },
+                child: Text(
+                  context.loc.verify_email_send_email_verification,
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  context.read<AuthBloc>().add(
+                        const AuthEventLogOut(),
+                      );
+                },
+                child: Text(
+                  context.loc.restart,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

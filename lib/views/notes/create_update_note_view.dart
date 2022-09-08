@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/auth_serivce.dart';
 import 'package:mynotes/utilities/dialogs/cannot_share_empty_not_dialog.dart';
 import 'package:mynotes/utilities/generic/get_argumnets.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:mynotes/services/cloud/firebase_cloud_storgae.dart';
+import 'package:mynotes/views/Public/file_upload.dart';
 import 'package:share_plus/share_plus.dart';
 
 class CreateUpdateNoteView extends StatefulWidget {
@@ -93,7 +95,9 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('New Note'),
+        title: Text(
+          context.loc.note,
+        ),
         actions: [
           IconButton(
             onPressed: () async {
@@ -108,24 +112,25 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
           ),
         ],
       ),
-      body: FutureBuilder(
-        future: createOrGetExistingNote(context),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              _setupTextControllerListner();
-              return TextField(
-                controller: _textController,
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: const InputDecoration(
-                    hintText: 'Start typing your notes...'),
-              );
-            default:
-              return const CircularProgressIndicator();
-          }
-        },
-      ),
+      body: const FileUpload(),
+      // body: FutureBuilder(
+      //   future: createOrGetExistingNote(context),
+      //   builder: (context, snapshot) {
+      //     switch (snapshot.connectionState) {
+      //       case ConnectionState.done:
+      //         _setupTextControllerListner();
+      //         return TextField(
+      //           controller: _textController,
+      //           keyboardType: TextInputType.multiline,
+      //           maxLines: null,
+      //           decoration: InputDecoration(
+      //               hintText: context.loc.start_typing_your_note),
+      //         );
+      //       default:
+      //         return const CircularProgressIndicator();
+      //     }
+      //   },
+      // ),
     );
   }
 }
