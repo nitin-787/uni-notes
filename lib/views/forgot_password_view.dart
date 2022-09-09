@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
@@ -64,10 +65,11 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
           centerTitle: true,
           shadowColor: Colors.blueAccent,
           backgroundColor: Colors.blueAccent,
-          title: const Text(
+          title: Text(
             'Forgot Password',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               color: Colors.white,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
@@ -85,36 +87,39 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  const Text(
+                  Text(
                     "Forgot\nPassword?",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
                       fontSize: 27,
                       color: Colors.blueAccent,
                     ),
                   ),
                   const SizedBox(
-                    height: 35.0,
+                    height: 27.0,
                   ),
-                  const Text(
+                  Text(
                     "Don't worry it happens. Please enter your email address and we will send you a link to reset your password.",
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 95, 95, 95),
+                      fontSize: 15,
+                      color: const Color.fromARGB(255, 95, 95, 95),
                     ),
                   ),
                   const SizedBox(
-                    height: 35.0,
+                    height: 27.0,
                   ),
                   TextField(
                     keyboardType: TextInputType.emailAddress,
                     autocorrect: false,
-                    autofocus: true,
                     controller: _controller,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
+                      hintStyle: GoogleFonts.poppins(
+                        fontSize: 15,
+                        color: const Color.fromARGB(255, 95, 95, 95),
+                      ),
                       hintText: "Enter your email here",
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(10.0),
                         ),
@@ -143,15 +148,16 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                       child: SizedBox(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            SizedBox(
+                          children: [
+                            const SizedBox(
                               width: 15,
                             ),
                             Text(
-                              "Send password reset link",
-                              style: TextStyle(
+                              "Send me password reset link",
+                              style: GoogleFonts.poppins(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
                               ),
                             ),
                           ],
