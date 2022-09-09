@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/auth_exception.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
@@ -61,69 +62,179 @@ class _RegisterViewState extends State<RegisterView> {
         }
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(context.loc.register),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  context.loc.register_view_prompt,
-                ),
-                TextField(
-                  controller: _email,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  autofocus: true,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    hintText: context.loc.email_text_field_placeholder,
-                  ),
-                ),
-                TextField(
-                  controller: _password,
-                  obscureText: true,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  decoration: InputDecoration(
-                    hintText: context.loc.password_text_field_placeholder,
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          final email = _email.text;
-                          final password = _password.text;
-                          context.read<AuthBloc>().add(
-                                AuthEventRegister(
-                                  email,
-                                  password,
+        backgroundColor: Colors.white,
+        body: Container(
+          padding: const EdgeInsets.only(top: 60),
+          child: Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 60.0,
+                    ),
+                    Text(
+                      "Register",
+                      style: GoogleFonts.poppins(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      "To get in touch with your collage",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17,
+                        color: const Color.fromARGB(255, 170, 170, 171),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20, right: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Email Address",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17,
+                              color: Colors.black,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          TextField(
+                            controller: _email,
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              hintStyle: GoogleFonts.poppins(
+                                color: const Color.fromARGB(255, 170, 170, 171),
+                              ),
+                              hintText: 'someone@gmail.com',
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0),
                                 ),
-                              );
-                        },
-                        child: Text(
-                          context.loc.register,
-                        ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30.0,
+                          ),
+                          Text(
+                            "Password",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17,
+                              color: Colors.black,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          TextField(
+                            controller: _password,
+                            obscureText: true,
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            decoration: InputDecoration(
+                              hintStyle: GoogleFonts.poppins(
+                                color: const Color.fromARGB(255, 170, 170, 171),
+                              ),
+                              hintText: '***********',
+                              border: const OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 60.0,
+                          ),
+                          SizedBox(
+                            width: 500,
+                            height: 50,
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                              ),
+                              onPressed: () async {
+                                final email = _email.text;
+                                final password = _password.text;
+                                context.read<AuthBloc>().add(
+                                      AuthEventRegister(
+                                        email,
+                                        password,
+                                      ),
+                                    );
+                              },
+                              child: SizedBox(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text(
+                                      "Register",
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          Center(
+                            child: TextButton(
+                              onPressed: () {
+                                context.read<AuthBloc>().add(
+                                      const AuthEventLogOut(),
+                                    );
+                              },
+                              child: Text(
+                                style: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                context.loc.register_view_already_registered,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      TextButton(
-                        onPressed: () {
-                          context.read<AuthBloc>().add(
-                                const AuthEventLogOut(),
-                              );
-                        },
-                        child: Text(
-                          context.loc.register_view_already_registered,
-                        ),
-                      ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
