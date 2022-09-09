@@ -5,7 +5,7 @@ A new Flutter project.
 This project is a starting point for a Flutter application.
 
 ## Screenshots
-<img src="https://user-images.githubusercontent.com/76255199/188944364-7727988b-5181-4c45-9e7c-52ab661e2542.jpg" width=250> 
+<img src="https://user-images.githubusercontent.com/76255199/188944364-7727988b-5181-4c45-9e7c-52ab661e2542.jpg" width=250>          <img src="https://user-images.githubusercontent.com/76255199/189186470-aedffd96-ab43-4e89-b8c0-6196ca9e86b8.jpg" width=250> 
 
 
 ## Note: My Master branch and the most recent Branch will be same!
