@@ -1,9 +1,5 @@
-# mynotes
-
-A new Flutter project.
-
-This project is a starting point for a Flutter application.
-
+# LPU-Share
+## [Figma file](https://www.figma.com/file/7EvofGuPDALrrI21YsKRb8/LPU---Share)  |  [Apk v1.1.0](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
 ## Screenshots
 <img src="https://user-images.githubusercontent.com/76255199/188944364-7727988b-5181-4c45-9e7c-52ab661e2542.jpg" width=250>          <img src="https://user-images.githubusercontent.com/76255199/189186470-aedffd96-ab43-4e89-b8c0-6196ca9e86b8.jpg" width=250> 
 
