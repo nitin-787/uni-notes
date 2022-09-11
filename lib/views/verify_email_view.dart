@@ -17,32 +17,23 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        shadowColor: Colors.blueAccent,
-        backgroundColor: Colors.blueAccent,
-        title: Text(
-          context.loc.verify_email,
-          style: GoogleFonts.poppins(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Container(
-              padding: const EdgeInsets.only(left: 2.0, top: 20, right: 2.0),
+              padding: const EdgeInsets.only(left: 2.0, top: 60, right: 2.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(
+                    height: 50,
+                  ),
                   const Image(
-                    image: AssetImage('assets/images/forgot_password.png'),
+                    image: AssetImage('assets/images/mail_box.png'),
                   ),
                   const SizedBox(
-                    height: 20.0,
+                    height: 50.0,
                   ),
                   Text(
                     "We have sent you an email verification link. Please check your email and click on the link to verify your email address. If you don't see the email in your inbox, please check your spam folder. or enter your email here we will send you a new link.",
@@ -74,9 +65,6 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(
-                              width: 20,
-                            ),
                             Text(
                               "Send Verification Link",
                               style: GoogleFonts.poppins(
@@ -91,7 +79,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Center(
                     child: TextButton(
