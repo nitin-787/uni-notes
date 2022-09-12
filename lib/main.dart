@@ -9,6 +9,7 @@ import 'package:mynotes/services/auth/firebase_auth_provider.dart';
 import 'package:mynotes/views/login_view.dart';
 import 'package:mynotes/views/notes/create_update_note_view.dart';
 import 'package:mynotes/views/forgot_password_view.dart';
+import 'package:mynotes/views/notes/new_notes_view.dart';
 import 'package:mynotes/views/notes/notes_view.dart';
 import 'package:mynotes/views/register_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
