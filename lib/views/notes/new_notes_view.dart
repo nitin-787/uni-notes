@@ -7,7 +7,19 @@ class NewNotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // floatoing action button
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blueAccent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        onPressed: () {},
+        child: const Icon(
+          Icons.add,
+          size: 30,
+        ),
+      ),
+      backgroundColor: const Color.fromARGB(255, 239, 239, 239),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(top: 10),
@@ -167,11 +179,10 @@ class NewNotesView extends StatelessWidget {
                               image: AssetImage("assets/images/avatar.png"),
                             ),
                             borderRadius: BorderRadius.circular(30),
-                            color: Colors.white.withOpacity(1),
+                            color: Colors.white,
                           ),
                           height: 200,
                           width: 150,
-                          color: Colors.transparent,
                         ),
                         Container(
                           foregroundDecoration: BoxDecoration(
