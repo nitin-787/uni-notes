@@ -57,11 +57,11 @@ class HomePage extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is AuthStateLoggedIn) {
-          return const NewNotesView();
+          return const NotesView();
         } else if (state is AuthStateNeedsVerification) {
           return const VerifyEmailView();
         } else if (state is AuthStateLoggedOut) {
-          return const LoginView();
+          return const NewNotesView();
         } else if (state is AuthStateForgotPassword) {
           return const ForgotPasswordView();
         } else if (state is AuthStateRegistering) {
