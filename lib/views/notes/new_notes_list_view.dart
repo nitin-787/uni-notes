@@ -63,7 +63,6 @@ class NewNotesListView extends StatelessWidget {
                     children: [
                       Text(
                         note.text,
-                        maxLines: 1,
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.poppins(
@@ -78,7 +77,7 @@ class NewNotesListView extends StatelessWidget {
                       Text(
                         "By: Nex",
                         style: GoogleFonts.poppins(
-                          fontSize: 14,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: Colors.blueAccent,
                         ),
