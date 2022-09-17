@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mynotes/constants/routes.dart';
+import 'package:mynotes/services/auth/auth_serivce.dart';
+import 'package:mynotes/services/cloud/cloud_note.dart';
+import 'package:mynotes/services/cloud/firebase_cloud_storgae.dart';
 import 'package:mynotes/views/notes/new_notes_list_view.dart';
 
-class NewNotesView extends StatelessWidget {
+extension Count<T extends Iterable> on Stream<T> {
+  Stream<int> get getLength => map((event) => event.length);
+}
+
+class NewNotesView extends StatefulWidget {
   const NewNotesView({super.key});
+
+  @override
+  State<NewNotesView> createState() => _NewNotesViewState();
+}
+
+class _NewNotesViewState extends State<NewNotesView> {
+  late final FirebaseCloudStorage _notesService;
+  String get userId => AuthService.firebase().currentUser!.id;
+
+  @override
+  void initState() {
+    _notesService = FirebaseCloudStorage();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +157,36 @@ class NewNotesView extends StatelessWidget {
                     ),
                   ),
                   // List View builder
-                  const NewNotesListView(),
+                  StreamBuilder(
+                    stream: _notesService.allNotes(ownerUserId: userId),
+                    builder: (context, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.waiting:
+                        case ConnectionState.active:
+                          if (snapshot.hasData) {
+                            final allNotes =
+                                snapshot.data as Iterable<CloudNote>;
+                            return NewNotesListView(
+                              notes: allNotes,
+                              onDeleteNote: (note) async {
+                                await _notesService.deleteNote(
+                                    documentId: note.documentId);
+                              },
+                              onTap: (note) {
+                                Navigator.of(context).pushNamed(
+                                  createOrUpdateNoteRoute,
+                                  arguments: note,
+                                );
+                              },
+                            );
+                          } else {
+                            return const CircularProgressIndicator();
+                          }
+                        default:
+                          return const CircularProgressIndicator();
+                      }
+                    },
+                  ),
                 ],
               ),
             ),

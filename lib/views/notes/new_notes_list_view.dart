@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/services/cloud/cloud_note.dart';
+import 'package:mynotes/views/notes/notes_list_view.dart';
+
+typedef NoteCallback = void Function(CloudNote note);
 
 class NewNotesListView extends StatelessWidget {
-  const NewNotesListView({super.key});
+  final Iterable<CloudNote> notes;
+  final NoteCallback onDeleteNote;
+  final NoteCallback onTap;
+
+  const NewNotesListView({
+    Key? key,
+    required this.notes,
+    required this.onDeleteNote,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       controller: ScrollController(),
       shrinkWrap: true,
-      itemCount: 10,
+      itemCount: notes.length,
       itemBuilder: (context, index) {
+        final note = notes.elementAt(index);
         return Column(
           children: [
             Container(
@@ -48,7 +62,10 @@ class NewNotesListView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Nex Notes",
+                        note.text,
+                        maxLines: 1,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.poppins(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
