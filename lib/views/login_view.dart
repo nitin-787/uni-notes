@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/auth_exception.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
@@ -77,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
                       style: GoogleFonts.poppins(
                         fontSize: 32,
                         fontWeight: FontWeight.w600,
-                        color: Colors.blueAccent,
+                        color: AppColors.mainColor,
                       ),
                     ),
                     const SizedBox(
@@ -88,7 +89,7 @@ class _LoginViewState extends State<LoginView> {
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 17,
-                        color: const Color.fromARGB(255, 170, 170, 171),
+                        color: AppColors.textColor1,
                       ),
                     ),
                     const SizedBox(
@@ -104,7 +105,7 @@ class _LoginViewState extends State<LoginView> {
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w400,
                               fontSize: 17,
-                              color: Colors.black,
+                              color: AppColors.textColor,
                             ),
                           ),
                           const SizedBox(
@@ -117,7 +118,7 @@ class _LoginViewState extends State<LoginView> {
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               hintStyle: GoogleFonts.poppins(
-                                color: const Color.fromARGB(255, 170, 170, 171),
+                                color: AppColors.textColor2,
                               ),
                               hintText: 'someone@gmail.com',
                               border: const OutlineInputBorder(
@@ -148,7 +149,7 @@ class _LoginViewState extends State<LoginView> {
                             autocorrect: false,
                             decoration: InputDecoration(
                               hintStyle: GoogleFonts.poppins(
-                                color: const Color.fromARGB(255, 170, 170, 171),
+                                color: AppColors.textColor2,
                               ),
                               hintText: '***********',
                               border: const OutlineInputBorder(
@@ -172,6 +173,7 @@ class _LoginViewState extends State<LoginView> {
                                 },
                                 child: Text(
                                   style: GoogleFonts.poppins(
+                                    color: AppColors.mainColor,
                                     decoration: TextDecoration.underline,
                                     decorationThickness: 1.5,
                                     fontSize: 15,
@@ -189,7 +191,7 @@ class _LoginViewState extends State<LoginView> {
                             height: 50,
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
-                                backgroundColor: Colors.blueAccent,
+                                backgroundColor: AppColors.mainColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
@@ -236,7 +238,7 @@ class _LoginViewState extends State<LoginView> {
                             child: Text(
                               'Or',
                               style: GoogleFonts.poppins(
-                                color: const Color.fromARGB(255, 170, 170, 171),
+                                color: AppColors.textColor1,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -279,6 +281,7 @@ class _LoginViewState extends State<LoginView> {
                                     Text(
                                       "Login with Google",
                                       style: GoogleFonts.poppins(
+                                        color: AppColors.mainColor,
                                         fontSize: 17,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -300,6 +303,7 @@ class _LoginViewState extends State<LoginView> {
                               },
                               child: Text(
                                 style: GoogleFonts.poppins(
+                                  color: AppColors.mainColor,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,
                                 ),

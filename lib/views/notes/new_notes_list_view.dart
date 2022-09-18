@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
-import 'package:mynotes/views/notes/notes_list_view.dart';
 
 typedef NoteCallback = void Function(CloudNote note);
 
@@ -37,7 +37,7 @@ class NewNotesListView extends StatelessWidget {
                 onTap(note);
               },
               child: Container(
-                height: 130,
+                height: 120,
                 width: 500,
                 margin: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
@@ -67,55 +67,60 @@ class NewNotesListView extends StatelessWidget {
                       width: 20,
                     ),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            note.text,
-                            maxLines: 1,
-                            softWrap: true,
-                            overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.poppins(
-                              fontSize: 21,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.blueAccent,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "By: Nex",
-                            style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.blueAccent,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "22/dec/2020, 23:54",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.blueAccent,
-                                ),
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                          top: 7,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              note.text,
+                              maxLines: 1,
+                              softWrap: true,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.textColor,
                               ),
-                              IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.file_download,
-                                  color: Colors.blueAccent,
-                                ),
+                            ),
+                            const SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              "By: Nex-kun",
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.textColor2,
                               ),
-                            ],
-                          ),
-                        ],
+                            ),
+                            const SizedBox(
+                              height: 6,
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "22/11/2020, 23:54",
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.textColor2,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.file_download,
+                                    color: AppColors.mainColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

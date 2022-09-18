@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_serivce.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
@@ -32,7 +33,7 @@ class _NewNotesViewState extends State<NewNotesView> {
     return Scaffold(
       // floatoing action button
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: AppColors.mainColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
@@ -44,7 +45,7 @@ class _NewNotesViewState extends State<NewNotesView> {
           size: 30,
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
+      backgroundColor: AppColors.backgroundColor,
       // backgroundColor: Colors.black,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -66,7 +67,7 @@ class _NewNotesViewState extends State<NewNotesView> {
                         style: GoogleFonts.poppins(
                           fontSize: 30,
                           fontWeight: FontWeight.w600,
-                          color: Colors.blueAccent,
+                          color: AppColors.mainColor,
                         ),
                       ),
                       Container(
@@ -85,7 +86,7 @@ class _NewNotesViewState extends State<NewNotesView> {
                     height: 30,
                   ),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -94,7 +95,7 @@ class _NewNotesViewState extends State<NewNotesView> {
                           style: GoogleFonts.poppins(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
-                            color: Colors.blueAccent,
+                            color: AppColors.mainColor,
                           ),
                         ),
                         Text(
@@ -102,7 +103,7 @@ class _NewNotesViewState extends State<NewNotesView> {
                           style: GoogleFonts.poppins(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
-                            color: Colors.blueAccent,
+                            color: AppColors.mainColor,
                           ),
                         ),
                       ],
@@ -116,10 +117,9 @@ class _NewNotesViewState extends State<NewNotesView> {
                     height: 50,
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 221, 224, 227),
+                        backgroundColor: AppColors.searchBoxColor,
                         side: const BorderSide(
-                          color: Color.fromARGB(130, 130, 130, 130),
+                          color: Colors.transparent,
                           width: 1,
                         ),
                         shape: RoundedRectangleBorder(
@@ -134,9 +134,9 @@ class _NewNotesViewState extends State<NewNotesView> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.search,
-                              color: Color.fromARGB(255, 137, 137, 137),
+                              color: AppColors.textColor1,
                             ),
                             const SizedBox(
                               width: 15,
@@ -146,7 +146,7 @@ class _NewNotesViewState extends State<NewNotesView> {
                               style: GoogleFonts.poppins(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w500,
-                                color: const Color.fromARGB(255, 137, 137, 137),
+                                color: AppColors.textColor1,
                               ),
                             ),
                           ],

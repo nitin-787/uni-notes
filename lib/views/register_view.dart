@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/auth_exception.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
@@ -81,7 +82,7 @@ class _RegisterViewState extends State<RegisterView> {
                       style: GoogleFonts.poppins(
                         fontSize: 32,
                         fontWeight: FontWeight.w600,
-                        color: Colors.blueAccent,
+                        color: AppColors.mainColor,
                       ),
                     ),
                     const SizedBox(
@@ -92,7 +93,7 @@ class _RegisterViewState extends State<RegisterView> {
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 17,
-                        color: const Color.fromARGB(255, 170, 170, 171),
+                        color: AppColors.textColor1,
                       ),
                     ),
                     const SizedBox(
@@ -108,7 +109,7 @@ class _RegisterViewState extends State<RegisterView> {
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w400,
                               fontSize: 17,
-                              color: Colors.black,
+                              color: AppColors.textColor,
                             ),
                           ),
                           const SizedBox(
@@ -121,7 +122,7 @@ class _RegisterViewState extends State<RegisterView> {
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               hintStyle: GoogleFonts.poppins(
-                                color: const Color.fromARGB(255, 170, 170, 171),
+                                color: AppColors.textColor1,
                               ),
                               hintText: 'someone@gmail.com',
                               border: const OutlineInputBorder(
@@ -152,7 +153,7 @@ class _RegisterViewState extends State<RegisterView> {
                             autocorrect: false,
                             decoration: InputDecoration(
                               hintStyle: GoogleFonts.poppins(
-                                color: const Color.fromARGB(255, 170, 170, 171),
+                                color: AppColors.textColor1,
                               ),
                               hintText: '***********',
                               border: const OutlineInputBorder(
@@ -170,7 +171,7 @@ class _RegisterViewState extends State<RegisterView> {
                             height: 50,
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
-                                backgroundColor: Colors.blueAccent,
+                                backgroundColor: AppColors.mainColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),

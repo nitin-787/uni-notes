@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
@@ -40,7 +41,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w400,
                       fontSize: 15,
-                      color: const Color.fromARGB(255, 95, 95, 95),
+                      color: AppColors.textColor1,
                     ),
                   ),
                   const SizedBox(
@@ -51,7 +52,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                     height: 50,
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.blueAccent,
+                        backgroundColor: AppColors.mainColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -90,6 +91,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                       },
                       child: Text(
                         style: GoogleFonts.poppins(
+                          color: AppColors.mainColor,
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
