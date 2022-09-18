@@ -28,16 +28,21 @@ class NewNotesListView extends StatelessWidget {
         return Column(
           children: [
             OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(
+                  color: Colors.transparent,
+                ),
+              ),
               onPressed: () {
                 onTap(note);
               },
               child: Container(
-                height: 110,
+                height: 130,
                 width: 500,
                 margin: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -53,8 +58,8 @@ class NewNotesListView extends StatelessWidget {
                           ),
                         ),
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          bottomLeft: Radius.circular(30),
+                          topLeft: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
                         ),
                       ),
                     ),
@@ -70,7 +75,7 @@ class NewNotesListView extends StatelessWidget {
                             note.text,
                             maxLines: 1,
                             softWrap: true,
-                            // overflow: TextOverflow.ellipsis,
+                            overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.poppins(
                               fontSize: 21,
                               fontWeight: FontWeight.w500,
@@ -91,13 +96,24 @@ class NewNotesListView extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            "22/dec/2020, 23:54",
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.blueAccent,
-                            ),
+                          Row(
+                            children: [
+                              Text(
+                                "22/dec/2020, 23:54",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.blueAccent,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.file_download,
+                                  color: Colors.blueAccent,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

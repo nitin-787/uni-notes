@@ -44,8 +44,8 @@ class _NewNotesViewState extends State<NewNotesView> {
           size: 30,
         ),
       ),
-      // backgroundColor: const Color.fromARGB(255, 243, 243, 243),
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
+      // backgroundColor: Colors.black,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
