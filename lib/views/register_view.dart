@@ -133,7 +133,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ),
                           ),
                           const SizedBox(
-                            height: 30.0,
+                            height: 40.0,
                           ),
                           Text(
                             "Password",
@@ -214,21 +214,33 @@ class _RegisterViewState extends State<RegisterView> {
                           const SizedBox(
                             height: 40,
                           ),
-                          Center(
-                            child: TextButton(
-                              onPressed: () {
-                                context.read<AuthBloc>().add(
-                                      const AuthEventLogOut(),
-                                    );
-                              },
-                              child: Text(
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
                                 style: GoogleFonts.poppins(
+                                  color: AppColors.textColor1,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,
                                 ),
-                                context.loc.register_view_already_registered,
+                                'Already Registered?',
                               ),
-                            ),
+                              TextButton(
+                                onPressed: () {
+                                  context.read<AuthBloc>().add(
+                                        const AuthEventLogOut(),
+                                      );
+                                },
+                                child: Text(
+                                  style: GoogleFonts.poppins(
+                                    color: AppColors.mainColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  'Login here!',
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
