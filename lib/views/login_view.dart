@@ -129,7 +129,7 @@ class _LoginViewState extends State<LoginView> {
                             ),
                           ),
                           const SizedBox(
-                            height: 30.0,
+                            height: 40.0,
                           ),
                           Text(
                             "Password",
@@ -294,22 +294,33 @@ class _LoginViewState extends State<LoginView> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Center(
-                            child: TextButton(
-                              onPressed: () {
-                                context.read<AuthBloc>().add(
-                                      const AuthEventShouldRegister(),
-                                    );
-                              },
-                              child: Text(
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
                                 style: GoogleFonts.poppins(
-                                  color: AppColors.mainColor,
+                                  color: AppColors.textColor1,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,
                                 ),
-                                context.loc.login_view_not_registered_yet,
+                                'Not Registered yet?',
                               ),
-                            ),
+                              TextButton(
+                                onPressed: () {
+                                  context.read<AuthBloc>().add(
+                                        const AuthEventShouldRegister(),
+                                      );
+                                },
+                                child: Text(
+                                  style: GoogleFonts.poppins(
+                                    color: AppColors.mainColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  'Register here!',
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
