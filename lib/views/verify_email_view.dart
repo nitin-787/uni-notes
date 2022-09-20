@@ -39,8 +39,8 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                   Text(
                     "We have sent you an email verification link. Please check your email and click on the link to verify your email address. If you don't see the email in your inbox, please check your spam folder. or enter your email here we will send you a new link.",
                     style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17,
                       color: AppColors.textColor1,
                     ),
                   ),
@@ -82,22 +82,33 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                   const SizedBox(
                     height: 40,
                   ),
-                  Center(
-                    child: TextButton(
-                      onPressed: () {
-                        context.read<AuthBloc>().add(
-                              const AuthEventLogOut(),
-                            );
-                      },
-                      child: Text(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
                         style: GoogleFonts.poppins(
-                          color: AppColors.mainColor,
+                          color: AppColors.textColor1,
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
-                        "Already verified? Login",
+                        'Already Verified?',
                       ),
-                    ),
+                      TextButton(
+                        onPressed: () {
+                          context.read<AuthBloc>().add(
+                                const AuthEventLogOut(),
+                              );
+                        },
+                        child: Text(
+                          style: GoogleFonts.poppins(
+                            color: AppColors.mainColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          'Login here!',
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

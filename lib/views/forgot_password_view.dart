@@ -101,8 +101,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   Text(
                     "Don't worry it happens. Please enter your email address and we will send you a link to reset your password.",
                     style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17,
                       color: AppColors.textColor1,
                     ),
                   ),
@@ -115,7 +115,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                     controller: _controller,
                     decoration: InputDecoration(
                       hintStyle: GoogleFonts.poppins(
-                        fontSize: 15,
                         color: AppColors.textColor1,
                       ),
                       hintText: "Enter your email here",
