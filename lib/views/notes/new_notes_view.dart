@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_serivce.dart';
+import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:mynotes/services/cloud/firebase_cloud_storgae.dart';
 import 'package:mynotes/views/notes/new_notes_list_view.dart';
+
+import '../../services/auth/bloc/auth_bloc.dart';
 
 extension Count<T extends Iterable> on Stream<T> {
   Stream<int> get getLength => map((event) => event.length);
@@ -67,6 +71,21 @@ class _NewNotesViewState extends State<NewNotesView> {
                         style: GoogleFonts.poppins(
                           fontSize: 30,
                           fontWeight: FontWeight.w600,
+                          color: AppColors.mainColor,
+                        ),
+                      ),
+                      // added temprory a logout button
+                      const SizedBox(
+                        width: 50,
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          context.read<AuthBloc>().add(
+                                const AuthEventLogOut(),
+                              );
+                        },
+                        icon: Icon(
+                          Icons.logout,
                           color: AppColors.mainColor,
                         ),
                       ),
