@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/auth_exception.dart';
@@ -37,6 +38,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) async {
         if (state is AuthStateLoggedOut) {
@@ -61,42 +63,45 @@ class _LoginViewState extends State<LoginView> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Container(
-          padding: const EdgeInsets.only(top: 60),
+          padding: EdgeInsets.only(top: screenHeight(30)),
           child: Padding(
             padding: const EdgeInsets.all(2.0),
             child: SingleChildScrollView(
               child: Container(
-                padding: const EdgeInsets.only(left: 20),
+                padding: EdgeInsets.only(left: screenWidth(13.2)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 60.0,
+                    SizedBox(
+                      height: screenHeight(42),
                     ),
                     Text(
                       "Let's Login",
                       style: GoogleFonts.poppins(
-                        fontSize: 32,
+                        fontSize: screenWidth(22.24),
                         fontWeight: FontWeight.w600,
                         color: AppColors.mainColor,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10.0,
+                    SizedBox(
+                      height: screenHeight(6.94),
                     ),
                     Text(
                       "And share your notes",
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
-                        fontSize: 17,
+                        fontSize: screenWidth(11.8),
                         color: AppColors.textColor1,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20.0,
+                    SizedBox(
+                      height: screenHeight(14),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 20, right: 20),
+                      padding: EdgeInsets.only(
+                        top: screenHeight(14),
+                        right: screenWidth(13.2),
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -104,63 +109,69 @@ class _LoginViewState extends State<LoginView> {
                             "Email Address",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w400,
-                              fontSize: 17,
+                              fontSize: screenWidth(11.8),
                               color: AppColors.textColor,
                             ),
                           ),
-                          const SizedBox(
-                            height: 15,
+                          SizedBox(
+                            height: screenHeight(10.41),
                           ),
-                          TextField(
-                            controller: _email,
-                            enableSuggestions: false,
-                            autocorrect: false,
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                              hintStyle: GoogleFonts.poppins(
-                                color: AppColors.textColor2,
-                              ),
-                              hintText: 'someone@gmail.com',
-                              border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10.0),
+                          SizedBox(
+                            height: screenHeight(50),
+                            child: TextField(
+                              controller: _email,
+                              enableSuggestions: false,
+                              autocorrect: false,
+                              keyboardType: TextInputType.emailAddress,
+                              decoration: InputDecoration(
+                                hintStyle: GoogleFonts.poppins(
+                                  color: AppColors.textColor2,
+                                ),
+                                hintText: 'someone@gmail.com',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(screenHeight(6.94)),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 40.0,
+                          SizedBox(
+                            height: screenHeight(27.8),
                           ),
                           Text(
                             "Password",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w400,
-                              fontSize: 17,
+                              fontSize: screenWidth(11.8),
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(
-                            height: 15,
+                          SizedBox(
+                            height: screenHeight(10.41),
                           ),
-                          TextField(
-                            controller: _password,
-                            obscureText: true,
-                            enableSuggestions: false,
-                            autocorrect: false,
-                            decoration: InputDecoration(
-                              hintStyle: GoogleFonts.poppins(
-                                color: AppColors.textColor2,
-                              ),
-                              hintText: '***********',
-                              border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10.0),
+                          SizedBox(
+                            height: screenHeight(50),
+                            child: TextField(
+                              controller: _password,
+                              obscureText: true,
+                              enableSuggestions: false,
+                              autocorrect: false,
+                              decoration: InputDecoration(
+                                hintStyle: GoogleFonts.poppins(
+                                  color: AppColors.textColor2,
+                                ),
+                                hintText: '***********',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(screenHeight(6.94)),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 10.0,
+                          SizedBox(
+                            height: screenHeight(6.94),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -176,24 +187,24 @@ class _LoginViewState extends State<LoginView> {
                                     color: AppColors.mainColor,
                                     decoration: TextDecoration.underline,
                                     decorationThickness: 1.5,
-                                    fontSize: 15,
+                                    fontSize: screenWidth(10.41),
                                   ),
                                   "Forgot password?",
                                 ),
                               )
                             ],
                           ),
-                          const SizedBox(
-                            height: 20,
+                          SizedBox(
+                            height: screenHeight(13.88),
                           ),
                           SizedBox(
-                            width: 500,
-                            height: 50,
+                            height: screenWidth(34.7),
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 backgroundColor: AppColors.mainColor,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(
+                                      screenHeight(20.86)),
                                 ),
                               ),
                               onPressed: () async {
@@ -211,14 +222,14 @@ class _LoginViewState extends State<LoginView> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const SizedBox(
-                                      width: 15,
+                                    SizedBox(
+                                      width: screenWidth(9.86),
                                     ),
                                     Text(
                                       "Login",
                                       style: GoogleFonts.poppins(
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: screenWidth(12.51),
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
@@ -231,58 +242,59 @@ class _LoginViewState extends State<LoginView> {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
+                          SizedBox(
+                            height: screenHeight(13.88),
                           ),
                           Center(
                             child: Text(
                               'Or',
                               style: GoogleFonts.poppins(
                                 color: AppColors.textColor1,
-                                fontSize: 15,
+                                fontSize: screenWidth(10.42),
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 15,
+                          SizedBox(
+                            height: screenHeight(10.42),
                           ),
                           SizedBox(
-                            width: 500,
-                            height: 50,
+                            width: screenWidth(328.7),
+                            height: screenWidth(34.7),
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 side: const BorderSide(
                                   color: Color.fromARGB(255, 219, 219, 219),
-                                  width: 1,
+                                  width: 1.2,
                                 ),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius:
+                                      BorderRadius.circular(screenHeight(28)),
                                 ),
                               ),
                               // need to add google sign in
                               onPressed: () {},
                               child: Container(
-                                padding: const EdgeInsets.only(
-                                  left: 20,
+                                padding: EdgeInsets.only(
+                                  left: screenWidth(13.2),
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const Image(
-                                      height: 40,
-                                      width: 25,
-                                      image: AssetImage(
+                                    Image(
+                                      height: screenHeight(27.8),
+                                      width: screenWidth(16.43),
+                                      image: const AssetImage(
                                           'assets/images/google.png'),
                                     ),
-                                    const SizedBox(
-                                      width: 15,
+                                    SizedBox(
+                                      width: screenWidth(9.86),
                                     ),
                                     Text(
                                       "Login with Google",
                                       style: GoogleFonts.poppins(
                                         color: AppColors.mainColor,
-                                        fontSize: 17,
+                                        fontSize: screenWidth(11.8),
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
@@ -291,8 +303,8 @@ class _LoginViewState extends State<LoginView> {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
+                          SizedBox(
+                            height: screenHeight(14),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -300,7 +312,7 @@ class _LoginViewState extends State<LoginView> {
                               Text(
                                 style: GoogleFonts.poppins(
                                   color: AppColors.textColor1,
-                                  fontSize: 15,
+                                  fontSize: screenWidth(10.42),
                                   fontWeight: FontWeight.w500,
                                 ),
                                 'Not Registered yet?',
@@ -314,7 +326,7 @@ class _LoginViewState extends State<LoginView> {
                                 child: Text(
                                   style: GoogleFonts.poppins(
                                     color: AppColors.mainColor,
-                                    fontSize: 15,
+                                    fontSize: screenWidth(10.42),
                                     fontWeight: FontWeight.w500,
                                   ),
                                   'Register here!',
