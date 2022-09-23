@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
@@ -74,63 +75,71 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(screenWidth(11.11)),
           child: SingleChildScrollView(
             child: Container(
-              padding: const EdgeInsets.only(left: 2.0, top: 20, right: 2.0),
+              padding: EdgeInsets.only(
+                left: screenWidth(1.39),
+                top: screenHeight(13.88),
+                right: screenWidth(1.39),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Image(
-                    image: AssetImage('assets/images/forgot_password.png'),
+                  Image(
+                    height: screenHeight(170),
+                    image:
+                        const AssetImage('assets/images/forgot_password.png'),
                   ),
-                  const SizedBox(
-                    height: 20.0,
+                  SizedBox(
+                    height: screenHeight(13.88),
                   ),
                   Text(
                     "Forgot\nPassword?",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
-                      fontSize: 27,
+                      fontSize: screenHeight(18.74),
                       color: AppColors.mainColor,
                     ),
                   ),
-                  const SizedBox(
-                    height: 27.0,
+                  SizedBox(
+                    height: screenHeight(18.74),
                   ),
                   Text(
                     "Don't worry it happens. Please enter your email address and we will send you a link to reset your password.",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w500,
-                      fontSize: 17,
+                      fontSize: screenWidth(11.8),
                       color: AppColors.textColor1,
                     ),
                   ),
-                  const SizedBox(
-                    height: 27.0,
+                  SizedBox(
+                    height: screenHeight(18.74),
                   ),
-                  TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    autocorrect: false,
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      hintStyle: GoogleFonts.poppins(
-                        color: AppColors.textColor1,
-                      ),
-                      hintText: "Enter your email here",
-                      border: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10.0),
+                  SizedBox(
+                    height: screenWidth(34.7),
+                    child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      autocorrect: false,
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        hintStyle: GoogleFonts.poppins(
+                          color: AppColors.textColor1,
+                        ),
+                        hintText: "Enter your email here",
+                        border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10.0),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: screenHeight(20.82),
                   ),
                   SizedBox(
-                    width: 500,
-                    height: 50,
+                    height: screenWidth(34.7),
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         backgroundColor: AppColors.mainColor,
@@ -148,15 +157,15 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(
-                              width: 15,
+                            SizedBox(
+                              width: screenHeight(10.41),
                             ),
                             Text(
                               "Send me password reset link",
                               style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 17,
+                                fontSize: screenWidth(11.8),
                               ),
                             ),
                           ],
