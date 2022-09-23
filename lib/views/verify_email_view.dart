@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
@@ -20,36 +21,41 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(screenWidth(11.11)),
           child: SingleChildScrollView(
             child: Container(
-              padding: const EdgeInsets.only(left: 2.0, top: 60, right: 2.0),
+              padding: EdgeInsets.only(
+                left: screenWidth(1.39),
+                top: screenHeight(42),
+                right: screenWidth(1.39),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: screenWidth(34.71),
                   ),
-                  const Image(
-                    image: AssetImage('assets/images/mail_box.png'),
+                  Image(
+                    height: screenHeight(170),
+                    image: const AssetImage('assets/images/mail_box.png'),
                   ),
-                  const SizedBox(
-                    height: 50.0,
+                  SizedBox(
+                    height: screenWidth(34.71),
                   ),
                   Text(
-                    "We have sent you an email verification link. Please check your email and click on the link to verify your email address. If you don't see the email in your inbox, please check your spam folder. or enter your email here we will send you a new link.",
+                    "We have sent you an email verification link. Please check your email and click on the link to verify your email address. If you don't see the email in your inbox, please check your spam folder. or click the button below, we will send you a new link.",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w500,
-                      fontSize: 17,
+                      fontSize: screenWidth(11.8),
                       color: AppColors.textColor1,
                     ),
                   ),
-                  const SizedBox(
-                    height: 57.0,
+                  SizedBox(
+                    height: screenHeight(34.7),
                   ),
                   SizedBox(
+                    height: screenWidth(34.7),
                     width: 500,
-                    height: 50,
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         backgroundColor: AppColors.mainColor,
@@ -71,7 +77,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                               style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 18,
+                                fontSize: screenWidth(11.8),
                               ),
                             ),
                           ],
@@ -79,8 +85,8 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 40,
+                  SizedBox(
+                    height: screenHeight(27.8),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +94,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                       Text(
                         style: GoogleFonts.poppins(
                           color: AppColors.textColor1,
-                          fontSize: 15,
+                          fontSize: screenWidth(10.42),
                           fontWeight: FontWeight.w500,
                         ),
                         'Already Verified?',
@@ -102,7 +108,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                         child: Text(
                           style: GoogleFonts.poppins(
                             color: AppColors.mainColor,
-                            fontSize: 15,
+                            fontSize: screenWidth(10.42),
                             fontWeight: FontWeight.w500,
                           ),
                           'Login here!',
