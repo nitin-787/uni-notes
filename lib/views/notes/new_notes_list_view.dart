@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 
@@ -19,6 +20,13 @@ class NewNotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double listConatinerHeight;
+    var height = MediaQuery.of(context).size.height;
+    if (height < 600) {
+      listConatinerHeight = screenHeight(113.34);
+    } else {
+      listConatinerHeight = screenHeight(85.34);
+    }
     return ListView.builder(
       controller: ScrollController(),
       shrinkWrap: true,
@@ -37,22 +45,21 @@ class NewNotesListView extends StatelessWidget {
                 onTap(note);
               },
               child: Container(
-                height: 120,
-                width: 500,
-                margin: const EdgeInsets.only(bottom: 20),
+                height: listConatinerHeight,
+                margin: EdgeInsets.only(
+                  bottom: screenWidth(13.2),
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      height: 130,
-                      width: 150,
+                      width: screenWidth(85.6),
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitWidth,
                           image: AssetImage(
                             "assets/images/avatar.png",
                           ),
@@ -63,64 +70,58 @@ class NewNotesListView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 20,
+                    SizedBox(
+                      width: screenWidth(13.2),
                     ),
                     Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.only(
-                          top: 7,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              note.text,
-                              maxLines: 1,
-                              softWrap: true,
-                              overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.textColor,
-                              ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: screenHeight(9.88),
+                          ),
+                          Text(
+                            note.text,
+                            maxLines: 1,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                              fontSize: screenWidth(12),
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textColor,
                             ),
-                            const SizedBox(
-                              height: 6,
+                          ),
+                          SizedBox(
+                            height: screenHeight(4.88),
+                          ),
+                          Text(
+                            "By: Nex-kun",
+                            style: GoogleFonts.poppins(
+                              fontSize: screenWidth(11.11),
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.textColor2,
                             ),
-                            Text(
-                              "By: Nex-kun",
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.textColor2,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 6,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "22/11/2020, 23:54",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.textColor2,
-                                  ),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "December 22, 23:54",
+                                style: GoogleFonts.poppins(
+                                  fontSize: screenWidth(10),
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.textColor2,
                                 ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.file_download,
-                                    color: AppColors.mainColor,
-                                  ),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.file_download,
+                                  color: AppColors.mainColor,
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],
