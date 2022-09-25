@@ -51,7 +51,7 @@ class _NewNotesViewState extends State<NewNotesView> {
           size: screenWidth(20),
         ),
       ),
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: AppColors.backgroundColor1,
       // backgroundColor: Colors.black,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -145,9 +145,8 @@ class _NewNotesViewState extends State<NewNotesView> {
                     height: screenWidth(34.7),
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        backgroundColor: AppColors.searchBoxColor,
-                        side: const BorderSide(
-                          color: Colors.transparent,
+                        side: BorderSide(
+                          color: AppColors.textColor2,
                           width: 1,
                         ),
                         shape: RoundedRectangleBorder(

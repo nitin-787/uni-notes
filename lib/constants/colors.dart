@@ -8,4 +8,5 @@ class AppColors {
   static Color searchBoxColor = const Color(0xFFcad1d6);
   static Color white = const Color(0xFFFFFFFF);
   static Color backgroundColor = const Color(0xFFf0f0f0);
+  static Color backgroundColor1 = const Color(0xFFeff1fe);
 }

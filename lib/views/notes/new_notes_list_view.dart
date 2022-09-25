@@ -71,14 +71,14 @@ class NewNotesListView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: screenWidth(13.2),
+                      width: screenWidth(16),
                     ),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: screenHeight(9.88),
+                            height: screenHeight(9),
                           ),
                           Text(
                             note.text,
@@ -92,12 +92,12 @@ class NewNotesListView extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: screenHeight(4.88),
+                            height: screenHeight(6),
                           ),
                           Text(
                             "By: Nex-kun",
                             style: GoogleFonts.poppins(
-                              fontSize: screenWidth(11.11),
+                              fontSize: screenWidth(10),
                               fontWeight: FontWeight.w500,
                               color: AppColors.textColor2,
                             ),
