@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:mynotes/services/cloud/cloud_storage_constants.dart';
 import 'package:mynotes/services/cloud/cloud_storage_exception.dart';
@@ -37,12 +38,14 @@ class FirebaseCloudStorage {
     final document = await notes.add({
       ownerUserIdFieldName: ownerUserId,
       textFieldName: '',
+      timeFieldName: DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
     });
     final fetchedNote = await document.get();
     return CloudNote(
       documentId: fetchedNote.id,
       ownerUserId: ownerUserId,
       text: '',
+      dateTime: '',
     );
   }
 

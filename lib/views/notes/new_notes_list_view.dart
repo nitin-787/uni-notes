@@ -105,7 +105,7 @@ class NewNotesListView extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "December 22, 23:54",
+                                note.dateTime,
                                 style: GoogleFonts.poppins(
                                   fontSize: screenWidth(10),
                                   fontWeight: FontWeight.w500,
