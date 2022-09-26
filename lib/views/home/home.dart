@@ -5,8 +5,7 @@ import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
-import 'package:mynotes/widget/notes_list_view.dart';
-
+import 'package:mynotes/views/home/widget/note_data.dart';
 import '../../services/auth/bloc/auth_bloc.dart';
 
 class NewNotesView extends StatefulWidget {
@@ -163,7 +162,7 @@ class _NewNotesViewState extends State<NewNotesView> {
                   children: [
                     const SingleChildScrollView(
                       physics: BouncingScrollPhysics(),
-                      child: MyWidget(),
+                      child: NoteData(),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 150),

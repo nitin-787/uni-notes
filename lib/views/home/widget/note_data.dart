@@ -4,20 +4,20 @@ import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_serivce.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:mynotes/services/cloud/firebase_cloud_storgae.dart';
-import 'package:mynotes/views/notes/new_notes_list_view.dart';
+import 'package:mynotes/views/home/widget/notes_list_view.dart';
 
 extension Count<T extends Iterable> on Stream<T> {
   Stream<int> get getLength => map((event) => event.length);
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class NoteData extends StatefulWidget {
+  const NoteData({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<NoteData> createState() => _NoteDataState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _NoteDataState extends State<NoteData> {
   late final FirebaseCloudStorage _notesService;
   String get userId => AuthService.firebase().currentUser!.id;
 
@@ -42,7 +42,7 @@ class _MyWidgetState extends State<MyWidget> {
             case ConnectionState.active:
               if (snapshot.hasData) {
                 final allNotes = snapshot.data as Iterable<CloudNote>;
-                return NewNotesListView(
+                return NotesListView(
                   notes: allNotes,
                   onDeleteNote: (note) async {
                     await _notesService.deleteNote(documentId: note.documentId);
