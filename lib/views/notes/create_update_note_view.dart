@@ -5,7 +5,6 @@ import 'package:mynotes/utilities/dialogs/cannot_share_empty_not_dialog.dart';
 import 'package:mynotes/utilities/generic/get_argumnets.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:mynotes/services/cloud/firebase_cloud_storgae.dart';
-import 'package:mynotes/views/Public/file_upload.dart';
 import 'package:share_plus/share_plus.dart';
 
 class CreateUpdateNoteView extends StatefulWidget {
