@@ -6,6 +6,7 @@ import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/views/home/widget/note_data.dart';
+import 'package:mynotes/views/home/widget/slider.dart';
 import '../../services/auth/bloc/auth_bloc.dart';
 
 class NewNotesView extends StatefulWidget {
@@ -39,7 +40,7 @@ class _NewNotesViewState extends State<NewNotesView> {
         backgroundColor: AppColors.backgroundColor1,
         // backgroundColor: Colors.black,
         body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           child: Column(
             children: [
               Container(
@@ -140,30 +141,11 @@ class _NewNotesViewState extends State<NewNotesView> {
               SizedBox(
                 height: screenHeight(20.88),
               ),
-              TabBar(
-                labelStyle: GoogleFonts.poppins(
-                  fontSize: screenWidth(11.19),
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.mainColor,
-                ),
-                labelColor: AppColors.mainColor,
-                tabs: const [
-                  Tab(
-                    text: 'Public Wall',
-                  ),
-                  Tab(
-                    text: 'Private Chat',
-                  ),
-                ],
-              ),
               SizedBox(
                 height: screenHeight(500),
                 child: TabBarView(
                   children: [
-                    const SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
-                      child: NoteData(),
-                    ),
+                    const NotesSlider(),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 150),
                       child: Center(
