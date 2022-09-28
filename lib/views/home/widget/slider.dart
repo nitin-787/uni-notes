@@ -12,9 +12,11 @@ class NotesSlider extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         child: Column(
           children: [
             TabBar(
+              indicatorSize: TabBarIndicatorSize.label,
               labelStyle: GoogleFonts.poppins(
                 fontSize: screenWidth(11.19),
                 fontWeight: FontWeight.w500,
