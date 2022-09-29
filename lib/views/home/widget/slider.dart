@@ -33,6 +33,9 @@ class NotesSlider extends StatelessWidget {
               ],
             ),
             SizedBox(
+              height: screenHeight(16),
+            ),
+            SizedBox(
               height: screenHeight(500),
               child: TabBarView(
                 children: [
