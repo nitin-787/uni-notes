@@ -281,11 +281,7 @@ class _LoginViewState extends State<LoginView> {
                                     .read<AuthBloc>()
                                     .add(GoogleSignInRequested());
 
-                                // signUpWithGoogle(context).then((value) =>
-                                //     Navigator.of(context)
-                                //         .push(MaterialPageRoute(builder: (BuildContext context) {
-                                //       return const NewNotesView();
-                                //     })));
+                                
                               },
                               child: Container(
                                 padding: EdgeInsets.only(
