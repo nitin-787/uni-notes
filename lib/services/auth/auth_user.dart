@@ -18,3 +18,16 @@ class AuthUser {
         isEmailVerified: user.emailVerified,
       );
 }
+
+// class AuthGoogleUser {
+//   final String email;
+ 
+
+//   const AuthGoogleUser({
+//     required this.email,
+    
+//   });
+
+//   factory AuthGoogleUser.fromFirebaseUser(User user) =>
+//       AuthGoogleUser(email: user.email!);
+// }

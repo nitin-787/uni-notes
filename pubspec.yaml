@@ -54,6 +54,9 @@ dependencies:
   firebase_storage: ^10.3.7
   sign_button: ^2.0.2
   google_fonts: ^3.0.1
+  google_sign_in: ^5.4.2
+  provider: ^6.0.3
+  font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
   flutter_test:

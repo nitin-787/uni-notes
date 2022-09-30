@@ -44,40 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBo1LBLaMSg8a_gH72ifaXFNFuiptvOwQM',
-    appId: '1:625429972609:web:d4911606b7e6684b162f80',
-    messagingSenderId: '625429972609',
-    projectId: 'nex-notes',
-    authDomain: 'nex-notes.firebaseapp.com',
-    storageBucket: 'nex-notes.appspot.com',
-    measurementId: 'G-VT6PHN4JG0',
+    apiKey: 'AIzaSyCLPVrFTkfIUSyXrSoj_gZ8D2HUV6RO-Rw',
+    appId: '1:563289848653:web:4d8693d653b7212f691504',
+    messagingSenderId: '563289848653',
+    projectId: 'mynotes-2022-ef9ec',
+    authDomain: 'mynotes-2022-ef9ec.firebaseapp.com',
+    storageBucket: 'mynotes-2022-ef9ec.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDtzXWNehRXea3mrszhRBNj6qf3aWw9C9s',
-    appId: '1:625429972609:android:15cd21d1921dcc97162f80',
-    messagingSenderId: '625429972609',
-    projectId: 'nex-notes',
-    storageBucket: 'nex-notes.appspot.com',
+    apiKey: 'AIzaSyCJwFbmpt8S5lsW7ilw-fU21BAtORibV6g',
+    appId: '1:563289848653:android:c4c6669dc689dd54691504',
+    messagingSenderId: '563289848653',
+    projectId: 'mynotes-2022-ef9ec',
+    storageBucket: 'mynotes-2022-ef9ec.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAt-lVO2vDJzQA213693Ej5BkY3NOus53Q',
-    appId: '1:625429972609:ios:a80f9003aa8a3c88162f80',
-    messagingSenderId: '625429972609',
-    projectId: 'nex-notes',
-    storageBucket: 'nex-notes.appspot.com',
-    iosClientId: '625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBicOW4e5YpwQkBNnv2x8Hg7iL68PArAbc',
+    appId: '1:563289848653:ios:8175b0b75bc33d95691504',
+    messagingSenderId: '563289848653',
+    projectId: 'mynotes-2022-ef9ec',
+    storageBucket: 'mynotes-2022-ef9ec.appspot.com',
+    iosClientId: '563289848653-fhb3gh3us218niov6anl4cko4r7gkbsm.apps.googleusercontent.com',
     iosBundleId: 'com.nitin.mynotes',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAt-lVO2vDJzQA213693Ej5BkY3NOus53Q',
-    appId: '1:625429972609:ios:a80f9003aa8a3c88162f80',
-    messagingSenderId: '625429972609',
-    projectId: 'nex-notes',
-    storageBucket: 'nex-notes.appspot.com',
-    iosClientId: '625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBicOW4e5YpwQkBNnv2x8Hg7iL68PArAbc',
+    appId: '1:563289848653:ios:8175b0b75bc33d95691504',
+    messagingSenderId: '563289848653',
+    projectId: 'mynotes-2022-ef9ec',
+    storageBucket: 'mynotes-2022-ef9ec.appspot.com',
+    iosClientId: '563289848653-fhb3gh3us218niov6anl4cko4r7gkbsm.apps.googleusercontent.com',
     iosBundleId: 'com.nitin.mynotes',
   );
 }

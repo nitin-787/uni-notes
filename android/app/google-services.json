@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "563289848653",
+    "project_id": "mynotes-2022-ef9ec",
+    "storage_bucket": "mynotes-2022-ef9ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563289848653:android:c4c6669dc689dd54691504",
+        "android_client_info": {
+          "package_name": "com.nitin.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563289848653-ij13jkl211vhv6h8m07f2d8tao6fnv5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJwFbmpt8S5lsW7ilw-fU21BAtORibV6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563289848653-ij13jkl211vhv6h8m07f2d8tao6fnv5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

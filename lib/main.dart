@@ -65,6 +65,8 @@ class HomePage extends StatelessWidget {
           return const ForgotPasswordView();
         } else if (state is AuthStateRegistering) {
           return const RegisterView();
+        } else if (state is AuthStateLoggedInWithGmail) {
+          return const NewNotesView();
         } else {
           return const Scaffold(
             body: CircularProgressIndicator(),
@@ -75,27 +77,4 @@ class HomePage extends StatelessWidget {
   }
 }
 
-  //   return FutureBuilder(
-  //     future: AuthService.firebase().initialize(),
-  //     builder: (context, snapshot) {
-  //       switch (snapshot.connectionState) {
-  //         case ConnectionState.done:
-  //           final user = AuthService.firebase().currentUser;
-  //           if (user != null) {
-  //             if (user.isEmailVerified) {
-  //             } else {
-  //               return const VerifyEmailView();
-  //             }
-  //           } else {
-  //             return const LoginView();
-  //           }
-  //           return const NotesView();
-  //         default:
-  //           return const Center(
-  //             child: CircularProgressIndicator(),
-  //           );
-  //       }
-  //     },
-  //   );
-  // }
-// }
+ 
