@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '625429972609',
     projectId: 'nex-notes',
     storageBucket: 'nex-notes.appspot.com',
+    androidClientId: '625429972609-jsqrvehcujokcg94h1uktp13plamqvm0.apps.googleusercontent.com',
     iosClientId: '625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com',
     iosBundleId: 'com.nitin.mynotes',
   );
@@ -77,6 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '625429972609',
     projectId: 'nex-notes',
     storageBucket: 'nex-notes.appspot.com',
+    androidClientId: '625429972609-jsqrvehcujokcg94h1uktp13plamqvm0.apps.googleusercontent.com',
     iosClientId: '625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com',
     iosBundleId: 'com.nitin.mynotes',
   );

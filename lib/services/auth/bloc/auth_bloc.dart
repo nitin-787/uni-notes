@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:mynotes/services/auth/auth_provider.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
+import 'package:mynotes/views/Public/authentication_services.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(AuthProvider provider)
@@ -155,6 +156,30 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             isLoading: false,
           ),
         );
+      } on Exception catch (e) {
+        emit(
+          AuthStateLoggedOut(
+            exception: e,
+            isLoading: false,
+          ),
+        );
+      }
+    });
+
+    on<GoogleSignInRequested>((event, emit) async {
+      emit(
+        const AuthStateLoggedOut(
+          exception: null,
+          isLoading: true,
+          loadingText: 'Please wait while I log you in',
+        ),
+      );
+
+      try {
+        print("Sent for Aithentication");
+        await AuthenticationServices.signInWithGoogle();
+        print("Emitting State");
+        emit(const AuthStateLoggedInWithGmail(isLoading: false));
       } on Exception catch (e) {
         emit(
           AuthStateLoggedOut(

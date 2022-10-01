@@ -43,11 +43,23 @@ class AuthStateLoggedIn extends AuthState {
   }) : super(isLoading: isLoading);
 }
 
+class AuthStateLoggedInWithGmail extends AuthState {
+  
+  const AuthStateLoggedInWithGmail({
+    
+    required bool isLoading,
+  }) : super(isLoading: isLoading);
+}
+
+
+
 class AuthStateNeedsVerification extends AuthState {
   const AuthStateNeedsVerification({
     required bool isLoading,
   }) : super(isLoading: isLoading);
 }
+
+
 
 class AuthStateLoggedOut extends AuthState with EquatableMixin {
   final Exception? exception;
