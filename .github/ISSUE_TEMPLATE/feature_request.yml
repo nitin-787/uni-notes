@@ -1,0 +1,21 @@
+name: 💡 General Feature Request
+description: Have a new idea/feature? Feel Free to Suggest!
+title: "[FEATURE] <description>"
+labels:
+  ["⭐ goal: addition"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the enhancement you propose, also include what you tried and what worked.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please add screenshots if applicable
+    validations:
+      required: false
+ 
