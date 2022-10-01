@@ -57,6 +57,7 @@ dependencies:
   google_sign_in: ^5.4.2
   provider: ^6.0.3
   font_awesome_flutter: ^10.2.1
+  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:
