@@ -44,6 +44,32 @@ class NotesListView extends StatelessWidget {
               onPressed: () {
                 onTap(note);
               },
+              onLongPress: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Text('Delete Note'),
+                      content: const Text('Are you sure you want to delete?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            onDeleteNote(note);
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('Delete'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
               child: Container(
                 height: listConatinerHeight,
                 margin: EdgeInsets.only(
