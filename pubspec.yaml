@@ -60,6 +60,7 @@ dependencies:
   shimmer: ^2.0.0
   connectivity_plus: ^2.3.7
   overlay_support: ^2.0.1
+  velocity_x: ^3.5.1
 
 dev_dependencies:
   flutter_test:
