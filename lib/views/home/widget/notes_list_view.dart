@@ -34,11 +34,13 @@ class _NotesListViewState extends State<NotesListView> {
   void initState() {
     super.initState();
 
+
     if (_isLoading == false) {
       _isLoading = false;
     } else {
       _isLoading = true;
     }
+
 
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
@@ -58,7 +60,9 @@ class _NotesListViewState extends State<NotesListView> {
     }
 
     return _isLoading
+
         ? const SkeletonNotes()
+
         : Column(
             children: [
               ListView.builder(
@@ -113,6 +117,7 @@ class _NotesListViewState extends State<NotesListView> {
                                   children: [
                                     SizedBox(
                                       height: screenHeight(6),
+
                                     ),
                                     Text(
                                       note.text,
@@ -126,7 +131,11 @@ class _NotesListViewState extends State<NotesListView> {
                                       ),
                                     ),
                                     SizedBox(
+
                                       height: screenHeight(3),
+
+                                     
+
                                     ),
                                     Text(
                                       "By: Nex-kun",
@@ -169,6 +178,7 @@ class _NotesListViewState extends State<NotesListView> {
             ],
           );
   }
+
 }
 
 class SkeletonNotes extends StatelessWidget {
@@ -178,6 +188,7 @@ class SkeletonNotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ListView.separated(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
@@ -271,6 +282,7 @@ class ShimmerWidget extends StatelessWidget {
         ),
       );
 }
+
 
 class Skeleton extends StatelessWidget {
   const Skeleton({
