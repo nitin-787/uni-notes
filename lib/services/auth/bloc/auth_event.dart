@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 @immutable
 abstract class AuthEvent {
@@ -17,6 +20,10 @@ class AuthEventLogIn extends AuthEvent {
   final String email;
   final String password;
   const AuthEventLogIn(this.email, this.password);
+}
+
+class GoogleSignInRequested extends AuthEvent {
+  const GoogleSignInRequested();
 }
 
 class AuthEventShouldRegister extends AuthEvent {
