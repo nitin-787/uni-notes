@@ -14,7 +14,7 @@ class NotesListView extends StatefulWidget {
   final NoteCallback onDeleteNote;
   final NoteCallback onTap;
 
-  NotesListView({
+  const NotesListView({
     Key? key,
     required this.notes,
     required this.onDeleteNote,
@@ -30,6 +30,7 @@ class _NotesListViewState extends State<NotesListView> {
 
   @override
   void initState() {
+    super.initState();
     _isLoading = true;
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
@@ -38,6 +39,7 @@ class _NotesListViewState extends State<NotesListView> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     double listConatinerHeight;
     var height = MediaQuery.of(context).size.height;
@@ -48,9 +50,7 @@ class _NotesListViewState extends State<NotesListView> {
     }
 
     return _isLoading
-        ? SkeletonNotesLenght()
-
-        
+        ? const SkeletonNotesLenght()
         : Column(
             children: [
               ListView.builder(
@@ -102,7 +102,8 @@ class _NotesListViewState extends State<NotesListView> {
                               Expanded(
                                 child: SingleChildScrollView(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       SizedBox(
                                         height: screenHeight(9),
@@ -163,8 +164,6 @@ class _NotesListViewState extends State<NotesListView> {
             ],
           );
   }
-
-
 }
 
 class SkeletonNotesLenght extends StatelessWidget {
@@ -174,16 +173,18 @@ class SkeletonNotesLenght extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: const [
-      SizedBox(height: 10),
-      SkeletonNotes(),
-      SizedBox(height :10),
-      SkeletonNotes(),
-      SizedBox(height :10),
-      SkeletonNotes(),
-      SizedBox(height :10),
-      SkeletonNotes(),
-    ],);
+    return Column(
+      children: const [
+        SizedBox(height: 10),
+        SkeletonNotes(),
+        SizedBox(height: 10),
+        SkeletonNotes(),
+        SizedBox(height: 10),
+        SkeletonNotes(),
+        SizedBox(height: 10),
+        SkeletonNotes(),
+      ],
+    );
   }
 }
 
@@ -195,34 +196,36 @@ class SkeletonNotes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      
-        children: [
-          const Padding(padding: EdgeInsets.all(10)),
-          Row(
-            children: [
-              const Padding(padding: EdgeInsets.all(10)),
-              const Skeleton(width: 120, height: 120),
-              const SizedBox(
-                width: 16,
-              ),
-              Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [Skeleton(width: 200, height: 11),
-                SizedBox(height: 19,),
+      children: [
+        const Padding(padding: EdgeInsets.all(10)),
+        Row(
+          children: [
+            const Padding(padding: EdgeInsets.all(10)),
+            const Skeleton(width: 120, height: 120),
+            const SizedBox(
+              width: 16,
+            ),
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
                 Skeleton(width: 200, height: 11),
-                SizedBox(height: 19,),
+                SizedBox(
+                  height: 19,
+                ),
                 Skeleton(width: 200, height: 11),
-                ],
-              ))
-            ],
-          )
-        ],
-      );
+                SizedBox(
+                  height: 19,
+                ),
+                Skeleton(width: 200, height: 11),
+              ],
+            ))
+          ],
+        )
+      ],
+    );
   }
 }
-
-
 
 class Skeleton extends StatelessWidget {
   const Skeleton({
@@ -234,16 +237,13 @@ class Skeleton extends StatelessWidget {
   final double? height, width;
   @override
   Widget build(BuildContext context) => Shimmer.fromColors(
-    
-      child: Container(
-        padding: EdgeInsets.all(16),
-        height: height,
-        width: width,
-        color: Colors.grey,
-       
-      ),
-      baseColor: Colors.grey[300]!,
-      highlightColor: Colors.grey[400]!);
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[400]!,
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          height: height,
+          width: width,
+          color: Colors.grey,
+        ),
+      );
 }
-
-
