@@ -52,7 +52,9 @@ class _NotesListViewState extends State<NotesListView> {
     }
 
     return _isLoading
+
         ? const SkeletonNotes()
+
         : Column(
             children: [
               ListView.builder(
@@ -106,7 +108,9 @@ class _NotesListViewState extends State<NotesListView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(
+
                                       height: screenHeight(6),
+
                                     ),
                                     Text(
                                       note.text,
@@ -120,7 +124,9 @@ class _NotesListViewState extends State<NotesListView> {
                                       ),
                                     ),
                                     SizedBox(
+
                                       height: screenHeight(3),
+
                                     ),
                                     Text(
                                       "By: Nex-kun",
@@ -167,6 +173,7 @@ class _NotesListViewState extends State<NotesListView> {
 
 
 
+
 class SkeletonNotes extends StatelessWidget {
   const SkeletonNotes({
     Key? key,
@@ -174,6 +181,7 @@ class SkeletonNotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ListView.separated(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
@@ -182,6 +190,7 @@ class SkeletonNotes extends StatelessWidget {
       },
       itemCount: 5,
       separatorBuilder: (BuildContext context, int index) => const Divider(),
+
     );
   }
 
@@ -216,6 +225,7 @@ class SkeletonNotes extends StatelessWidget {
   );
 }
 
+
 class ShimmerWidget extends StatelessWidget {
   final double height;
   final double width;
@@ -247,6 +257,7 @@ class ShimmerWidget extends StatelessWidget {
       );
 }
 
+
 class Skeleton extends StatelessWidget {
   const Skeleton({
     Key? key,
@@ -267,6 +278,8 @@ class Skeleton extends StatelessWidget {
         ),
       );
 }
+
+
 
 
 

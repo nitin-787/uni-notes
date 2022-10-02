@@ -176,9 +176,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       );
 
       try {
-        print("Sent for Aithentication");
         await AuthenticationServices.signInWithGoogle();
-        print("Emitting State");
         emit(const AuthStateLoggedInWithGmail(isLoading: false));
       } on Exception catch (e) {
         emit(
