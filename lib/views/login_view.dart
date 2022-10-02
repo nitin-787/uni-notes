@@ -9,8 +9,6 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
-import 'package:mynotes/views/Public/authentication_services.dart';
-import 'package:mynotes/views/home/home.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -276,12 +274,9 @@ class _LoginViewState extends State<LoginView> {
                               ),
                               // need to add google sign in
                               onPressed: () async {
-                                
-                                context
-                                    .read<AuthBloc>()
-                                    .add(GoogleSignInRequested());
-
-                                
+                                context.read<AuthBloc>().add(
+                                      const GoogleSignInRequested(),
+                                    );
                               },
                               child: Container(
                                 padding: EdgeInsets.only(

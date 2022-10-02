@@ -5,7 +5,6 @@ import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
-import 'package:mynotes/views/home/widget/note_data.dart';
 import 'package:mynotes/views/home/widget/slider.dart';
 import '../../services/auth/bloc/auth_bloc.dart';
 
