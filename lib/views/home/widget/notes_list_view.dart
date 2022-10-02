@@ -46,7 +46,7 @@ class _NotesListViewState extends State<NotesListView> {
     if (height < 600) {
       listConatinerHeight = screenHeight(113.34);
     } else {
-      listConatinerHeight = screenHeight(85.34);
+      listConatinerHeight = screenHeight(87.34);
     }
 
     return _isLoading
@@ -100,57 +100,54 @@ class _NotesListViewState extends State<NotesListView> {
                                 width: screenWidth(16),
                               ),
                               Expanded(
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        height: screenHeight(9),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: screenHeight(9),
+                                    ),
+                                    Text(
+                                      note.text,
+                                      maxLines: 1,
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: screenWidth(12),
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.textColor,
                                       ),
-                                      Text(
-                                        note.text,
-                                        maxLines: 1,
-                                        softWrap: true,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: GoogleFonts.poppins(
-                                          fontSize: screenWidth(12),
-                                          fontWeight: FontWeight.w600,
-                                          color: AppColors.textColor,
-                                        ),
+                                    ),
+                                    SizedBox(
+                                      height: screenHeight(6),
+                                    ),
+                                    Text(
+                                      "By: Nex-kun",
+                                      style: GoogleFonts.poppins(
+                                        fontSize: screenWidth(10),
+                                        fontWeight: FontWeight.w500,
+                                        color: AppColors.textColor2,
                                       ),
-                                      SizedBox(
-                                        height: screenHeight(6),
-                                      ),
-                                      Text(
-                                        "By: Nex-kun",
-                                        style: GoogleFonts.poppins(
-                                          fontSize: screenWidth(10),
-                                          fontWeight: FontWeight.w500,
-                                          color: AppColors.textColor2,
-                                        ),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            note.dateTime,
-                                            style: GoogleFonts.poppins(
-                                              fontSize: screenWidth(10),
-                                              fontWeight: FontWeight.w500,
-                                              color: AppColors.textColor2,
-                                            ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          note.dateTime,
+                                          style: GoogleFonts.poppins(
+                                            fontSize: screenWidth(10),
+                                            fontWeight: FontWeight.w500,
+                                            color: AppColors.textColor2,
                                           ),
-                                          IconButton(
-                                            onPressed: () {},
-                                            icon: Icon(
-                                              Icons.file_download,
-                                              color: AppColors.mainColor,
-                                            ),
+                                        ),
+                                        IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.file_download,
+                                            color: AppColors.mainColor,
                                           ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
