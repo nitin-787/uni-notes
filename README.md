@@ -1,15 +1,55 @@
-# LPU-Share
-## [Figma file](https://www.figma.com/file/7EvofGuPDALrrI21YsKRb8/LPU---Share)  |  [Apk v1.1.0](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
-## Screenshots
-<img src="https://user-images.githubusercontent.com/76255199/188944364-7727988b-5181-4c45-9e7c-52ab661e2542.jpg" width=250>          <img src="https://user-images.githubusercontent.com/76255199/189186470-aedffd96-ab43-4e89-b8c0-6196ca9e86b8.jpg" width=250> 
+<img  align="left" src="http://estruyf-github.azurewebsites.net/api/VisitorHit?user=nitin-787&mynotes&countColorcountColor&countColor=%237B1E7B"/><img align="right" src="https://img.shields.io/github/repo-size/nitin-787/mynotes?style=for-the-badge&logo=appveyor" alt="GitHub repo size"/>
+# Notes-Share 
+<p align="center">
+
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" alt=" forks"/>
+<img src="https://forthebadge.com/images/badges/built-by-developers.svg" alt=" forks"/>
+<img src="https://forthebadge.com/images/badges/built-for-android.svg" alt=" forks"/>
+<img src="https://forthebadge.com/images/badges/makes-people-smile.svg" alt=" forks"/>
 
 
-## Note: My Master branch and the most recent Branch will be same!
+</p>
 
-## Development Setup
-Clone the repository and run the following commands:
-```
+## What is Notes-Share
+Notes-Share is a media sharing app for students where students can share Assignments, notes, tutorials and other stuff in any format with fellow students publically specific to their institute or as in a private chat.
+<br><br>
+[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download_Notes_Share-blue?style=for-the-badge&logo=download&logoColor=white "Download Notes-Share")](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
+## [Figma UI map](https://www.figma.com/file/gfaxLApOmJRt8lFrIRrWku/LPU-Share?node-id=0%3A1)  |  [Apk v1.1.0](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
+
+
+
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193436891-a57c69b8-aa4c-4943-8314-338a7521d90f.png" alt="Register Page" /></kbd>
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193436935-cb90689e-e946-4f2f-8b07-5ff7bd9c710a.png" alt="Login Page" /></kbd>
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437013-0afc1ea3-cdfc-483d-90ae-069569595aee.png" alt="Public and Private wall" /></kbd>
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437042-11ea36c5-4f9f-46b3-8917-f4b861c059fa.png" alt="Search field usage" /></kbd>
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437066-4bb043a2-2c13-45e5-a64e-ec5c6d999a95.png" alt="Upload page" /></kbd>
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437096-e0272c31-63a4-4ff9-8148-1cfce00b6c1a.png" alt="Forgot Password" /></kbd>
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437137-a8788617-91db-4fcd-9122-c59ec905746d.png" alt="Mail verification" /></kbd>
+<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437155-7b605e6c-8691-4e36-9301-05835ba326c8.png" alt="Private and Public wall" /></kbd>
+
+
+## Features:
+1) Create/Upload/Download Assignments, notes, tutorials etc,.
+2) Removing  Attachments permanently.
+3) Add some text/Note with Attachments. 
+4) Add Comments, Send Email.
+5) Searching/Indexing Files.
+6) Timeline.
+7) Google Authentication.
+
+
+---
+
+
+## Development
+0) To run this Project first you need to [Setup Flutter](https://flutter.dev/docs/get-started/install)
+
+1) Install packages<br/>
+```sh
 flutter pub get
+```
+2) Run the Project<br/>
+```sh
 flutter run
 ```
 
