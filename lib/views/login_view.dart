@@ -153,35 +153,26 @@ class _LoginViewState extends State<LoginView> {
                           SizedBox(
                             height: screenHeight(10.41),
                           ),
-                          //Here is the Password feild
-                          PasswordField(
-                            color: Colors.blue,
-                            passwordConstraint: r'.*[@$#.*].*',
-                            inputDecoration: PasswordDecoration(),
-                            hintText: 'must have special characters',
-                            border: PasswordBorder(
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.blue.shade100,
+                          SizedBox(
+                            height: screenHeight(50),
+                            child: TextField(
+                              controller: _password,
+                              obscureText: true,
+                              enableSuggestions: false,
+                              autocorrect: false,
+                              decoration: InputDecoration(
+                                hintStyle: GoogleFonts.poppins(
+                                  color: AppColors.textColor2,
                                 ),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.blue.shade100,
+                                hintText: '***********',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(screenHeight(6.94)),
+                                  ),
                                 ),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                                borderSide: BorderSide(
-                                    width: 2, color: Colors.red.shade200),
                               ),
                             ),
-                            errorMessage:
-                                'must contain special character either . * @ # \$',
                           ),
-
                           SizedBox(
                             height: screenHeight(6.94),
                           ),
