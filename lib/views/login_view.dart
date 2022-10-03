@@ -10,11 +10,7 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
-
-import 'package:mynotes/views/Public/authentication_services.dart';
 import 'package:mynotes/views/Public/snack_bar.dart';
-import 'package:mynotes/views/home/home.dart';
-
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -217,12 +213,11 @@ class _LoginViewState extends State<LoginView> {
                                 final result =
                                     await Connectivity().checkConnectivity();
 
-                                bool hasInternet =
-                                    await connectivitySnackBar(result);
+                                bool hasInternet = connectivitySnackBar(result);
 
                                 final email = _email.text;
                                 final password = _password.text;
-
+                                if (!mounted) return;
                                 hasInternet
                                     ? context.read<AuthBloc>().add(
                                           AuthEventLogIn(
@@ -289,19 +284,16 @@ class _LoginViewState extends State<LoginView> {
                               ),
                               // need to add google sign in
                               onPressed: () async {
-
                                 final result =
                                     await Connectivity().checkConnectivity();
-
-                                bool hasInternet =
-                                    await connectivitySnackBar(result);
+                                if (!mounted) return;
+                                bool hasInternet = connectivitySnackBar(result);
 
                                 hasInternet
-                                    ? context
-                                        .read<AuthBloc>()
-                                        .add(GoogleSignInRequested())
+                                    ? context.read<AuthBloc>().add(
+                                          const GoogleSignInRequested(),
+                                        )
                                     : InternetSnackBar.showTopSnackBar(context);
-
                               },
                               child: Container(
                                 padding: EdgeInsets.only(
@@ -352,14 +344,16 @@ class _LoginViewState extends State<LoginView> {
                                       await Connectivity().checkConnectivity();
 
                                   bool hasInternet =
-                                      await connectivitySnackBar(result);
+                                      connectivitySnackBar(result);
 
+                                  if (!mounted) return;
                                   hasInternet
                                       ? context.read<AuthBloc>().add(
                                             const AuthEventShouldRegister(),
                                           )
                                       : InternetSnackBar.showTopSnackBar(
-                                          context);
+                                          context,
+                                        );
                                 },
                                 child: Text(
                                   style: GoogleFonts.poppins(
@@ -390,5 +384,3 @@ bool connectivitySnackBar(ConnectivityResult result) {
   final hasInternet = result != ConnectivityResult.none;
   return hasInternet;
 }
-
-
