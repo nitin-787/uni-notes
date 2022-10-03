@@ -9,6 +9,7 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
+import 'package:passwordfield/passwordfield.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -153,24 +154,55 @@ class _RegisterViewState extends State<RegisterView> {
                           SizedBox(
                             height: screenHeight(10.41),
                           ),
+                          // SizedBox(
+                          //   height: screenHeight(50),
+                          //   child: TextField(
+                          //     controller: _password,
+                          //     obscureText: true,
+                          //     enableSuggestions: false,
+                          //     autocorrect: false,
+                          //     decoration: InputDecoration(
+                          //       hintStyle: GoogleFonts.poppins(
+                          //         color: AppColors.textColor1,
+                          //       ),
+                          //       hintText: '***********',
+                          //       border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.all(
+                          //           Radius.circular(screenHeight(6.94)),
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                           SizedBox(
                             height: screenHeight(50),
-                            child: TextField(
+                            child: PasswordField(
+                              color: Colors.blue,
+                              passwordConstraint: r'.*[@$#.*].*',
+                              inputDecoration: PasswordDecoration(),
+                              hintText: 'must have special characters',
                               controller: _password,
-                              obscureText: true,
-                              enableSuggestions: false,
-                              autocorrect: false,
-                              decoration: InputDecoration(
-                                hintStyle: GoogleFonts.poppins(
-                                  color: AppColors.textColor1,
-                                ),
-                                hintText: '***********',
+                              border: PasswordBorder(
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(screenHeight(6.94)),
+                                  borderSide: BorderSide(
+                                    color: Colors.blue.shade100,
                                   ),
+                                  borderRadius: BorderRadius.circular(6.94),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.blue.shade100,
+                                  ),
+                                  borderRadius: BorderRadius.circular(6.94),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6.94),
+                                  borderSide: BorderSide(
+                                      width: 2, color: Colors.red.shade200),
                                 ),
                               ),
+                              errorMessage:
+                                  'must contain special character either . * @ # \$',
                             ),
                           ),
                           SizedBox(
