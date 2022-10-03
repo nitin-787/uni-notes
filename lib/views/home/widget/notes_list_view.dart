@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
@@ -28,19 +26,17 @@ class NotesListView extends StatefulWidget {
 }
 
 class _NotesListViewState extends State<NotesListView> {
-  static late bool _isLoading = true;
+  static bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-
 
     if (_isLoading == false) {
       _isLoading = false;
     } else {
       _isLoading = true;
     }
-
 
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
@@ -60,9 +56,7 @@ class _NotesListViewState extends State<NotesListView> {
     }
 
     return _isLoading
-
         ? const SkeletonNotes()
-
         : Column(
             children: [
               ListView.builder(
@@ -117,7 +111,6 @@ class _NotesListViewState extends State<NotesListView> {
                                   children: [
                                     SizedBox(
                                       height: screenHeight(6),
-
                                     ),
                                     Text(
                                       note.text,
@@ -131,11 +124,7 @@ class _NotesListViewState extends State<NotesListView> {
                                       ),
                                     ),
                                     SizedBox(
-
                                       height: screenHeight(3),
-
-                                     
-
                                     ),
                                     Text(
                                       "By: Nex-kun",
@@ -178,7 +167,6 @@ class _NotesListViewState extends State<NotesListView> {
             ],
           );
   }
-
 }
 
 class SkeletonNotes extends StatelessWidget {
@@ -188,7 +176,6 @@ class SkeletonNotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return ListView.separated(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
@@ -261,10 +248,14 @@ class ShimmerWidget extends StatelessWidget {
   final double width;
   final shapeBorder;
 
-  const ShimmerWidget.rectangular({required this.width, required this.height})
-      : this.shapeBorder = const RoundedRectangleBorder();
+  const ShimmerWidget.rectangular({
+    super.key,
+    required this.width,
+    required this.height,
+  }) : shapeBorder = const RoundedRectangleBorder();
 
   const ShimmerWidget.circular({
+    super.key,
     required this.height,
     required this.width,
     this.shapeBorder = const CircleBorder(),
@@ -282,7 +273,6 @@ class ShimmerWidget extends StatelessWidget {
         ),
       );
 }
-
 
 class Skeleton extends StatelessWidget {
   const Skeleton({
