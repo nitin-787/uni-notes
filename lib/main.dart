@@ -14,11 +14,12 @@ import 'package:mynotes/views/register_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mynotes/views/verify_email_view.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    MaterialApp(
+    OverlaySupport(child :MaterialApp(
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       debugShowCheckedModeBanner: false,
@@ -34,6 +35,7 @@ void main() {
         createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
       },
     ),
+  )
   );
 }
 

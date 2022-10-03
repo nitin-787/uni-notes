@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,6 +10,11 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
+
+import 'package:mynotes/views/Public/authentication_services.dart';
+import 'package:mynotes/views/Public/snack_bar.dart';
+import 'package:mynotes/views/home/home.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -208,14 +214,23 @@ class _LoginViewState extends State<LoginView> {
                                 ),
                               ),
                               onPressed: () async {
+                                final result =
+                                    await Connectivity().checkConnectivity();
+
+                                bool hasInternet =
+                                    await connectivitySnackBar(result);
+
                                 final email = _email.text;
                                 final password = _password.text;
-                                context.read<AuthBloc>().add(
-                                      AuthEventLogIn(
-                                        email,
-                                        password,
-                                      ),
-                                    );
+
+                                hasInternet
+                                    ? context.read<AuthBloc>().add(
+                                          AuthEventLogIn(
+                                            email,
+                                            password,
+                                          ),
+                                        )
+                                    : InternetSnackBar.showTopSnackBar(context);
                               },
                               child: SizedBox(
                                 child: Row(
@@ -274,9 +289,19 @@ class _LoginViewState extends State<LoginView> {
                               ),
                               // need to add google sign in
                               onPressed: () async {
-                                context.read<AuthBloc>().add(
-                                      const GoogleSignInRequested(),
-                                    );
+
+                                final result =
+                                    await Connectivity().checkConnectivity();
+
+                                bool hasInternet =
+                                    await connectivitySnackBar(result);
+
+                                hasInternet
+                                    ? context
+                                        .read<AuthBloc>()
+                                        .add(GoogleSignInRequested())
+                                    : InternetSnackBar.showTopSnackBar(context);
+
                               },
                               child: Container(
                                 padding: EdgeInsets.only(
@@ -322,10 +347,19 @@ class _LoginViewState extends State<LoginView> {
                                 'Not Registered yet?',
                               ),
                               TextButton(
-                                onPressed: () {
-                                  context.read<AuthBloc>().add(
-                                        const AuthEventShouldRegister(),
-                                      );
+                                onPressed: () async {
+                                  final result =
+                                      await Connectivity().checkConnectivity();
+
+                                  bool hasInternet =
+                                      await connectivitySnackBar(result);
+
+                                  hasInternet
+                                      ? context.read<AuthBloc>().add(
+                                            const AuthEventShouldRegister(),
+                                          )
+                                      : InternetSnackBar.showTopSnackBar(
+                                          context);
                                 },
                                 child: Text(
                                   style: GoogleFonts.poppins(
@@ -351,3 +385,10 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 }
+
+bool connectivitySnackBar(ConnectivityResult result) {
+  final hasInternet = result != ConnectivityResult.none;
+  return hasInternet;
+}
+
+
