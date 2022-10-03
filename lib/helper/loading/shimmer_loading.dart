@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mynotes/config/size_config.dart';
+import 'package:mynotes/constants/colors.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -10,68 +11,85 @@ class SkeletonNotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return buildShimmer();
-      },
-      itemCount: 5,
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: ListView.separated(
+          controller: ScrollController(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return buildShimmer();
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 10,
+            );
+          },
+          itemCount: 7,
+        ),
+      ),
     );
   }
 
   Widget buildShimmer() => Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
         child: Column(
           children: [
-            Row(children: [
-              const ShimmerWidget.circular(
-                height: 100,
-                width: 159,
-                shapeBorder: RoundedRectangleBorder(
+            Row(
+              children: [
+                const ShimmerWidget.circular(
+                  height: 133,
+                  width: 160,
+                  shapeBorder: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.zero,
-                        bottomLeft: Radius.circular(10),
-                        bottomRight: Radius.zero)),
-              ),
-              Expanded(
+                      topLeft: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: screenWidth(2),
+                ),
+                Expanded(
                   child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const ShimmerWidget.rectangular(
-                    height: 15,
-                    width: 200,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const ShimmerWidget.rectangular(
-                    height: 10,
-                    width: 180,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: const [
-                      ShimmerWidget.rectangular(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const ShimmerWidget.rectangular(
+                        height: 15,
+                        width: 190,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const ShimmerWidget.rectangular(
                         height: 10,
-                        width: 150,
+                        width: 170,
                       ),
-                      SizedBox(
-                        width: 25,
+                      const SizedBox(
+                        height: 20,
                       ),
-                      Icon(
-                        CupertinoIcons.arrow_down_square,
-                        color: Colors.grey,
+                      Row(
+                        children: [
+                          const ShimmerWidget.rectangular(
+                            height: 10,
+                            width: 150,
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Icon(
+                            Icons.file_download,
+                            color: AppColors.textColor2,
+                          ),
+                        ],
                       )
                     ],
-                  )
-                ],
-              ).px8())
-            ])
+                  ).px8(),
+                )
+              ],
+            )
           ],
         ),
       );
@@ -97,13 +115,15 @@ class ShimmerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Shimmer.fromColors(
-        baseColor: Colors.grey[400]!,
+        baseColor: AppColors.textColor2,
         highlightColor: Colors.grey[300]!,
         child: Container(
           width: width,
           height: height,
-          decoration:
-              ShapeDecoration(shape: shapeBorder, color: Colors.grey[400]!),
+          decoration: ShapeDecoration(
+            shape: shapeBorder,
+            color: AppColors.textColor2,
+          ),
         ),
       );
 }
@@ -124,7 +144,7 @@ class Skeleton extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           height: height,
           width: width,
-          color: Colors.grey,
+          color: AppColors.textColor2,
         ),
       );
 }
