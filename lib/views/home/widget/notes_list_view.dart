@@ -110,7 +110,6 @@ class _NotesListViewState extends State<NotesListView> {
                                     SizedBox(
 
                                       height: screenHeight(6),
-
                                     ),
                                     Text(
                                       note.text,
@@ -124,9 +123,7 @@ class _NotesListViewState extends State<NotesListView> {
                                       ),
                                     ),
                                     SizedBox(
-
                                       height: screenHeight(3),
-
                                     ),
                                     Text(
                                       "By: Nex-kun",
@@ -277,6 +274,7 @@ class Skeleton extends StatelessWidget {
           color: Colors.grey,
         ),
       );
+
 }
 
 
