@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,6 +7,7 @@ import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 typedef NoteCallback = void Function(CloudNote note);
 
@@ -50,7 +52,9 @@ class _NotesListViewState extends State<NotesListView> {
     }
 
     return _isLoading
-        ? const SkeletonNotesLenght()
+
+        ? const SkeletonNotes()
+
         : Column(
             children: [
               ListView.builder(
@@ -106,7 +110,6 @@ class _NotesListViewState extends State<NotesListView> {
                                     SizedBox(
 
                                       height: screenHeight(6),
-                              
                                     ),
                                     Text(
                                       note.text,
@@ -120,10 +123,7 @@ class _NotesListViewState extends State<NotesListView> {
                                       ),
                                     ),
                                     SizedBox(
-
                                       height: screenHeight(3),
-                                      
-
                                     ),
                                     Text(
                                       "By: Nex-kun",
@@ -168,27 +168,8 @@ class _NotesListViewState extends State<NotesListView> {
   }
 }
 
-class SkeletonNotesLenght extends StatelessWidget {
-  const SkeletonNotesLenght({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        SizedBox(height: 10),
-        SkeletonNotes(),
-        SizedBox(height: 10),
-        SkeletonNotes(),
-        SizedBox(height: 10),
-        SkeletonNotes(),
-        SizedBox(height: 10),
-        SkeletonNotes(),
-      ],
-    );
-  }
-}
+
 
 class SkeletonNotes extends StatelessWidget {
   const SkeletonNotes({
@@ -197,37 +178,82 @@ class SkeletonNotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Padding(padding: EdgeInsets.all(10)),
-        Row(
-          children: [
-            const Padding(padding: EdgeInsets.all(10)),
-            const Skeleton(width: 120, height: 120),
-            const SizedBox(
-              width: 16,
-            ),
-            Expanded(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Skeleton(width: 200, height: 11),
-                SizedBox(
-                  height: 19,
-                ),
-                Skeleton(width: 200, height: 11),
-                SizedBox(
-                  height: 19,
-                ),
-                Skeleton(width: 200, height: 11),
-              ],
-            ))
-          ],
-        )
-      ],
+
+    return ListView.separated(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemBuilder: (context, index) {
+        return buildShimmer();
+      },
+      itemCount: 5,
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
+
     );
   }
+
+  Widget buildShimmer() => Card(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    child: Column(
+      children: [
+          Row(children:  [
+            const ShimmerWidget.circular(
+          height: 100,
+          width: 159,
+          shapeBorder: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.zero,
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.zero)),
+          ),
+          Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children:  [
+            const ShimmerWidget.rectangular(height: 15, width: 200,),
+            const SizedBox(height: 15,),
+            const ShimmerWidget.rectangular(height: 10, width: 180,),
+            const SizedBox(height: 15,),
+            Row(children: const [ShimmerWidget.rectangular(height: 10, width: 150,),
+              SizedBox(width: 25,)
+            ,Icon(CupertinoIcons.arrow_down_square, color: Colors.grey,)],)
+            
+
+          ],).px8())])
+      ],
+    ),
+  );
 }
+
+
+class ShimmerWidget extends StatelessWidget {
+  final double height;
+  final double width;
+  final shapeBorder;
+
+  const ShimmerWidget.rectangular(
+      {required this.width, required this.height})
+      : this.shapeBorder = const RoundedRectangleBorder();
+
+  const ShimmerWidget.circular({
+    required this.height,
+    required this.width,
+    this.shapeBorder = const CircleBorder(),
+  });
+
+
+  
+
+  @override
+  Widget build(BuildContext context) => Shimmer.fromColors(
+        baseColor: Colors.grey[400]!,
+        highlightColor: Colors.grey[300]!,
+        child: Container(
+          width: width,
+          height: height,
+          decoration:
+              ShapeDecoration(shape: shapeBorder, color: Colors.grey[400]!),
+        ),
+      );
+}
+
 
 class Skeleton extends StatelessWidget {
   const Skeleton({
@@ -250,3 +276,8 @@ class Skeleton extends StatelessWidget {
       );
 
 }
+
+
+
+
+
