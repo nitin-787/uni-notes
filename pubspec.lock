@@ -197,6 +197,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.8"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.6"
   equatable:
     dependency: "direct main"
     description:
@@ -602,6 +609,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  passwordfield:
+    dependency: "direct main"
+    description:
+      name: passwordfield
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   path:
     dependency: "direct main"
     description:
