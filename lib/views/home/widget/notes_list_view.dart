@@ -4,6 +4,8 @@ import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:mynotes/helper/loading/shimmer_loading.dart';
+import 'package:mynotes/views/home/widget/download.dart';
+
 
 typedef NoteCallback = void Function(CloudNote note);
 
@@ -143,7 +145,16 @@ class _NotesListViewState extends State<NotesListView> {
                                           ),
                                         ),
                                         IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  const DownloadingDialog(),
+                                            );
+
+                                            //here download button will work on Pressing 
+                                          },
+                                          tooltip: 'Download File',
                                           icon: Icon(
                                             Icons.file_download,
                                             color: AppColors.mainColor,
