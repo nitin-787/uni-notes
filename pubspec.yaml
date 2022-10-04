@@ -63,6 +63,7 @@ dependencies:
   velocity_x: ^3.5.1
   dio: ^4.0.6
   passwordfield: ^0.1.0
+  lottie: ^1.4.2
 
 dev_dependencies:
   flutter_test:
@@ -91,6 +92,7 @@ flutter:
   assets:
     - assets/icon/
     - assets/images/
+    - animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
