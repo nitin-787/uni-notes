@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:mynotes/services/auth/auth_provider.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
-import 'package:mynotes/views/Public/authentication_services.dart';
+import 'package:mynotes/services/auth/google_auth.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(AuthProvider provider)

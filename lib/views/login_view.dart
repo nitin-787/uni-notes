@@ -10,7 +10,7 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
-import 'package:mynotes/views/Public/snack_bar.dart';
+import 'package:mynotes/utilities/internet_snak_bar.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -169,7 +169,9 @@ class _LoginViewState extends State<LoginView> {
                                       _obscureText = !_obscureText;
                                     });
                                   },
-                                  child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                                  child: Icon(_obscureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
                                 ),
                                 hintText: '***********',
                                 border: OutlineInputBorder(
