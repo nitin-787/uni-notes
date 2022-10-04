@@ -50,34 +50,34 @@ class SkeletonNotes extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: screenWidth(2),
+                  width: screenWidth(7),
                 ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const ShimmerWidget.rectangular(
-                        height: 15,
-                        width: 190,
+                      ShimmerWidget.rectangular(
+                        height: screenHeight(10.41),
+                        width: screenWidth(100),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: screenHeight(13.9),
                       ),
-                      const ShimmerWidget.rectangular(
-                        height: 10,
-                        width: 170,
+                      ShimmerWidget.rectangular(
+                        height: screenHeight(6.98),
+                        width: screenWidth(90.6),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: screenHeight(13.9),
                       ),
                       Row(
                         children: [
-                          const ShimmerWidget.rectangular(
-                            height: 10,
-                            width: 150,
+                          ShimmerWidget.rectangular(
+                            height: screenHeight(6.98),
+                            width: screenWidth(80.6),
                           ),
-                          const SizedBox(
-                            width: 20,
+                          SizedBox(
+                            width: screenHeight(13.9),
                           ),
                           Icon(
                             Icons.file_download,
