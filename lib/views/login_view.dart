@@ -11,7 +11,6 @@ import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
 import 'package:mynotes/views/Public/snack_bar.dart';
-import 'package:passwordfield/passwordfield.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);

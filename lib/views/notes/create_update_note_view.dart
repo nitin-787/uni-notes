@@ -125,7 +125,9 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
                     hintText: context.loc.start_typing_your_note),
               );
             default:
-              return Center(child: CircularProgressIndicator());
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
           }
         },
       ),
