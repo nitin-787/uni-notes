@@ -18,6 +18,7 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  bool _obscureText = true;
   late final TextEditingController _email;
   late final TextEditingController _password;
 
@@ -157,12 +158,19 @@ class _RegisterViewState extends State<RegisterView> {
                             height: screenHeight(50),
                             child: TextField(
                               controller: _password,
-                              obscureText: true,
                               enableSuggestions: false,
                               autocorrect: false,
                               decoration: InputDecoration(
                                 hintStyle: GoogleFonts.poppins(
                                   color: AppColors.textColor1,
+                                ),
+                                suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _obscureText = !_obscureText;
+                                    });
+                                  },
+                                  child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
                                 ),
                                 hintText: '***********',
                                 border: OutlineInputBorder(
@@ -171,6 +179,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   ),
                                 ),
                               ),
+                            obscureText: _obscureText,
                             ),
                           ),
                           SizedBox(

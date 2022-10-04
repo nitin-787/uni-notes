@@ -21,6 +21,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  bool _obscureText = true;
   bool isElevated = false;
   late final TextEditingController _email;
   late final TextEditingController _password;
@@ -157,12 +158,19 @@ class _LoginViewState extends State<LoginView> {
                             height: screenHeight(50),
                             child: TextField(
                               controller: _password,
-                              obscureText: true,
                               enableSuggestions: false,
                               autocorrect: false,
                               decoration: InputDecoration(
                                 hintStyle: GoogleFonts.poppins(
                                   color: AppColors.textColor2,
+                                ),
+                                suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      _obscureText = !_obscureText;
+                                    });
+                                  },
+                                  child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
                                 ),
                                 hintText: '***********',
                                 border: OutlineInputBorder(
@@ -171,6 +179,7 @@ class _LoginViewState extends State<LoginView> {
                                   ),
                                 ),
                               ),
+                              obscureText: _obscureText,
                             ),
                           ),
                           SizedBox(
