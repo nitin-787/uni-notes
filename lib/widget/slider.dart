@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/views/home/widget/note_data.dart';
+import 'package:mynotes/views/chat/chat_home_page.dart';
+import 'package:mynotes/views/notes/note_data.dart';
 
 class NotesSlider extends StatelessWidget {
   const NotesSlider({super.key});
@@ -37,25 +38,16 @@ class NotesSlider extends StatelessWidget {
             ),
             SizedBox(
               height: screenHeight(500),
-              child: TabBarView(
+              child: const TabBarView(
                 children: [
-                  const SingleChildScrollView(
+                  SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     child: NoteData(),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 150),
-                    child: Center(
-                      child: Text(
-                        'Under Construction',
-                        style: GoogleFonts.poppins(
-                          fontSize: screenWidth(11.19),
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textColor1,
-                        ),
-                      ),
-                    ),
-                  )
+                  SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: ChatView(),
+                  ),
                 ],
               ),
             ),

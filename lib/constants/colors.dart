@@ -9,4 +9,5 @@ class AppColors {
   static Color white = const Color(0xFFFFFFFF);
   static Color backgroundColor = const Color(0xFFf0f0f0);
   static Color backgroundColor1 = const Color(0xFFeff1fe);
+  static Color message = const Color(0xFF5795f3);
 }

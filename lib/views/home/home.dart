@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,7 +6,9 @@ import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
-import 'package:mynotes/views/home/widget/slider.dart';
+import 'package:mynotes/utilities/internet_snak_bar.dart';
+import 'package:mynotes/views/login_view.dart';
+import 'package:mynotes/widget/slider.dart';
 import '../../services/auth/bloc/auth_bloc.dart';
 
 class NewNotesView extends StatefulWidget {
@@ -29,8 +32,14 @@ class _NewNotesViewState extends State<NewNotesView> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            onPressed: () {
-              Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
+            onPressed: () async {
+              final result = await Connectivity().checkConnectivity();
+              if (!mounted) return;
+              bool hasInternet = connectivitySnackBar(result);
+
+              hasInternet
+                  ? Navigator.of(context).pushNamed(createOrUpdateNoteRoute)
+                  : InternetSnackBar.showTopSnackBar(context);
             },
             child: Icon(
               Icons.add,
