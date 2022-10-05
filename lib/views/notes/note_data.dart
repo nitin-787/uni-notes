@@ -55,7 +55,10 @@ class _NoteDataState extends State<NoteData> {
                   },
                 );
               } else {
-                return const CircularProgressIndicator();
+                // return const CircularProgressIndicator();
+                return SizedBox(
+                  height: 24,
+                );
               }
             default:
               return const CircularProgressIndicator();
