@@ -58,6 +58,7 @@ dependencies:
   provider: ^6.0.3
   font_awesome_flutter: ^10.2.1
   shimmer: ^2.0.0
+  flutter_native_splash: ^2.2.10+1
   connectivity_plus: ^2.3.7
   overlay_support: ^2.0.1
   velocity_x: ^3.5.1
@@ -120,3 +121,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  color: "#3367bf"
+  image: assets/icon/icon.png
+  android_12:
+    image: assets/icon/icon.png
+    color: "#3367bf"
+    icon_background_color: "#3367bf"
+
+  web: false
+  ios: false
