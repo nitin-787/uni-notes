@@ -31,18 +31,18 @@ class ChatView extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        width: screenWidth(60),
+                        width: screenWidth(55),
+                        height: screenWidth(55),
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            fit: BoxFit.fitWidth,
                             image: AssetImage(
-                              "assets/images/avatar.png",
+                              'assets/images/avatar.png',
                             ),
                           ),
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(65),
-                            bottomRight: Radius.circular(65),
-                            bottomLeft: Radius.circular(65),
+                            topLeft: Radius.circular(40),
+                            bottomLeft: Radius.circular(40),
+                            bottomRight: Radius.circular(40),
                           ),
                         ),
                       ),
@@ -91,12 +91,24 @@ class ChatView extends StatelessWidget {
                                     color: AppColors.textColor2,
                                   ),
                                 ),
-                                Text(
-                                  '1',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: screenWidth(9),
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.textColor2,
+                                Container(
+                                  width: screenWidth(15.27),
+                                  height: screenWidth(15.27),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.message,
+                                    borderRadius: BorderRadius.circular(
+                                      screenWidth(20),
+                                    ),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      '22',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: screenWidth(9),
+                                        fontWeight: FontWeight.w500,
+                                        color: AppColors.white,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
