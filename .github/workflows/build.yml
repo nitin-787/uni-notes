@@ -20,9 +20,9 @@ jobs:
           java-version: '11'
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
-      - uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@v2.7.1
         with:
-          flutter-version: '3.0.0'
+          flutter-version: '3.3.3'
       - name: Install dependencies
         run: flutter pub get
       - name: Analyze project source
