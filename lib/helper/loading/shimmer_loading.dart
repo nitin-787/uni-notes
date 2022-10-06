@@ -39,10 +39,10 @@ class SkeletonNotes extends StatelessWidget {
           children: [
             Row(
               children: [
-                const ShimmerWidget.circular(
-                  height: 133,
+                ShimmerWidget.circular(
+                  height: screenHeight(82.34),
                   width: 160,
-                  shapeBorder: RoundedRectangleBorder(
+                  shapeBorder: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20),

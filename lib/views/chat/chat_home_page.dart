@@ -24,15 +24,15 @@ class ChatView extends StatelessWidget {
                     left: screenWidth(15),
                     right: screenWidth(15),
                   ),
-                  height: 100,
+                  height: screenHeight(50),
                   margin: EdgeInsets.only(
                     bottom: screenWidth(13.2),
                   ),
                   child: Row(
                     children: [
                       Container(
-                        width: screenWidth(55),
-                        height: screenWidth(55),
+                        width: screenWidth(45),
+                        height: screenWidth(45),
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
@@ -78,7 +78,7 @@ class ChatView extends StatelessWidget {
                               ],
                             ),
                             SizedBox(
-                              height: screenHeight(10),
+                              height: screenHeight(3),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,8 +92,8 @@ class ChatView extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  width: screenWidth(15.27),
-                                  height: screenWidth(15.27),
+                                  width: screenWidth(14),
+                                  height: screenWidth(14),
                                   decoration: BoxDecoration(
                                     color: AppColors.message,
                                     borderRadius: BorderRadius.circular(
@@ -104,7 +104,7 @@ class ChatView extends StatelessWidget {
                                     child: Text(
                                       '22',
                                       style: GoogleFonts.poppins(
-                                        fontSize: screenWidth(9),
+                                        fontSize: screenWidth(8),
                                         fontWeight: FontWeight.w500,
                                         color: AppColors.white,
                                       ),

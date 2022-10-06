@@ -49,9 +49,9 @@ class _NotesListViewState extends State<NotesListView> {
     double listConatinerHeight;
     var height = MediaQuery.of(context).size.height;
     if (height < 600) {
-      listConatinerHeight = screenHeight(113.34);
+      listConatinerHeight = screenHeight(112.34);
     } else {
-      listConatinerHeight = screenHeight(87.34);
+      listConatinerHeight = screenHeight(82.34);
     }
 
     return _isLoading
