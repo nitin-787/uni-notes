@@ -7,6 +7,7 @@ import 'package:mynotes/helper/loading/shimmer_loading.dart';
 import 'package:mynotes/widget/download.dart';
 
 typedef NoteCallback = void Function(CloudNote note);
+typedef NoteLongPressCallback = void Function(CloudNote note);
 
 class NotesListView extends StatefulWidget {
   const NotesListView({
@@ -14,11 +15,13 @@ class NotesListView extends StatefulWidget {
     required this.notes,
     required this.onDeleteNote,
     required this.onTap,
+    required this.onLongPress,
   }) : super(key: key);
 
   final Iterable<CloudNote> notes;
   final NoteCallback onDeleteNote;
   final NoteCallback onTap;
+  final NoteLongPressCallback onLongPress;
 
   @override
   State<NotesListView> createState() => _NotesListViewState();
@@ -74,6 +77,9 @@ class _NotesListViewState extends State<NotesListView> {
                         ),
                         onPressed: () {
                           widget.onTap(note);
+                        },
+                        onLongPress: () {
+                          widget.onLongPress(note);
                         },
                         child: Container(
                           height: listConatinerHeight,
