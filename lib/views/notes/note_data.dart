@@ -164,10 +164,24 @@ class _NoteDataState extends State<NoteData> {
       context: context,
       useSafeArea: true,
       builder: (context) {
-        return const Popup(
+        return Popup(
           title: 'Error',
           description: 'Sorry',
           imagePath: 'assets/icon/error.png',
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Okay',
+                style: GoogleFonts.poppins(
+                  fontSize: screenWidth(10),
+                  color: AppColors.backgroundColor,
+                ),
+              ),
+            ),
+          ],
         );
       },
     );
