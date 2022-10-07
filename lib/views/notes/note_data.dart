@@ -53,6 +53,9 @@ class _NoteDataState extends State<NoteData> {
                       arguments: note,
                     );
                   },
+                  onLongPress: (note) {
+                    _openDeleteNotePopup(note);
+                  },
                 );
               } else {
                 // return const CircularProgressIndicator();
@@ -65,6 +68,18 @@ class _NoteDataState extends State<NoteData> {
           }
         },
       ),
+    );
+  }
+
+  _openDeleteNotePopup(note) {
+    showDialog(
+      context: context,
+      useSafeArea: true,
+      builder: (context) {
+        return AlertDialog(
+          content: Text('hi'),
+        );
+      },
     );
   }
 }
