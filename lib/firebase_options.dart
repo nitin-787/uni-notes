@@ -17,24 +17,15 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -52,14 +43,47 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBo1LBLaMSg8a_gH72ifaXFNFuiptvOwQM',
+    appId: '1:625429972609:web:d4911606b7e6684b162f80',
+    messagingSenderId: '625429972609',
+    projectId: 'nex-notes',
+    authDomain: 'nex-notes.firebaseapp.com',
+    storageBucket: 'nex-notes.appspot.com',
+    measurementId: 'G-VT6PHN4JG0',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyDtzXWNehRXea3mrszhRBNj6qf3aWw9C9s',
+    appId: '1:625429972609:android:15cd21d1921dcc97162f80',
+    messagingSenderId: '625429972609',
+    projectId: 'nex-notes',
+    storageBucket: 'nex-notes.appspot.com',
+  );
+
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAt-lVO2vDJzQA213693Ej5BkY3NOus53Q',
     appId: '1:625429972609:ios:a80f9003aa8a3c88162f80',
     messagingSenderId: '625429972609',
     projectId: 'nex-notes',
     storageBucket: 'nex-notes.appspot.com',
-    androidClientId: '625429972609-pe23ltu09dctju49ougd7i792ghqk59i.apps.googleusercontent.com',
-    iosClientId: '625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com',
+    androidClientId:
+        '625429972609-jsqrvehcujokcg94h1uktp13plamqvm0.apps.googleusercontent.com',
+    iosClientId:
+        '625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com',
+    iosBundleId: 'com.nitin.mynotes',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAt-lVO2vDJzQA213693Ej5BkY3NOus53Q',
+    appId: '1:625429972609:ios:a80f9003aa8a3c88162f80',
+    messagingSenderId: '625429972609',
+    projectId: 'nex-notes',
+    storageBucket: 'nex-notes.appspot.com',
+    androidClientId:
+        '625429972609-jsqrvehcujokcg94h1uktp13plamqvm0.apps.googleusercontent.com',
+    iosClientId:
+        '625429972609-4ostbgcae9uvt5lt681opsaeg8mqo0je.apps.googleusercontent.com',
     iosBundleId: 'com.nitin.mynotes',
   );
 }
