@@ -6,6 +6,8 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/services/auth/firebase_auth_provider.dart';
+import 'package:mynotes/views/chat/chat_room.dart';
+import 'package:mynotes/views/home/search_view.dart';
 import 'package:mynotes/views/login_view.dart';
 import 'package:mynotes/views/notes/create_update_note_view.dart';
 import 'package:mynotes/views/forgot_password_view.dart';
@@ -35,6 +37,8 @@ void main() {
       ),
       routes: {
         createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
+        searchRoute: (context) => const SearchView(),
+        chatRoom: (context) => const ChatRoom(),
       },
     ),
   ));
