@@ -154,22 +154,9 @@ class _NewNotesViewState extends State<NewNotesView> {
                 ),
                 SizedBox(
                   height: screenHeight(500),
-                  child: TabBarView(
+                  child: const TabBarView(
                     children: [
-                      const NotesSlider(),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 150),
-                        child: Center(
-                          child: Text(
-                            'Under Construction',
-                            style: GoogleFonts.poppins(
-                              fontSize: screenWidth(11.19),
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.textColor1,
-                            ),
-                          ),
-                        ),
-                      )
+                      NotesSlider(),
                     ],
                   ),
                 ),
