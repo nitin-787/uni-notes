@@ -18,8 +18,8 @@ import 'package:overlay_support/overlay_support.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    OverlaySupport(child :MaterialApp(
+  runApp(OverlaySupport(
+    child: MaterialApp(
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       debugShowCheckedModeBanner: false,
@@ -35,8 +35,7 @@ void main() {
         createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
       },
     ),
-  )
-  );
+  ));
 }
 
 class HomePage extends StatelessWidget {
