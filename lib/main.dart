@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    context.read<AuthBloc>().add(const AuthEventInitialize());
+
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.isLoading) {
@@ -63,6 +63,9 @@ class HomePage extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        if (!(state is AuthStateLoggedOut || state is AuthStateRegistering)) {
+          context.read<AuthBloc>().add(const AuthEventInitialize());
+        }
         if (state is AuthStateLoggedIn) {
           return const NewNotesView();
         } else if (state is AuthStateNeedsVerification) {
