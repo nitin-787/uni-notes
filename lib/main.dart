@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/helper/loading/loading_screen.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
-import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/services/auth/firebase_auth_provider.dart';
 import 'package:mynotes/views/chat/chat_room.dart';
@@ -50,7 +49,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.isLoading) {
@@ -63,9 +61,6 @@ class HomePage extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (!(state is AuthStateLoggedOut || state is AuthStateRegistering)) {
-          context.read<AuthBloc>().add(const AuthEventInitialize());
-        }
         if (state is AuthStateLoggedIn) {
           return const NewNotesView();
         } else if (state is AuthStateNeedsVerification) {
