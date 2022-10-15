@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/helper/loading/loading_screen.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
+import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/services/auth/firebase_auth_provider.dart';
 import 'package:mynotes/views/chat/chat_room.dart';
@@ -16,8 +17,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mynotes/views/verify_email_view.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:overlay_support/overlay_support.dart';
-
-import 'config/size_config.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +33,7 @@ void main() {
         create: (context) => AuthBloc(FirebaseAuthProvider()),
         child: const HomePage(),
       ),
-      routes: {
+        routes: {
         createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
         searchRoute: (context) => const SearchView(),
         chatRoom: (context) => const ChatRoom(),
@@ -48,7 +47,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    context.read<AuthBloc>().add(const AuthEventInitialize());
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.isLoading) {
