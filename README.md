@@ -1,56 +1,88 @@
 # UNI-Share
 
-### What is UNI-Share?
+## What is UNI-Share?
 
-It not an another notes sharing app instead it have some powerfull feature which make the app stand out. UNI-Share is a media sharing app for student where student can share assignment, notes, tutorial, notice, etc in any format with fellow students publically specific to their institute or in a private chat.
-If any students uploads a media content then all the students in a institute will get notified this we have done using firebase cloud messaging service.
-Students can chat or share any other media in private chat room, and they will get realtime send, read, delivered receipt.
+### If you are a student then you will understand the problem of sharing notes, assignment, etc with fellow students. So this app will help you to share your notes, assignment, etc with fellow students. It not an another notes sharing app instead it have some powerfull feature which make the app stand out. UNI-Share is a media sharing app for student where student can share assignment, notes, tutorial, notice, etc in any format with fellow students publically specific to their institute or in a private chat.
+### If any students uploads a media content then all the students in a institute will get notified this we have done using firebase cloud messaging service.
+### Students can chat or share any other media in private chat room, and they will get realtime send, read, delivered receipt. We have used firebase realtime database for this.
+### Students can also share their location with fellow students in a group or in a private chat.
+### Students can also share their location with fellow students in a group or in a private chat.
+### Students can also share their location with fellow students in a group or in a private chat.
+### Students can also share their location with fellow students in a group or in a private chat.
 
-### Participating the Hacktoberfest?
+## How to contribute?
 
-Did I say the hacktoberfest, yes you heard me right it is participating the hacktoberfest 2022
+### If you want to contribute to this project then you can fork this project and then you can create a pull request.
 
-To support the Hacktoberfest event, the hacktoberfest label will be added to every pull request made on 1 to 31 October 2022
+## Participating the Hacktoberfest?
+### Did I say the hacktoberfest, yes you heard me right it is participating the hacktoberfest 2022 and you can contribute to this project and get a t-shirt and stickers from hacktoberfest. So what are you waiting for, fork this project and start contributing.
 
-### Let's prepare yourself!
+### To support the Hacktoberfest event, the hacktoberfest label will be added to every pull request made on 1 to 31 October 2022 in any timezone. Pull requests made before or after this period will not be counted.
+
+## Let's prepare yourself!
 
 ![Hacktoberfest 2022](https://github.com/RajkumarSony/HacktoberFest2022/blob/main/logo.png)
 
-### Why do i need to work this?
 
-If you reach till here then I am pretty sure you have this question is in your mind why should I work on this project well, if you are flutter developer then this is perfect project for you, you will get to learn a lot of things about flutter like Bloc, state management, No internet activity, shimmer loading animation, flutter responsiveness, and different types of pakages and what not some additional things like Firebase, github CI/CD pipeline, google auth.
+## Tech Stack
 
+### We have used the following tech stack for this project.
+
+* [Flutter](https://flutter.dev/)
+* [Firebase](https://firebase.google.com/)
+* [Dart](https://dart.dev/)
+* [Android Studio](https://developer.android.com/studio)
 <br>
 
 ## [Figma UI map](https://www.figma.com/file/gfaxLApOmJRt8lFrIRrWku/LPU-Share?node-id=0%3A1) | [Apk v1.1.0](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
 
-## Contributers 🏆
-
-<a href="https://github.com/nitin-787/myNotes/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nitin-787/myNotes" />
-</a>
-
 ---
 
-## Development
+## Development Setup Instructions 
 
-0. To run this Project first you need to [Setup Flutter](https://flutter.dev/docs/get-started/install)
+### 1. Clone the repository
 
-1. Install packages<br/>
+```bash
+git clone
+```
 
-```sh
+### 2. Install dependencies
+
+```bash
 flutter pub get
 ```
 
-2. Run the Project<br/>
+### 3. Run the app
 
-```sh
+```bash
 flutter run
 ```
 
-## Getting Started
+---
+## Getting Started 
 
-### Make sure You have installed Firebase cli before starting the project
+### Make sure You have installed Firebase cli before starting the project setup.
+
+```bash
+npm install -g firebase-tools
+```
+
+### 2. Create a Firebase project
+
+```bash
+firebase login
+firebase init
+```
+
+### 3. Add Firebase config to your project
+
+### 4. Run the app
+
+```bash
+flutter run
+```
+
+---
 
 - To install the firebase cli - https://firebase.google.com/docs/cli#setup_update_cli / https://www.youtube.com/watch?v=dIK5MNvaxeY&t
 
@@ -77,3 +109,18 @@ After creating a project, go inside it and click on authentication -> a sign-in 
   your-flutter-proj$ flutter pub add firebase_core
   your-flutter-proj$ flutterfire configure
 ```
+
+--- 
+## Thanks to all the contributors ❤️
+
+<a href="https://github.com/nitin-787/myNotes/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nitin-787/myNotes" />
+</a>
+
+
+### License
+
+```text
+MIT License
+```
+### Made with ❤️ by [Nitin Sharma](github.com/nitin-787)
