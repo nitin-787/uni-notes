@@ -4,11 +4,6 @@
 
 ### If you are a student then you will understand the problem of sharing notes, assignment, etc with fellow students. So this app will help you to share your notes, assignment, etc with fellow students. It not an another notes sharing app instead it have some powerfull feature which make the app stand out. UNI-Share is a media sharing app for student where student can share assignment, notes, tutorial, notice, etc in any format with fellow students publically specific to their institute or in a private chat.
 ### If any students uploads a media content then all the students in a institute will get notified this we have done using firebase cloud messaging service.
-### Students can chat or share any other media in private chat room, and they will get realtime send, read, delivered receipt. We have used firebase realtime database for this.
-### Students can also share their location with fellow students in a group or in a private chat.
-### Students can also share their location with fellow students in a group or in a private chat.
-### Students can also share their location with fellow students in a group or in a private chat.
-### Students can also share their location with fellow students in a group or in a private chat.
 
 ## How to contribute?
 
