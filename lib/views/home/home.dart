@@ -83,7 +83,7 @@ class _NewNotesViewState extends State<NewNotesView> {
                                 );
                           },
                           icon: Icon(
-                            Icons.reply_outlined,
+                            Icons.logout_outlined,
                             color: AppColors.mainColor,
                           ),
                         ),

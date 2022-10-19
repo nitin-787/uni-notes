@@ -13,7 +13,7 @@ class SkeletonNotes extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(left: 12, right: 12),
         child: ListView.separated(
           controller: ScrollController(),
           shrinkWrap: true,
@@ -40,8 +40,8 @@ class SkeletonNotes extends StatelessWidget {
             Row(
               children: [
                 ShimmerWidget.circular(
-                  height: screenHeight(82.34),
-                  width: 160,
+                  height: screenHeight(87),
+                  width: 150,
                   shapeBorder: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
@@ -57,15 +57,15 @@ class SkeletonNotes extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ShimmerWidget.rectangular(
-                        height: screenHeight(10.41),
-                        width: screenWidth(100),
+                        height: screenHeight(10),
+                        width: screenWidth(110),
                       ),
                       SizedBox(
                         height: screenHeight(13.9),
                       ),
                       ShimmerWidget.rectangular(
-                        height: screenHeight(6.98),
-                        width: screenWidth(90.6),
+                        height: screenHeight(8),
+                        width: screenWidth(95.6),
                       ),
                       SizedBox(
                         height: screenHeight(13.9),
@@ -73,11 +73,11 @@ class SkeletonNotes extends StatelessWidget {
                       Row(
                         children: [
                           ShimmerWidget.rectangular(
-                            height: screenHeight(6.98),
-                            width: screenWidth(80.6),
+                            height: screenHeight(7),
+                            width: screenWidth(85.6),
                           ),
                           SizedBox(
-                            width: screenHeight(13.9),
+                            width: screenHeight(15.9),
                           ),
                           Icon(
                             Icons.file_download,
@@ -115,8 +115,8 @@ class ShimmerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Shimmer.fromColors(
-        baseColor: AppColors.textColor2,
-        highlightColor: Colors.grey[300]!,
+        baseColor: AppColors.shimmerLoading,
+        highlightColor: Colors.grey[100]!,
         child: Container(
           width: width,
           height: height,
