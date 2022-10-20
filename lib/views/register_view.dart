@@ -1,5 +1,7 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
@@ -21,6 +23,7 @@ class _RegisterViewState extends State<RegisterView> {
   bool _obscureText = true;
   late final TextEditingController _email;
   late final TextEditingController _password;
+  String _errorMessage = '';
 
   @override
   void initState() {
@@ -123,6 +126,9 @@ class _RegisterViewState extends State<RegisterView> {
                           SizedBox(
                             height: screenHeight(50),
                             child: TextField(
+                              onChanged: (value) {
+                                validateEmail(value);
+                              },
                               controller: _email,
                               enableSuggestions: false,
                               autocorrect: false,
@@ -138,6 +144,13 @@ class _RegisterViewState extends State<RegisterView> {
                                   ),
                                 ),
                               ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              _errorMessage,
+                              style: const TextStyle(color: Colors.red),
                             ),
                           ),
                           SizedBox(
@@ -170,7 +183,9 @@ class _RegisterViewState extends State<RegisterView> {
                                       _obscureText = !_obscureText;
                                     });
                                   },
-                                  child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                                  child: Icon(_obscureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
                                 ),
                                 hintText: '***********',
                                 border: OutlineInputBorder(
@@ -179,11 +194,18 @@ class _RegisterViewState extends State<RegisterView> {
                                   ),
                                 ),
                               ),
-                            obscureText: _obscureText,
+                              obscureText: _obscureText,
                             ),
                           ),
                           SizedBox(
                             height: screenHeight(42),
+                            child: FlutterPwValidator(
+                              controller: _password,
+                              minLength: 8,
+                              width: screenWidth(250),
+                              height: screenHeight(60),
+                              onSuccess: () {},
+                            ),
                           ),
                           SizedBox(
                             width: screenWidth(328.7),
@@ -272,5 +294,21 @@ class _RegisterViewState extends State<RegisterView> {
         ),
       ),
     );
+  }
+
+  void validateEmail(String val) {
+    if (val.isEmpty) {
+      setState(() {
+        _errorMessage = "Email can not be empty";
+      });
+    } else if (!EmailValidator.validate(val, true)) {
+      setState(() {
+        _errorMessage = "Invalid Email Address";
+      });
+    } else {
+      setState(() {
+        _errorMessage = "";
+      });
+    }
   }
 }

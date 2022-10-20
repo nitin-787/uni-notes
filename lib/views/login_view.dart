@@ -24,6 +24,7 @@ class _LoginViewState extends State<LoginView> {
   bool isElevated = false;
   late final TextEditingController _email;
   late final TextEditingController _password;
+  String _errorMessage = '';
 
   @override
   void initState() {
