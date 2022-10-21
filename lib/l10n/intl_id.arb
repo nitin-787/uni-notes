@@ -1,0 +1,51 @@
+{
+    "logout_button": "Keluar",
+    "note": "Catatan",
+    "cancel": "Batal",
+    "yes": "Ya",
+    "delete": "Hapus",
+    "sharing": "Bagikan",
+    "ok": "Baik",
+    "login": "Gabung",
+    "verify_email": "Verifikasi email",
+    "register": "Daftar",
+    "restart": "Mengulang kembali",
+    "loading_text": "Tolong tunggu sebentar",
+    "start_typing_your_note": "Mulailah mengetik catatan Anda",
+    "delete_note_prompt": "Anda yakin ingin menghapus catatan ini?",
+    "cannot_share_empty_note_prompt": "Tidak dapat membagikan catatan kosong!",
+    "generic_error_prompt": "Terjadi kesalahan",
+    "logout_dialog_prompt": "Apakah Anda yakin ingin keluar?",
+    "password_reset": "Mulai ulang kata sandi",
+    "password_reset_dialog_prompt": "Kami sekarang telah mengirimi Anda tautan pengaturan ulang kata sandi. Silakan periksa email Anda untuk informasi lebih lanjut.",
+    "login_error_cannot_find_user": "Tidak dapat menemukan pengguna dengan kredensial yang dimasukkan!",
+    "login_error_wrong_credentials": "Kredensial salah",
+    "login_error_auth_error": "Kesalahan otentikasi",
+    "login_view_prompt": "Silakan masuk ke akun Anda untuk berinteraksi dan membuat catatan!",
+    "login_view_forgot_password": "Saya lupa kata sandi saya",
+    "login_view_not_registered_yet": "Belum terdaftar? Daftar disini!",
+    "email_text_field_placeholder": "Masukkan email Anda disini",
+    "password_text_field_placeholder": "Masukkan kata sandi Anda disini",
+    "forgot_password": "Lupa kata sandi",
+    "forgot_password_view_generic_error": "Kami tidak dapat memproses permintaan Anda. Harap pastikan bahwa Anda adalah pengguna terdaftar, atau jika tidak, daftarkan pengguna sekarang dengan mundur satu langkah.",
+    "forgot_password_view_prompt": "Jika Anda lupa kata sandi, cukup masukkan email Anda dan kami akan mengirimkan tautan pengaturan ulang kata sandi.",
+    "forgot_password_view_send_me_link": "Kirimi saya tautan setel ulang kata sandi",
+    "forgot_password_view_back_to_login": "Kembali ke halaman login",
+    "register_error_weak_password": "Kata sandi ini tidak cukup aman. Silakan pilih kata sandi lain!",
+    "register_error_email_already_in_use": "Email ini sudah terdaftar untuk pengguna lain. Silakan pilih email lain!",
+    "register_error_generic": "Gagal mendaftar. Silakan coba lagi nanti!",
+    "register_error_invalid_email": "Alamat email yang Anda masukkan tampaknya tidak valid. Silakan coba alamat email lain!",
+    "register_view_prompt": "Masukkan email dan kata sandi Anda untuk melihat catatan Anda!",
+    "register_view_already_registered": "Sudah terdaftar? Masuk disini!",
+    "verify_email_view_prompt": "Kami telah mengirimkan verifikasi email kepada Anda. Silakan buka untuk memverifikasi akun Anda. Jika Anda belum menerima email verifikasi, tekan tombol di bawah!",
+    "verify_email_send_email_verification": "Kirim verifikasi email",
+    "notes_title": "{count, plural, =0{No notes yet} =1{1 note} other{{count} notes}}",
+    "@notes_title": {
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "3 notes"
+            }
+        }
+    }
+}
