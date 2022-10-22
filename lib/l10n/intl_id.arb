@@ -39,12 +39,12 @@
     "register_view_already_registered": "Sudah terdaftar? Masuk disini!",
     "verify_email_view_prompt": "Kami telah mengirimkan verifikasi email kepada Anda. Silakan buka untuk memverifikasi akun Anda. Jika Anda belum menerima email verifikasi, tekan tombol di bawah!",
     "verify_email_send_email_verification": "Kirim verifikasi email",
-    "notes_title": "{count, plural, =0{No notes yet} =1{1 note} other{{count} notes}}",
+    "notes_title": "{count, plural, =0{Belum ada catatan} =1{1 catatan} other{{count} catatan}}",
     "@notes_title": {
         "placeholders": {
             "count": {
                 "type": "int",
-                "example": "3 notes"
+                "example": "3 catatan"
             }
         }
     }
