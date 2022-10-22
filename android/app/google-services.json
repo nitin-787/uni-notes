@@ -14,7 +14,23 @@
       },
       "oauth_client": [
         {
-          "client_id": "625429972609-jsqrvehcujokcg94h1uktp13plamqvm0.apps.googleusercontent.com",
+          "client_id": "625429972609-b4fsdl9bjlhav0pe4nflb1b9mfe37r0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nitin.mynotes",
+            "certificate_hash": "4a31c6d026b2dd2c0137880d16e6f1d07aff933e"
+          }
+        },
+        {
+          "client_id": "625429972609-pe23ltu09dctju49ougd7i792ghqk59i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nitin.mynotes",
+            "certificate_hash": "893ac559b07a8c18aa006aefc9a16b9a1b897ea4"
+          }
+        },
+        {
+          "client_id": "625429972609-tv93km862si0dscrk3f8idknbtnna8mm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.nitin.mynotes",
