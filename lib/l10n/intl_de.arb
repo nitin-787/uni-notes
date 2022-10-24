@@ -38,7 +38,7 @@
     "register_view_prompt": "Bitte melde dich an, um die Notizen sehen zu können!",
     "register_view_already_registered": "Bereits registriert? Hier gehts zum Login!",
     "verify_email_view_prompt": "Wir haben Dir eine Bestätigungs-E-Mail geschickt. Bitte öffne die, um dein Konto zu verifizieren. Wenn Du noch keine Bestätigungs-E-Mail erhalten hast, dann klicke auf die Schaltfläche unten!",
-    "verify_email_send_email_verification": Sende Verifizierungs-Mail",
+    "verify_email_send_email_verification": "Sende Verifizierungs-Mail",
     "notes_title": "{count, plural, =0{Keine Noitzen} =1{1 Notiz} andere{{count} Notizen}}",
     "@notes_title": {
         "placeholders": {
