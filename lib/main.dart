@@ -18,8 +18,6 @@ import 'package:mynotes/views/verify_email_view.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:overlay_support/overlay_support.dart';
 
-import 'config/size_config.dart';
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(OverlaySupport(
@@ -35,7 +33,7 @@ void main() {
         create: (context) => AuthBloc(FirebaseAuthProvider()),
         child: const HomePage(),
       ),
-      routes: {
+        routes: {
         createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
         searchRoute: (context) => const SearchView(),
         chatRoom: (context) => const ChatRoom(),
@@ -49,7 +47,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     context.read<AuthBloc>().add(const AuthEventInitialize());
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {

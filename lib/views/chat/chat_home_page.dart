@@ -35,15 +35,15 @@ class ChatView extends StatelessWidget {
                       left: screenWidth(15),
                       right: screenWidth(15),
                     ),
-                    height: screenHeight(60),
+                    height: screenHeight(50),
                     margin: EdgeInsets.only(
                       bottom: screenWidth(13.2),
                     ),
                     child: Row(
                       children: [
                         Container(
-                          width: screenWidth(45),
-                          height: screenWidth(45),
+                          width: screenWidth(40),
+                          height: screenWidth(40),
                           decoration: BoxDecoration(
                             image: const DecorationImage(
                               image: AssetImage(
@@ -74,7 +74,7 @@ class ChatView extends StatelessWidget {
                                   Text(
                                     'Roronoa Zoro',
                                     style: GoogleFonts.poppins(
-                                      fontSize: screenWidth(13),
+                                      fontSize: screenWidth(12),
                                       fontWeight: FontWeight.w600,
                                       color: AppColors.textColor,
                                     ),
@@ -82,7 +82,7 @@ class ChatView extends StatelessWidget {
                                   Text(
                                     'yesterday',
                                     style: GoogleFonts.poppins(
-                                      fontSize: screenWidth(11),
+                                      fontSize: screenWidth(10),
                                       fontWeight: FontWeight.w500,
                                       color: AppColors.textColor2,
                                     ),
@@ -101,7 +101,7 @@ class ChatView extends StatelessWidget {
                                     maxLines: 1,
                                     text,
                                     style: GoogleFonts.poppins(
-                                      fontSize: screenWidth(12),
+                                      fontSize: screenWidth(11),
                                       fontWeight: FontWeight.w500,
                                       color: AppColors.textColor2,
                                     ),
@@ -119,7 +119,7 @@ class ChatView extends StatelessWidget {
                                       child: Text(
                                         '22',
                                         style: GoogleFonts.poppins(
-                                          fontSize: screenWidth(8),
+                                          fontSize: screenWidth(7),
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.white,
                                         ),

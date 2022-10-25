@@ -83,13 +83,13 @@ class ChatRoom extends StatelessWidget {
                           Text(
                             'Start typing...',
                             style: GoogleFonts.poppins(
-                              fontSize: screenWidth(11.19),
+                              fontSize: screenWidth(12.19),
                               fontWeight: FontWeight.w500,
                               color: AppColors.textColor1,
                             ),
                           ),
                           SizedBox(
-                            width: screenWidth(50),
+                            width: screenWidth(40),
                           ),
                           IconButton(
                             onPressed: () {},

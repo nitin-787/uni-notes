@@ -1,0 +1,51 @@
+{
+    "logout_button": "Abmelden",
+    "note": "Notizen",
+    "cancel": "Abbrechen",
+    "yes": "Ja",
+    "delete": "Löschen",
+    "sharing": "Teilen",
+    "ok": "OK",
+    "login": "Login",
+    "verify_email": "E-Mail verifzieren",
+    "register": "Registrierung",
+    "restart": "Neustart",
+    "loading_text": "Bitte warte einen Moment",
+    "start_typing_your_note": "Starte mit deiner ersten Notiz",
+    "delete_note_prompt": "Bist du dir sicher, dass du diese Notiz löschen willst?",
+    "cannot_share_empty_note_prompt": "Leere Notizen können nicht geteilt werden!",
+    "generic_error_prompt": "Ein Fehler ist aufgetreten",
+    "logout_dialog_prompt": "Bist du dir sicher, dass du dich abmelden willst?",
+    "password_reset": "Passwort zurücksetzen",
+    "password_reset_dialog_prompt": "Wir haben Dir jetzt einen Link zum Zurücksetzen des Passworts geschickt. Bitte prüfen deine E-Mails für weitere Informationen.",
+    "login_error_cannot_find_user": "Es wurde kein Nutzer mit den Zugangsdaten gefunden!",
+    "login_error_wrong_credentials": "Falsche Zugangsdaten",
+    "login_error_auth_error": "Authentifizierungsfehler",
+    "login_view_prompt": "Bitte melde dich mit deinem Konto an, um Notizen erstellen zu können!",
+    "login_view_forgot_password": "Ich habe mein Passwort vergessen",
+    "login_view_not_registered_yet": "Noch nicht registriert? Jetzt registrieren!",
+    "email_text_field_placeholder": "Gib deine E-Mail Adresse hier ein",
+    "password_text_field_placeholder": "Gib dein Passwort hier ein",
+    "forgot_password": "Passwort vergessen",
+    "forgot_password_view_generic_error": "Wir konnten deine Anfrage nicht bearbeiten. Bitte vergewissere dich, dass du registriert bist, oder wenn nicht, gehe einen Schritt zurück und registriere dich.",
+    "forgot_password_view_prompt": "Wenn du dein Passwort vergessen hast, gib einfach deine E-Mail-Adresse ein und wir schicken dir einen Link zum Zurücksetzen des Passworts.",
+    "forgot_password_view_send_me_link": "Sende mir den Link zum Zurücksetzen des Passworts",
+    "forgot_password_view_back_to_login": "Zurück zur Login-Seite",
+    "register_error_weak_password": "Dieses Passwort ist nicht sicher genug, bitte gib ein neues ein!",
+    "register_error_email_already_in_use": "Diese E-Mail ist bereits auf einen anderen Benutzer registriert. Bitte wähle eine andere E-Mail!",
+    "register_error_generic": "Registration fehlgeschalgen. Bitte versuche es später noch einmal!",
+    "register_error_invalid_email": "Die eingegebene E-Mail Adresse ist ungültig. Bitte gib eine neue ein!",
+    "register_view_prompt": "Bitte melde dich an, um die Notizen sehen zu können!",
+    "register_view_already_registered": "Bereits registriert? Hier gehts zum Login!",
+    "verify_email_view_prompt": "Wir haben Dir eine Bestätigungs-E-Mail geschickt. Bitte öffne die, um dein Konto zu verifizieren. Wenn Du noch keine Bestätigungs-E-Mail erhalten hast, dann klicke auf die Schaltfläche unten!",
+    "verify_email_send_email_verification": "Sende Verifizierungs-Mail",
+    "notes_title": "{count, plural, =0{Keine Noitzen} =1{1 Notiz} andere{{count} Notizen}}",
+    "@notes_title": {
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "3 Notizen"
+            }
+        }
+    }
+}
