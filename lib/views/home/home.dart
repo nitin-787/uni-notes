@@ -87,14 +87,19 @@ class _NewNotesViewState extends State<NewNotesView> {
                             color: AppColors.mainColor,
                           ),
                         ),
-                        Container(
-                          height: screenWidth(31.29),
-                          width: screenWidth(29.57),
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage("assets/images/avatar.png"),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(profileView);
+                          },
+                          child: Container(
+                            height: screenWidth(31.29),
+                            width: screenWidth(29.57),
+                            decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                image: AssetImage("assets/images/avatar.png"),
+                              ),
+                              borderRadius: BorderRadius.circular(30),
                             ),
-                            borderRadius: BorderRadius.circular(30),
                           ),
                         ),
                       ],

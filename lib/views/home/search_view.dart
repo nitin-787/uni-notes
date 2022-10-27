@@ -126,7 +126,7 @@ class _SearchViewState extends State<SearchView> {
                           widget.onTap(note);
                         },
                         onLongPress: () {
-                          widget.onLongPress(note);
+                          widget.onTap(note);
                         },
                         child: Container(
                           height: listConatinerHeight,
