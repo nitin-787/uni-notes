@@ -1,93 +1,205 @@
-<img  align="left" src="http://estruyf-github.azurewebsites.net/api/VisitorHit?user=nitin-787&mynotes&countColorcountColor&countColor=%237B1E7B"/><img align="right" src="https://img.shields.io/github/repo-size/nitin-787/mynotes?style=for-the-badge&logo=appveyor" alt="GitHub repo size"/>
-# Notes-Share 
-<p align="center">
+# UNI-Share | Hacktober Fest 2022
 
-<img src="https://forthebadge.com/images/badges/built-with-love.svg" alt=" forks"/>
-<img src="https://forthebadge.com/images/badges/built-by-developers.svg" alt=" forks"/>
-<img src="https://forthebadge.com/images/badges/built-for-android.svg" alt=" forks"/>
-<img src="https://forthebadge.com/images/badges/makes-people-smile.svg" alt=" forks"/>
+![](/hacktober2022.png)
 
+**This repository is a part of the Hacktober Fest 2022** 🥳
 
-</p>
+# About the Project
+The overflow of multiple shared documents across various platforms amongst students is an evergreen problem.
 
-## What is Notes-Share
-Notes-Share is a media sharing app for students where students can share Assignments, notes, tutorials and other stuff in any format with fellow students publically specific to their institute or as in a private chat.
-<br><br>
-[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download_Notes_Share-blue?style=for-the-badge&logo=download&logoColor=white "Download Notes-Share")](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
-## [Figma UI map](https://www.figma.com/file/gfaxLApOmJRt8lFrIRrWku/LPU-Share?node-id=0%3A1)  |  [Apk v1.1.0](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
+UNI-Share, a media sharing app, that aims to help students share the following but not limited to: 
 
+&rarr; assignment <br/>
+&rarr; notes <br/>
+&rarr; tutorial <br/>
+&rarr; notice <br/>
 
+In any format with fellow students, either publically specific to their institute or in a private chat. 
 
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193436891-a57c69b8-aa4c-4943-8314-338a7521d90f.png" alt="Register Page" /></kbd>
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193436935-cb90689e-e946-4f2f-8b07-5ff7bd9c710a.png" alt="Login Page" /></kbd>
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437013-0afc1ea3-cdfc-483d-90ae-069569595aee.png" alt="Public and Private wall" /></kbd>
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437042-11ea36c5-4f9f-46b3-8917-f4b861c059fa.png" alt="Search field usage" /></kbd>
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437066-4bb043a2-2c13-45e5-a64e-ec5c6d999a95.png" alt="Upload page" /></kbd>
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437096-e0272c31-63a4-4ff9-8148-1cfce00b6c1a.png" alt="Forgot Password" /></kbd>
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437137-a8788617-91db-4fcd-9122-c59ec905746d.png" alt="Mail verification" /></kbd>
-<kbd><img width="216" height="432" src="https://user-images.githubusercontent.com/110724849/193437155-7b605e6c-8691-4e36-9301-05835ba326c8.png" alt="Private and Public wall" /></kbd>
+The project is supported by Firebase Clund Messaging Service at the backend.
 
+# Tech Stack
 
-## Features:
-1) Create/Upload/Download Assignments, notes, tutorials etc,.
-2) Removing  Attachments permanently.
-3) Add some text/Note with Attachments. 
-4) Add Comments, Send Email.
-5) Searching/Indexing Files.
-6) Timeline.
-7) Google Authentication.
+* [Flutter](https://flutter.dev/)
+* [Firebase](https://firebase.google.com/)
+* [Dart](https://dart.dev/)
+* [Android Studio](https://developer.android.com/studio)
 
+> Checkout the UI map [HERE](https://www.figma.com/file/gfaxLApOmJRt8lFrIRrWku/LPU-Share?node-id=0%3A1) <br/>
+> APK v1.1.0 [HERE](https://github.com/nitin-787/mynotes/releases/tag/v1.1.0)
+
+# Getting Started 
+
+Make **sure** you have installed Firebase cli before starting the project setup.
+
+Firebase Documentation: <br/>
+https://firebase.google.com/docs/cli#setup_update_cli
+
+Alternatively you could look into this YouTube video for futher help for the Firebase Setup:
+https://www.youtube.com/watch?v=dIK5MNvaxeY&t
+
+#### Setup firebase with flutter with the following commands:
+  ```
+  firebase login
+  dart pub global activate flutterfire_cli
+  ```
+#### Configure your apps to use Firebase
+
+```bash
+ your-flutter-proj$ flutterfire configure (select your project or create a new one)
+```
 
 ---
+1. To download and install the Firebase CLI run the following command:
+    ```bash
+    npm install -g firebase-tools
+    ```
+
+2. Create a Firebase project
+
+    ```bash
+    firebase login
+    firebase init
+    ```
+
+3. Add Firebase config to your project
+
+4. Run the app
+    ```bash
+    flutter run
+    ```
 
 
-## Development
-0) To run this Project first you need to [Setup Flutter](https://flutter.dev/docs/get-started/install)
+# Development Setup 
 
-1) Install packages<br/>
-```sh
-flutter pub get
-```
-2) Run the Project<br/>
-```sh
-flutter run
-```
+1. Clone the repository
+    ```bash
+    git clone
+    ```
 
-## Getting Started
+2. Install dependencies
+    ```bash
+    flutter pub get
+    ```
 
-### Make sure You have installed Firebase cli before starting the project
- * To install the firebase cli -  https://firebase.google.com/docs/cli#setup_update_cli / https://www.youtube.com/watch?v=dIK5MNvaxeY&t
- 
- * Setup firebase with flutter with the following commands:
- ```
- firebase login
- dart pub global activate flutterfire_cli
- ```
- ### Configure your apps to use Firebase
-```
- your-flutter-proj$ flutterfire configure (select your project or create a new one)
- ```
- 
-  ### Note: If just created a new firebase account this command will not work for you've to create a firebase project manually on your account
-  After creating a project, go inside it and click on authentication -> a sign-in method tab and add provider email/password and enable email/password
-  
-  ### Initialize Firebase in your app
+3. Run the app
+    ```bash
+    flutter run
+    ```
+> NOTE: If you've just created a new firebase account this command will not work for you. You will have to create a firebase project manually on your account <br/>
+After creating a project, go inside it<br/>
+&rarr; Click on authentication &rarr; a sign-in method tab &rarr; add provider email/password &rarr; enable email/password
+
+### Initialize Firebase in your app
+
 ```
   your-flutter-proj$ flutter pub add firebase_core
   your-flutter-proj$ flutterfire configure
-```  
-  
-  * Add 4 dependencies
-  ```
-  flutter pub add firebase_core
-  flutter pub add firebase_auth
-  flutter pub add cloud_firestore
-  flutter pub add firebase_analytics
-  ```
-  
-  In your pubspec.yaml this 4 plugin will be added Bcuz of above 4 commands
-  
-  * firebase_core: ^1.18.0
-  * firebase_auth: ^3.3.20
-  * cloud_firestore: ^3.1.18
-  * firebase_analytics: ^9.1.10
+```
+
+# About Hacktoberfest?
+Hactoberfest is Digitalocean's annual flagship event that encourage people to contribute to open source prject throughout the month of October every year.
+
+This year, 2022, is the 9th chapter of Hacktober Fest.
+By making 4 accepted PRs (Pull Requests) in the month of October 2022, you are eligible for a free-tshirt and swags from Hacktoberfest!
+
+So what are you waiting for? <br/>
+Fork this project and start contributing! :)
+
+To know more about Hacktober Fest, visit their website.
+Link [here.](https://hacktoberfest.com/)
+
+> NOTE: PRs made before or after this time, will not be considered.
+
+
+# How to contribute?
+
+If you want to contribute to this project then you can fork this project and then you can create a pull request.
+
+**1.** Fork [this](https://github.com/nitin-787/mynotes) repository   
+**2.**  Clone your forked copy of the project.
+
+```
+git clone https://github.com/<your_username>/mynotes.git
+```
+
+**3.** Navigate to the project directory :file_folder: .
+
+```
+cd mynotes
+```
+
+**4.** Add a reference(remote) to the original repository.
+
+```
+git remote add upstream https://github.com/anjali1102/mynotes.git
+```
+
+**5.** Check the remotes for this repository.
+```
+git remote -v
+```
+
+**6.** Always take a pull from the upstream repository to your master branch to keep it at par with the main project(updated repository).
+
+```
+git pull upstream main
+```
+
+**7.** Create a new branch.
+
+```
+git checkout -b <your_branch_name>
+```
+
+**8.** Perfom your desired changes to the code base.
+**9.** Track your changes:heavy_check_mark: .
+
+```
+git add . 
+```
+
+**10.** Commit your changes .
+
+```
+git commit -m "Relevant message"
+```
+
+**11.** Push the committed changes in your feature branch to your remote repo.
+```
+git push -u origin <your_branch_name>
+```
+**12.** To create a pull request, click on `Compare and pull requests`. Please ensure you compare your feature branch to the desired branch of the repo you are suppose to make a PR to.
+
+**13.** Add appropriate title and description to your pull request explaining your changes and efforts done.
+
+**14.** Click on `Create Pull Request`.
+
+**15.** Voila! You have made a PR to the awesome-developer-portfolio project. Sit back patiently and relax while the your PR is reviewed. This may take sometime. 
+
+> Look into CONTRIBUTING.md for further clarifications
+
+# Project Maintainer 🙂
+<center>
+  <a href="https://github.com/nitin-787">
+    <img src="https://avatars.githubusercontent.com/u/76255199?v=4" width=150px height=150px />
+  </a>
+  <br/>
+  <a>
+    <a href="https://github.com/nitin-787">
+    <strong>
+      Nitin Sharma
+    </strong>
+  </a>
+</center>
+
+# Contributors ❤️
+Thank you!
+
+<a href="https://github.com/nitin-787/myNotes/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nitin-787/myNotes" />
+</a>
+
+<br/>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

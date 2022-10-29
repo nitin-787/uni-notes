@@ -10,4 +10,6 @@ class AppColors {
   static Color backgroundColor = const Color(0xFFf0f0f0);
   static Color backgroundColor1 = const Color(0xFFeff1fe);
   static Color message = const Color(0xFF5795f3);
+  static Color shimmerLoading = const Color(0xFFe4e4e4);
+  static Color shimmerLoadingHi = const Color(0xFFe4e4e4);
 }
