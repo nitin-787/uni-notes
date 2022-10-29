@@ -1,14 +1,11 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/views/profile/about_page.dart';
-import 'package:mynotes/views/profile/draft_notes.dart';
-import 'package:mynotes/views/profile/help_page.dart';
-import 'package:mynotes/views/profile/personal_details.dart';
-import 'package:mynotes/views/profile/saved_notes.dart';
-import 'package:mynotes/views/profile/trashed.dart';
+import 'package:mynotes/utilities/dialogs/comming_soon.dart';
 
 import '../../utilities/edit_image.dart';
 
@@ -87,8 +84,10 @@ class _UserProfileState extends State<UserProfile> {
             ),
             const Divider(),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 10,
+              ),
               child: ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
@@ -97,72 +96,35 @@ class _UserProfileState extends State<UserProfile> {
                     icon: Icons.account_circle,
                     text: 'Personal Details',
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PersonalDetails(),
-                        ),
-                      );
-                    },
-                  ),
-                  ProfileDetails(
-                    icon: Icons.save_rounded,
-                    text: 'Saved Notes',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SavedNotes(),
-                        ),
-                      );
+                      commingSoon(context);
                     },
                   ),
                   ProfileDetails(
                     icon: Icons.notes,
                     text: 'Draft Notes',
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DraftNotes(),
-                        ),
-                      );
+                      commingSoon(context);
                     },
                   ),
                   ProfileDetails(
                     icon: Icons.delete,
                     text: 'Trashed',
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const TrashedNotes(),
-                        ),
-                      );
+                      commingSoon(context);
                     },
                   ),
                   ProfileDetails(
                     icon: Icons.info,
                     text: 'About',
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AboutPage(),
-                        ),
-                      );
+                      commingSoon(context);
                     },
                   ),
                   ProfileDetails(
                     icon: Icons.help,
                     text: 'Help',
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HelpPage(),
-                        ),
-                      );
+                      commingSoon(context);
                     },
                   ),
                   ProfileDetails(
@@ -200,7 +162,11 @@ class ProfileDetails extends StatelessWidget {
       ),
       title: Text(
         text,
-        style: const TextStyle(fontSize: 16),
+        style: GoogleFonts.poppins(
+          fontSize: screenWidth(12),
+          fontWeight: FontWeight.w500,
+          color: AppColors.textColor1,
+        ),
       ),
       trailing: IconButton(
         onPressed: onPressed,

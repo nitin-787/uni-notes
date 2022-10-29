@@ -186,4 +186,32 @@ class _NoteDataState extends State<NoteData> {
       },
     );
   }
+
+  comingSoon() {
+    showDialog(
+      context: context,
+      useSafeArea: true,
+      builder: (context) {
+        return Popup(
+          title: 'Sorry',
+          description: 'This feature is commming soon!)',
+          imagePath: 'assets/icon/success.png',
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Okay, thank you',
+                style: GoogleFonts.poppins(
+                  fontSize: screenWidth(10),
+                  color: AppColors.backgroundColor,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
