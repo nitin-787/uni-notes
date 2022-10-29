@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
 import 'package:mynotes/services/cloud/cloud_storage_constants.dart';
@@ -54,4 +58,22 @@ class FirebaseCloudStorage {
       FirebaseCloudStorage._sharedInstance();
   FirebaseCloudStorage._sharedInstance();
   factory FirebaseCloudStorage() => _shared;
+}
+
+///update the user profile picture and will save into storage.
+class StorageMethods {
+  final FirebaseStorage _storage = FirebaseStorage.instance;
+  final FirebaseAuth user = FirebaseAuth.instance;
+
+  Future<String> uploadFileToStorage(String childName, Uint8List file) async {
+    Reference ref =
+        _storage.ref().child(childName).child(user.currentUser!.uid);
+
+    UploadTask uploadTask = ref.putData(file);
+
+    TaskSnapshot snap = await uploadTask;
+
+    String downloadUrl = await snap.ref.getDownloadURL();
+    return downloadUrl;
+  }
 }

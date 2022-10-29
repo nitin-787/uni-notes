@@ -112,7 +112,7 @@ class _FileUploadState extends State<FileUpload> {
       url = await snapshot.ref.getDownloadURL();
 
       print(url);
-      if (url != null && file != null) {
+      if (file != null) {
         Fluttertoast.showToast(
           msg: "file uloaded sucessfully",
           textColor: Colors.grey,
