@@ -28,6 +28,7 @@ class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor1,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -48,7 +49,9 @@ class _UserProfileState extends State<UserProfile> {
               children: [
                 image != null
                     ? CircleAvatar(
-                        radius: 80, backgroundImage: MemoryImage(image!))
+                        radius: 80,
+                        backgroundImage: MemoryImage(image!),
+                      )
                     : const CircleAvatar(
                         radius: 80,
                         backgroundImage: AssetImage('assets/images/zoro.png'),
@@ -82,57 +85,93 @@ class _UserProfileState extends State<UserProfile> {
                 ),
               ),
             ),
-            const Divider(),
+            SizedBox(
+              height: screenHeight(6),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 10.0,
                 vertical: 10,
               ),
               child: ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                children: ListTile.divideTiles(context: context, tiles: [
-                  ProfileDetails(
-                    icon: Icons.account_circle,
-                    text: 'Personal Details',
-                    onPressed: () {
-                      commingSoon(context);
-                    },
-                  ),
-                  ProfileDetails(
-                    icon: Icons.notes,
-                    text: 'Draft Notes',
-                    onPressed: () {
-                      commingSoon(context);
-                    },
-                  ),
-                  ProfileDetails(
-                    icon: Icons.delete,
-                    text: 'Trashed',
-                    onPressed: () {
-                      commingSoon(context);
-                    },
-                  ),
-                  ProfileDetails(
-                    icon: Icons.info,
-                    text: 'About',
-                    onPressed: () {
-                      commingSoon(context);
-                    },
-                  ),
-                  ProfileDetails(
-                    icon: Icons.help,
-                    text: 'Help',
-                    onPressed: () {
-                      commingSoon(context);
-                    },
-                  ),
-                  ProfileDetails(
-                    icon: Icons.logout,
-                    text: 'Logout',
-                    onPressed: () {},
-                  ),
-                ]).toList(),
+                children: ListTile.divideTiles(
+                  context: context,
+                  tiles: [
+                    OptionsList(
+                      icon: Icons.account_circle,
+                      text: 'IIH - Indian Institute of Himachal',
+                      onPressed: () {
+                        commingSoon(context);
+                      },
+                      icon2: Icons.help,
+                    ),
+                    SizedBox(
+                      height: screenHeight(15),
+                    ),
+                    OptionsList(
+                      icon: Icons.notes,
+                      text: 'List View',
+                      onPressed: () {
+                        commingSoon(context);
+                      },
+                      icon2: Icons.arrow_forward_ios,
+                    ),
+                    SizedBox(
+                      height: screenHeight(15),
+                    ),
+                    OptionsList(
+                      icon: Icons.delete,
+                      text: 'Deleted Notes',
+                      onPressed: () {
+                        commingSoon(context);
+                      },
+                      icon2: Icons.arrow_forward_ios,
+                    ),
+                    SizedBox(
+                      height: screenHeight(15),
+                    ),
+                    OptionsList(
+                      icon: Icons.dark_mode_outlined,
+                      text: 'Dark mode',
+                      onPressed: () {
+                        commingSoon(context);
+                      },
+                      icon2: Icons.toggle_off_outlined,
+                    ),
+                    SizedBox(
+                      height: screenHeight(15),
+                    ),
+                    OptionsList(
+                      icon: Icons.info,
+                      text: 'About us',
+                      onPressed: () {
+                        commingSoon(context);
+                      },
+                      icon2: Icons.arrow_forward_ios,
+                    ),
+                    SizedBox(
+                      height: screenHeight(15),
+                    ),
+                    OptionsList(
+                      icon: Icons.help,
+                      text: 'Help',
+                      onPressed: () {
+                        commingSoon(context);
+                      },
+                      icon2: Icons.arrow_forward_ios,
+                    ),
+                    SizedBox(
+                      height: screenHeight(15),
+                    ),
+                    OptionsList(
+                      icon: Icons.logout,
+                      text: 'Logout',
+                      onPressed: () {},
+                      icon2: Icons.arrow_forward_ios,
+                    ),
+                  ],
+                ).toList(),
               ),
             ),
           ],
@@ -142,38 +181,63 @@ class _UserProfileState extends State<UserProfile> {
   }
 }
 
-class ProfileDetails extends StatelessWidget {
-  const ProfileDetails(
-      {Key? key,
-      required this.icon,
-      required this.text,
-      required this.onPressed})
-      : super(key: key);
+class OptionsList extends StatelessWidget {
+  const OptionsList({
+    Key? key,
+    required this.icon,
+    required this.icon2,
+    required this.text,
+    required this.onPressed,
+  }) : super(key: key);
   final String text;
   final IconData icon;
+  final IconData icon2;
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(
-        icon,
-        color: AppColors.mainColor,
-      ),
-      title: Text(
-        text,
-        style: GoogleFonts.poppins(
-          fontSize: screenWidth(12),
-          fontWeight: FontWeight.w500,
-          color: AppColors.textColor1,
+    return Container(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+      child: SizedBox(
+        height: screenWidth(34.7),
+        child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(
+              color: AppColors.textColor2,
+              width: 1,
+            ),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+            ),
+          ),
+          onPressed: () {},
+          child: Container(
+            padding: EdgeInsets.only(
+              left: screenWidth(13.2),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(icon),
+                SizedBox(
+                  width: screenWidth(10),
+                ),
+                Text(
+                  text,
+                  style: GoogleFonts.poppins(
+                    fontSize: screenWidth(10.5),
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.textColor1,
+                  ),
+                ),
+                Icon(icon2)
+              ],
+            ),
+          ),
         ),
-      ),
-      trailing: IconButton(
-        onPressed: onPressed,
-        icon: const Icon(
-          Icons.keyboard_arrow_right_sharp,
-        ),
-        color: AppColors.mainColor,
       ),
     );
   }
