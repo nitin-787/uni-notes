@@ -198,8 +198,6 @@ class _LoginViewState extends State<LoginView> {
                                 child: Text(
                                   style: GoogleFonts.poppins(
                                       color: AppColors.mainColor,
-                                      // decoration: TextDecoration.underline,
-                                      // decorationThickness: 1.5,
                                       fontSize: screenWidth(10.41),
                                       fontWeight: FontWeight.w500),
                                   "Forgot password?",
