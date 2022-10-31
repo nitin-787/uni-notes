@@ -1,9 +1,3 @@
-# UNI-Share | Hacktober Fest 2022
-
-![](/hacktober2022.png)
-
-**This repository is a part of the Hacktober Fest 2022** 🥳
-
 # About the Project
 The overflow of multiple shared documents across various platforms amongst students is an evergreen problem.
 
@@ -16,7 +10,7 @@ UNI-Share, a media sharing app, that aims to help students share the following b
 
 In any format with fellow students, either publically specific to their institute or in a private chat. 
 
-The project is supported by Firebase Clund Messaging Service at the backend.
+The project is supported by Firebase Cloud Messaging Service at the backend.
 
 # Tech Stack
 
@@ -35,15 +29,15 @@ Make **sure** you have installed Firebase cli before starting the project setup.
 Firebase Documentation: <br/>
 https://firebase.google.com/docs/cli#setup_update_cli
 
-Alternatively you could look into this YouTube video for futher help for the Firebase Setup:
+Alternatively, you could look into this YouTube video for further help to setup Firebase:
 https://www.youtube.com/watch?v=dIK5MNvaxeY&t
 
-#### Setup firebase with flutter with the following commands:
+#### Setup Firebase with Flutter with the following commands:
   ```
   firebase login
   dart pub global activate flutterfire_cli
   ```
-#### Configure your apps to use Firebase
+#### Configure your app to use Firebase
 
 ```bash
  your-flutter-proj$ flutterfire configure (select your project or create a new one)
@@ -97,21 +91,6 @@ After creating a project, go inside it<br/>
   your-flutter-proj$ flutterfire configure
 ```
 
-# About Hacktoberfest?
-Hactoberfest is Digitalocean's annual flagship event that encourage people to contribute to open source prject throughout the month of October every year.
-
-This year, 2022, is the 9th chapter of Hacktober Fest.
-By making 4 accepted PRs (Pull Requests) in the month of October 2022, you are eligible for a free-tshirt and swags from Hacktoberfest!
-
-So what are you waiting for? <br/>
-Fork this project and start contributing! :)
-
-To know more about Hacktober Fest, visit their website.
-Link [here.](https://hacktoberfest.com/)
-
-> NOTE: PRs made before or after this time, will not be considered.
-
-
 # How to contribute?
 
 If you want to contribute to this project then you can fork this project and then you can create a pull request.
@@ -132,7 +111,7 @@ cd mynotes
 **4.** Add a reference(remote) to the original repository.
 
 ```
-git remote add upstream https://github.com/anjali1102/mynotes.git
+git remote add upstream https://github.com/<your_username>/mynotes.git
 ```
 
 **5.** Check the remotes for this repository.
@@ -140,7 +119,7 @@ git remote add upstream https://github.com/anjali1102/mynotes.git
 git remote -v
 ```
 
-**6.** Always take a pull from the upstream repository to your master branch to keep it at par with the main project(updated repository).
+**6.** Always take a pull from the upstream repository to your master branch to keep it updated with the main repository.
 
 ```
 git pull upstream main
@@ -153,6 +132,7 @@ git checkout -b <your_branch_name>
 ```
 
 **8.** Perfom your desired changes to the code base.
+
 **9.** Track your changes:heavy_check_mark: .
 
 ```
