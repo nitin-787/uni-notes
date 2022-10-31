@@ -1,5 +1,6 @@
 import 'dart:typed_data';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -93,42 +94,42 @@ class _UserProfileState extends State<UserProfile> {
                 scrollDirection: Axis.vertical,
                 children: ListTile.divideTiles(context: context, tiles: [
                   ProfileDetails(
-                    icon: Icons.account_circle,
+                    icon: FontAwesomeIcons.user,
                     text: 'Personal Details',
                     onPressed: () {
                       commingSoon(context);
                     },
                   ),
                   ProfileDetails(
-                    icon: Icons.notes,
+                    icon: FontAwesomeIcons.boxesStacked,
                     text: 'Draft Notes',
                     onPressed: () {
                       commingSoon(context);
                     },
                   ),
                   ProfileDetails(
-                    icon: Icons.delete,
+                    icon: FontAwesomeIcons.trashCan,
                     text: 'Trashed',
                     onPressed: () {
                       commingSoon(context);
                     },
                   ),
                   ProfileDetails(
-                    icon: Icons.info,
+                    icon: FontAwesomeIcons.info,
                     text: 'About',
                     onPressed: () {
                       commingSoon(context);
                     },
                   ),
                   ProfileDetails(
-                    icon: Icons.help,
+                    icon: FontAwesomeIcons.question,
                     text: 'Help',
                     onPressed: () {
                       commingSoon(context);
                     },
                   ),
                   ProfileDetails(
-                    icon: Icons.logout,
+                    icon: FontAwesomeIcons.arrowRightFromBracket,
                     text: 'Logout',
                     onPressed: () {},
                   ),
