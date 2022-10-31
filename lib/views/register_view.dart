@@ -189,7 +189,7 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                           SizedBox(
                             width: screenWidth(328.7),
-                            height: screenHeight(39.6),
+                            height: screenHeight(34.7),
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 backgroundColor: AppColors.mainColor,
@@ -233,7 +233,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ),
                           ),
                           SizedBox(
-                            height: screenHeight(113),
+                            height: screenHeight(27.76),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
