@@ -91,7 +91,7 @@ class _RegisterViewState extends State<RegisterView> {
                       height: screenHeight(6.94),
                     ),
                     Text(
-                      "To get in touch with your collage",
+                      "To get in touch with your college",
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: screenWidth(11.8),
@@ -129,7 +129,7 @@ class _RegisterViewState extends State<RegisterView> {
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 hintStyle: GoogleFonts.poppins(
-                                  color: AppColors.textColor1,
+                                  color: AppColors.textColor2,
                                 ),
                                 hintText: 'someone@gmail.com',
                                 border: OutlineInputBorder(
@@ -170,7 +170,9 @@ class _RegisterViewState extends State<RegisterView> {
                                       _obscureText = !_obscureText;
                                     });
                                   },
-                                  child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                                  child: Icon(_obscureText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
                                 ),
                                 hintText: '***********',
                                 border: OutlineInputBorder(
@@ -179,7 +181,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   ),
                                 ),
                               ),
-                            obscureText: _obscureText,
+                              obscureText: _obscureText,
                             ),
                           ),
                           SizedBox(
@@ -187,7 +189,7 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                           SizedBox(
                             width: screenWidth(328.7),
-                            height: screenWidth(34.7),
+                            height: screenHeight(34.7),
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 backgroundColor: AppColors.mainColor,
