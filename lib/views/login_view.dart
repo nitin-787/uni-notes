@@ -209,9 +209,7 @@ class _LoginViewState extends State<LoginView> {
                             height: screenHeight(12),
                           ),
                           SizedBox(
-                            // height: screenWidth(34.7),
-                            height: screenHeight(39.6),
-
+                            height: screenWidth(34.7),
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 backgroundColor: AppColors.mainColor,
@@ -279,7 +277,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           SizedBox(
                             width: screenWidth(328.7),
-                            height: screenHeight(39.6),
+                            height: screenWidth(34.7),
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 side: const BorderSide(
