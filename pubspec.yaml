@@ -66,6 +66,7 @@ dependencies:
   passwordfield: ^0.1.0
   lottie: ^1.4.2
   flutter_iconly: ^1.0.2
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:

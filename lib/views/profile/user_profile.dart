@@ -1,11 +1,15 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/utilities/dialogs/comming_soon.dart';
+import 'package:mynotes/views/profile/option_list.dart';
 
 import '../../utilities/edit_image.dart';
 
@@ -99,51 +103,44 @@ class _UserProfileState extends State<UserProfile> {
                   context: context,
                   tiles: [
                     OptionsList(
-                      icon: Icons.account_circle,
-                      text: 'IIH - Indian Institute of Himachal',
-                      onPressed: () {
-                        commingSoon(context);
-                      },
-                      icon2: Icons.help,
-                    ),
-                    SizedBox(
-                      height: screenHeight(15),
-                    ),
-                    OptionsList(
-                      icon: Icons.notes,
-                      text: 'List View',
+                      icon: Iconsax.user,
+                      text: 'Profile',
                       onPressed: () {
                         commingSoon(context);
                       },
                       icon2: Icons.arrow_forward_ios,
                     ),
                     SizedBox(
-                      height: screenHeight(15),
+                      height: screenHeight(18),
                     ),
                     OptionsList(
-                      icon: Icons.delete,
-                      text: 'Deleted Notes',
+                      // icon: Iconsax.element_equal,
+                      icon: Iconsax.row_vertical,
+                      text: 'List view',
                       onPressed: () {
                         commingSoon(context);
                       },
-                      icon2: Icons.arrow_forward_ios,
+                      icon2: FontAwesomeIcons.ellipsisVertical,
+                      iconSize2: 25,
                     ),
                     SizedBox(
-                      height: screenHeight(15),
+                      height: screenHeight(18),
                     ),
                     OptionsList(
-                      icon: Icons.dark_mode_outlined,
+                      // icon: Iconsax.moon,
+                      icon: Iconsax.sun_1,
                       text: 'Dark mode',
                       onPressed: () {
                         commingSoon(context);
                       },
-                      icon2: Icons.toggle_off_outlined,
+                      icon2: FontAwesomeIcons.toggleOff,
+                      iconSize2: 25,
                     ),
                     SizedBox(
-                      height: screenHeight(15),
+                      height: screenHeight(18),
                     ),
                     OptionsList(
-                      icon: Icons.info,
+                      icon: Iconsax.info_circle,
                       text: 'About us',
                       onPressed: () {
                         commingSoon(context);
@@ -151,10 +148,10 @@ class _UserProfileState extends State<UserProfile> {
                       icon2: Icons.arrow_forward_ios,
                     ),
                     SizedBox(
-                      height: screenHeight(15),
+                      height: screenHeight(18),
                     ),
                     OptionsList(
-                      icon: Icons.help,
+                      icon: Iconsax.message_question4,
                       text: 'Help',
                       onPressed: () {
                         commingSoon(context);
@@ -162,12 +159,14 @@ class _UserProfileState extends State<UserProfile> {
                       icon2: Icons.arrow_forward_ios,
                     ),
                     SizedBox(
-                      height: screenHeight(15),
+                      height: screenHeight(18),
                     ),
                     OptionsList(
-                      icon: Icons.logout,
+                      icon: Iconsax.logout,
                       text: 'Logout',
-                      onPressed: () {},
+                      onPressed: () {
+                        commingSoon(context);
+                      },
                       icon2: Icons.arrow_forward_ios,
                     ),
                   ],
@@ -175,68 +174,6 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class OptionsList extends StatelessWidget {
-  const OptionsList({
-    Key? key,
-    required this.icon,
-    required this.icon2,
-    required this.text,
-    required this.onPressed,
-  }) : super(key: key);
-  final String text;
-  final IconData icon;
-  final IconData icon2;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-      child: SizedBox(
-        height: screenWidth(34.7),
-        child: OutlinedButton(
-          style: OutlinedButton.styleFrom(
-            side: BorderSide(
-              color: AppColors.textColor2,
-              width: 1,
-            ),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
-              ),
-            ),
-          ),
-          onPressed: () {},
-          child: Container(
-            padding: EdgeInsets.only(
-              left: screenWidth(13.2),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(icon),
-                SizedBox(
-                  width: screenWidth(10),
-                ),
-                Text(
-                  text,
-                  style: GoogleFonts.poppins(
-                    fontSize: screenWidth(10.5),
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.textColor1,
-                  ),
-                ),
-                Icon(icon2)
-              ],
-            ),
-          ),
         ),
       ),
     );
