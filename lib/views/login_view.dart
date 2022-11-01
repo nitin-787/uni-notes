@@ -2,6 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
@@ -170,8 +171,8 @@ class _LoginViewState extends State<LoginView> {
                                     });
                                   },
                                   child: Icon(_obscureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
+                                      ? Iconsax.eye
+                                      : Iconsax.eye_slash),
                                 ),
                                 hintText: '***********',
                                 border: OutlineInputBorder(

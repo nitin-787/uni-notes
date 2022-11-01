@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/widget/download.dart';
@@ -140,7 +141,7 @@ class _SearchViewState extends State<SearchView> {
                           child: Row(
                             children: [
                               Container(
-                                width: screenWidth(89.6),
+                                width: screenWidth(85.6),
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
                                     fit: BoxFit.fitWidth,
@@ -176,7 +177,7 @@ class _SearchViewState extends State<SearchView> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: screenHeight(3),
+                                      height: screenHeight(6),
                                     ),
                                     Text(
                                       "By: Nex-kun",
@@ -196,6 +197,9 @@ class _SearchViewState extends State<SearchView> {
                                             color: AppColors.textColor2,
                                           ),
                                         ),
+                                        SizedBox(
+                                          width: screenWidth(7),
+                                        ),
                                         IconButton(
                                           onPressed: () {
                                             showDialog(
@@ -206,7 +210,7 @@ class _SearchViewState extends State<SearchView> {
                                           },
                                           tooltip: 'Download File',
                                           icon: Icon(
-                                            Icons.file_download,
+                                            Iconsax.document_download,
                                             color: AppColors.mainColor,
                                           ),
                                         ),
