@@ -32,8 +32,9 @@ class LoadingScreen {
     required BuildContext context,
     required String text,
   }) {
-    final text = StreamController();
-    text.add(text);
+    // ignore: no_leading_underscores_for_local_identifiers
+    final _text = StreamController();
+    _text.add(text);
 
     final state = Overlay.of(context);
     final renderBox = context.findRenderObject() as RenderBox;
@@ -65,7 +66,7 @@ class LoadingScreen {
                         const CircularProgressIndicator(),
                         const SizedBox(height: 20),
                         StreamBuilder(
-                          stream: text.stream,
+                          stream: _text.stream,
                           builder: (context, snapshot) {
                             if (snapshot.hasData) {
                               return Text(
@@ -90,7 +91,7 @@ class LoadingScreen {
 
     return LoadingScreenController(
       close: () {
-        text.close();
+        _text.close();
         overlay.remove();
         return true;
       },
