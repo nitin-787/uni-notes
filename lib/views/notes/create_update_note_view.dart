@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
+import 'package:mynotes/helper/loading/loading_screen_controller.dart';
 import 'package:mynotes/services/auth/auth_serivce.dart';
 import 'package:mynotes/utilities/dialogs/cannot_share_empty_not_dialog.dart';
 import 'package:mynotes/utilities/generic/get_argumnets.dart';
@@ -24,17 +26,27 @@ class CreateUpdateNoteView extends StatefulWidget {
   State<CreateUpdateNoteView> createState() => _CreateUpdateNoteViewState();
 }
 
-class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
+class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
+    with SingleTickerProviderStateMixin {
   CloudNote? _note;
   late final FirebaseCloudStorage _notesSerivce;
   late final TextEditingController _textController;
-  File? file;
+  File? _file;
   ImagePicker image = ImagePicker();
   String url = "";
   var name = "";
+  PlatformFile? _platformFile;
+  late AnimationController loadingController;
 
   @override
   void initState() {
+    loadingController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 10),
+    )..addListener(() {
+        setState(() {});
+      });
+
     _notesSerivce = FirebaseCloudStorage();
     _textController = TextEditingController();
     super.initState();
@@ -133,63 +145,371 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
       body: FutureBuilder(
         future: createOrGetExistingNote(context),
         builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              _setupTextControllerListner();
-              return Container(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: _textController,
-                      keyboardType: TextInputType.multiline,
-                      maxLines: null,
-                      decoration: InputDecoration(
-                          hintText: context.loc.start_typing_your_note),
-                    ),
-                    const Spacer(
-                      flex: 2,
-                    ),
-                    SizedBox(
-                      height: screenWidth(29.7),
-                      width: screenWidth(170.7),
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                          backgroundColor: AppColors.mainColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(screenHeight(20.86)),
+          if (snapshot.connectionState == ConnectionState.done) {
+            _setupTextControllerListner();
+            return Container(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  TextField(
+                    controller: _textController,
+                    keyboardType: TextInputType.multiline,
+                    maxLines: null,
+                    decoration: InputDecoration(
+                        hintText: context.loc.start_typing_your_note),
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  GestureDetector(
+                    onTap: getfile,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40.0, vertical: 20.0),
+                      child: DottedBorder(
+                        borderType: BorderType.RRect,
+                        radius: const Radius.circular(10),
+                        dashPattern: const [10, 4],
+                        strokeCap: StrokeCap.round,
+                        color: Colors.blue.shade400,
+                        child: Container(
+                          width: double.infinity,
+                          height: 150,
+                          decoration: BoxDecoration(
+                              color: Colors.blue.shade50.withOpacity(.3),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Iconsax.folder_open,
+                                color: Colors.blue,
+                                size: 40,
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                'Select your file',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        onPressed: () async {
-                          await getfile();
-                        },
-                        child: Row(
+                      ),
+                    ),
+                  ),
+                  _platformFile != null
+                      ? Container(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Selected File:',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.shade200,
+                                        offset: const Offset(0, 1),
+                                        blurRadius: 3,
+                                        spreadRadius: 2,
+                                      )
+                                    ]),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Image.file(
+                                          _file!,
+                                          width: 70,
+                                        )),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            _platformFile!.name,
+                                            style: const TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.black),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            '${(_platformFile!.size / 1024).ceil()} KB',
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.grey.shade500),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Container(
+                                              height: 5,
+                                              clipBehavior: Clip.hardEdge,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                color: Colors.blue.shade50,
+                                              ),
+                                              child: LinearProgressIndicator(
+                                                value: loadingController.value,
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Container(),
+                  const Spacer(
+                    flex: 2,
+                  ),
+                  SizedBox(
+                    height: screenWidth(29.7),
+                    width: screenWidth(170.7),
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: AppColors.mainColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(screenHeight(20.86)),
+                        ),
+                      ),
+                      onPressed: () async {
+                        await uploadFile();
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: screenWidth(9.86),
+                          ),
+                          Text(
+                            "Upload Note",
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: screenWidth(12.51),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
+
+          // need to fixed
+          return Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                TextField(
+                  controller: _textController,
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  decoration: InputDecoration(
+                      hintText: context.loc.start_typing_your_note),
+                ),
+                const Spacer(
+                  flex: 1,
+                ),
+                GestureDetector(
+                  onTap: getfile,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40.0, vertical: 20.0),
+                    child: DottedBorder(
+                      borderType: BorderType.RRect,
+                      radius: const Radius.circular(10),
+                      dashPattern: const [10, 4],
+                      strokeCap: StrokeCap.round,
+                      color: Colors.blue.shade400,
+                      child: Container(
+                        width: double.infinity,
+                        height: 150,
+                        decoration: BoxDecoration(
+                            color: Colors.blue.shade50.withOpacity(.3),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
-                              width: screenWidth(9.86),
+                            const Icon(
+                              Iconsax.folder_open,
+                              color: Colors.blue,
+                              size: 40,
+                            ),
+                            const SizedBox(
+                              height: 15,
                             ),
                             Text(
-                              "Upload Note",
-                              style: GoogleFonts.poppins(
-                                color: Colors.white,
-                                fontSize: screenWidth(12.51),
-                                fontWeight: FontWeight.w500,
+                              'Select your file',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey.shade400,
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              );
-            default:
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-          }
+                _platformFile != null
+                    ? Container(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Selected File:',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey.shade400,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.shade200,
+                                      offset: const Offset(0, 1),
+                                      blurRadius: 3,
+                                      spreadRadius: 2,
+                                    )
+                                  ]),
+                              child: Row(
+                                children: [
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.file(
+                                        _file!,
+                                        width: 70,
+                                      )),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          _platformFile!.name,
+                                          style: const TextStyle(
+                                              fontSize: 13,
+                                              color: Colors.black),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          '${(_platformFile!.size / 1024).ceil()} KB',
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              color: Colors.grey.shade500),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Container(
+                                            height: 5,
+                                            clipBehavior: Clip.hardEdge,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              color: Colors.blue.shade50,
+                                            ),
+                                            child: LinearProgressIndicator(
+                                              value: loadingController.value,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Container(),
+                const Spacer(
+                  flex: 2,
+                ),
+                SizedBox(
+                  height: screenWidth(29.7),
+                  width: screenWidth(170.7),
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(screenHeight(20.86)),
+                      ),
+                    ),
+                    onPressed: () async {
+                      await uploadFile();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: screenWidth(9.86),
+                        ),
+                        Text(
+                          "Upload Note",
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: screenWidth(12.51),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
         },
       ),
     );
@@ -198,25 +518,25 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
   getfile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
-      allowedExtensions: ['pdf', 'doc'],
+      allowedExtensions: ['pdf', 'doc', 'png' 'jpg', 'jpeg'],
     );
 
     if (result != null) {
-      File c = File(result.files.single.path!);
       setState(() {
-        file = c;
-        name = result.names.toString();
+        _file = File(result.files.single.path!);
+        _platformFile = result.files.first;
       });
-      uploadFile();
     }
+
+    loadingController.forward();
   }
 
   getImage() async {
     var img = await image.pickImage(source: ImageSource.gallery);
     setState(() {
-      file = File(img!.path);
+      _file = File(img!.path);
     });
-    if (file != null) {
+    if (_file != null) {
       uploadFile();
     }
   }
@@ -225,12 +545,12 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
     try {
       var imagefile =
           FirebaseStorage.instance.ref().child("Users").child("/$name");
-      UploadTask task = imagefile.putFile(file!);
+      UploadTask task = imagefile.putFile(_file!);
       TaskSnapshot snapshot = await task;
       url = await snapshot.ref.getDownloadURL();
 
       print(url);
-      if (file != null) {
+      if (_file != null) {
         Fluttertoast.showToast(
           msg: "file uloaded sucessfully",
           textColor: Colors.grey,
