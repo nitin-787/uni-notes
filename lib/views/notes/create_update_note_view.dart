@@ -4,6 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -37,6 +38,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
   var name = "";
   PlatformFile? _platformFile;
   late AnimationController loadingController;
+  bool isuploaded = false;
 
   @override
   void initState() {
@@ -119,6 +121,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor1,
       appBar: AppBar(
         // back icon
         leading: IconButton(
@@ -191,9 +194,10 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
                               ),
                               Text(
                                 'Select your file',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w400,
                                   fontSize: 15,
-                                  color: Colors.grey.shade400,
+                                  color: AppColors.textColor1,
                                 ),
                               ),
                             ],
@@ -542,30 +546,183 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
   }
 
   uploadFile() async {
-    try {
-      var imagefile =
-          FirebaseStorage.instance.ref().child("Users").child("/$name");
-      UploadTask task = imagefile.putFile(_file!);
-      TaskSnapshot snapshot = await task;
-      url = await snapshot.ref.getDownloadURL();
+    if (_file != null) {
+      isuploaded = true;
+      var fileName = _file!.path.split('/').last;
+      var destination = 'notes/$fileName';
+      var storageReference = FirebaseStorage.instance.ref(destination);
+      var uploadTask = storageReference.putFile(_file!);
+      var taskSnapshot = await uploadTask;
+      taskSnapshot.ref.getDownloadURL().then(
+        (value) {
+          print('Done: $value');
+        },
+      );
 
-      print(url);
-      if (_file != null) {
-        Fluttertoast.showToast(
-          msg: "file uloaded sucessfully",
-          textColor: Colors.grey,
-        );
-      } else {
-        Fluttertoast.showToast(
-          msg: "Something went wrong",
-          textColor: Colors.red,
-        );
-      }
-    } on Exception catch (e) {
-      Fluttertoast.showToast(
-        msg: e.toString(),
-        textColor: Colors.grey,
+      setState(() {
+        loadingController.reverse();
+      });
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: CustomSnackBar(
+          errorText: 'File Uploaded',
+          headingText: 'Success',
+          color: const Color.fromARGB(255, 29, 164, 31),
+          image: Image.asset(
+            'assets/icon/error_solid_green.png',
+            height: 35,
+            width: 35,
+          ),
+        ),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ));
+      // add duration
+      Future.delayed(const Duration(seconds: 3), () {
+        Navigator.pop(context);
+      });
+    } else {
+      isuploaded = false;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: CustomSnackBar(
+            errorText: 'No file selected',
+            headingText: 'Oh Snap!',
+            color: const Color(0xFFF75469),
+            image: Image.asset('assets/icon/error_solid.png'),
+          ),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
       );
     }
   }
 }
+
+class CustomSnackBar extends StatelessWidget {
+  const CustomSnackBar({
+    super.key,
+    required this.errorText,
+    required this.headingText,
+    required this.color,
+    required this.image,
+  });
+
+  final String errorText, headingText;
+  final Color? color;
+  final Image? image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+          ),
+          height: 90,
+          child: Row(
+            children: [
+              const SizedBox(
+                width: 48,
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      headingText,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      errorText,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+            ),
+            child: Stack(
+              children: [
+                SvgPicture.asset(
+                  'assets/icon/test.svg',
+                  height: 48,
+                  width: 40,
+                  color: Colors.transparent,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: -20,
+          left: 12,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Image(
+                image: image!.image,
+                height: 35,
+                width: 35,
+              ),
+              Positioned(
+                top: 10,
+                child: SvgPicture.asset(
+                  'assets/icon/vhat.svg',
+                  height: 16,
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+    // try {
+    //   var imagefile =
+    //       FirebaseStorage.instance.ref().child("Users").child("/$name");
+    //   UploadTask task = imagefile.putFile(_file!);
+    //   TaskSnapshot snapshot = await task;
+    //   url = await snapshot.ref.getDownloadURL();
+
+  //     print(url);
+  //     if (_file != null) {
+  //       Fluttertoast.showToast(
+  //         msg: "file uloaded sucessfully",
+  //         textColor: Colors.grey,
+  //       );
+  //     } else {
+  //       Fluttertoast.showToast(
+  //         msg: "Something went wrong",
+  //         textColor: Colors.red,
+  //       );
+  //     }
+  //   } on Exception catch (e) {
+  //     Fluttertoast.showToast(
+  //       msg: e.toString(),
+  //       textColor: Colors.grey,
+  //     );
+  //   }
+  // }

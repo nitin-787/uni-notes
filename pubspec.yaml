@@ -69,6 +69,7 @@ dependencies:
   iconsax: ^0.0.8
   flutter_quill: ^2.0.7
   dotted_border: ^2.0.0+3
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
