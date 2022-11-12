@@ -2,6 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
@@ -170,8 +171,8 @@ class _LoginViewState extends State<LoginView> {
                                     });
                                   },
                                   child: Icon(_obscureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off),
+                                      ? Iconsax.eye
+                                      : Iconsax.eye_slash),
                                 ),
                                 hintText: '***********',
                                 border: OutlineInputBorder(
@@ -197,18 +198,16 @@ class _LoginViewState extends State<LoginView> {
                                 },
                                 child: Text(
                                   style: GoogleFonts.poppins(
-                                    color: AppColors.mainColor,
-                                    decoration: TextDecoration.underline,
-                                    decorationThickness: 1.5,
-                                    fontSize: screenWidth(10.41),
-                                  ),
+                                      color: AppColors.mainColor,
+                                      fontSize: screenWidth(10.41),
+                                      fontWeight: FontWeight.w500),
                                   "Forgot password?",
                                 ),
                               )
                             ],
                           ),
                           SizedBox(
-                            height: screenHeight(13.88),
+                            height: screenHeight(12),
                           ),
                           SizedBox(
                             height: screenWidth(34.7),
@@ -238,28 +237,26 @@ class _LoginViewState extends State<LoginView> {
                                         )
                                     : InternetSnackBar.showTopSnackBar(context);
                               },
-                              child: SizedBox(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SizedBox(
-                                      width: screenWidth(9.86),
-                                    ),
-                                    Text(
-                                      "Login",
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.white,
-                                        fontSize: screenWidth(12.51),
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    const Icon(
-                                      Icons.arrow_forward,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    width: screenWidth(9.86),
+                                  ),
+                                  Text(
+                                    "Login",
+                                    style: GoogleFonts.poppins(
                                       color: Colors.white,
+                                      fontSize: screenWidth(12.51),
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.white,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -306,37 +303,32 @@ class _LoginViewState extends State<LoginView> {
                                         )
                                     : InternetSnackBar.showTopSnackBar(context);
                               },
-                              child: Container(
-                                padding: EdgeInsets.only(
-                                  left: screenWidth(13.2),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image(
-                                      height: screenHeight(27.8),
-                                      width: screenWidth(16.43),
-                                      image: const AssetImage(
-                                          'assets/images/google.png'),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image(
+                                    height: screenHeight(27.8),
+                                    width: screenWidth(16.43),
+                                    image: const AssetImage(
+                                        'assets/images/google.png'),
+                                  ),
+                                  SizedBox(
+                                    width: screenWidth(9.86),
+                                  ),
+                                  Text(
+                                    "Login with Google",
+                                    style: GoogleFonts.poppins(
+                                      color: AppColors.mainColor,
+                                      fontSize: screenWidth(11.8),
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    SizedBox(
-                                      width: screenWidth(9.86),
-                                    ),
-                                    Text(
-                                      "Login with Google",
-                                      style: GoogleFonts.poppins(
-                                        color: AppColors.mainColor,
-                                        fontSize: screenWidth(11.8),
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                           SizedBox(
-                            height: screenHeight(14),
+                            height: screenHeight(15.88),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -347,7 +339,7 @@ class _LoginViewState extends State<LoginView> {
                                   fontSize: screenWidth(10.42),
                                   fontWeight: FontWeight.w500,
                                 ),
-                                'Not Registered yet?',
+                                'Not Registered Yet?',
                               ),
                               TextButton(
                                 onPressed: () async {
