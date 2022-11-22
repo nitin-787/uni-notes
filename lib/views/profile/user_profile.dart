@@ -10,6 +10,7 @@ import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/utilities/dialogs/comming_soon.dart';
 import 'package:mynotes/views/profile/option_list.dart';
+import 'package:mynotes/views/profile/user_details.dart';
 
 import '../../utilities/edit_image.dart';
 
@@ -106,7 +107,12 @@ class _UserProfileState extends State<UserProfile> {
                       icon: Iconsax.user,
                       text: 'Profile',
                       onPressed: () {
-                        commingSoon(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UserDetails(),
+                          ),
+                        );
                       },
                       icon2: Icons.arrow_forward_ios,
                     ),
