@@ -1,22 +1,15 @@
-# UNI-Share | Hacktober Fest 2022
+# UNI-Share - A Media Sharing App for Students
+Welcome to UNI-Share, the media sharing app that helps students share and access resources and materials with their fellow students at their institute.
 
-![](/hacktober2022.png)
+With UNI-Share, you can easily share notes, assignments, tutorials, notices, and more with your fellow students. The app supports a wide range of file formats, including PDF, Word documents, videos, and audio files, so you can share whatever resources you have on hand.
 
-**This repository is a part of the Hacktober Fest 2022** 🥳
+One of the key features of UNI-Share is the ability to notify all students at your institute whenever a new media content is uploaded. This ensures that everyone stays up-to-date with the latest resources and materials, and helps to foster a sense of community among students.
 
-# About the Project
-The overflow of multiple shared documents across various platforms amongst students is an evergreen problem.
+In addition to sharing resources with the entire institute, you can also use UNI-Share to have private chats with other students. This allows you to discuss and collaborate on projects and assignments in real-time, and provides a convenient way to stay connected with your peers.
 
-UNI-Share, a media sharing app, that aims to help students share the following but not limited to: 
+To get started with UNI-Share, simply download the app from the App Store or Google Play, and create an account using your institute's email address. From there, you can start sharing resources and chatting with other students right away.
 
-&rarr; assignment <br/>
-&rarr; notes <br/>
-&rarr; tutorial <br/>
-&rarr; notice <br/>
-
-In any format with fellow students, either publically specific to their institute or in a private chat. 
-
-The project is supported by Firebase Clund Messaging Service at the backend.
+Overall, UNI-Share is a powerful tool for students looking to share and access resources and materials with their fellow students. Give it a try today and see how it can help you succeed in your studies!
 
 # Tech Stack
 
@@ -96,21 +89,6 @@ After creating a project, go inside it<br/>
   your-flutter-proj$ flutter pub add firebase_core
   your-flutter-proj$ flutterfire configure
 ```
-
-# About Hacktoberfest?
-Hactoberfest is Digitalocean's annual flagship event that encourage people to contribute to open source prject throughout the month of October every year.
-
-This year, 2022, is the 9th chapter of Hacktober Fest.
-By making 4 accepted PRs (Pull Requests) in the month of October 2022, you are eligible for a free-tshirt and swags from Hacktoberfest!
-
-So what are you waiting for? <br/>
-Fork this project and start contributing! :)
-
-To know more about Hacktober Fest, visit their website.
-Link [here.](https://hacktoberfest.com/)
-
-> NOTE: PRs made before or after this time, will not be considered.
-
 
 # How to contribute?
 
