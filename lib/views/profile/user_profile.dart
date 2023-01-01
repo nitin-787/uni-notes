@@ -8,6 +8,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mynotes/config/size_config.dart';
 import 'package:mynotes/constants/colors.dart';
+import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/utilities/dialogs/comming_soon.dart';
 import 'package:mynotes/views/profile/option_list.dart';
 import 'package:mynotes/views/profile/user_details.dart';
@@ -107,12 +108,7 @@ class _UserProfileState extends State<UserProfile> {
                       icon: Iconsax.user,
                       text: 'Profile',
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const UserDetails(),
-                          ),
-                        );
+                        Navigator.pushNamed(context, profileDetailRoute);
                       },
                       icon2: Icons.arrow_forward_ios,
                     ),
