@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/helper/loading/loading_screen.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
@@ -10,13 +9,11 @@ import 'package:mynotes/services/auth/firebase_auth_provider.dart';
 import 'package:mynotes/views/login_view.dart';
 import 'package:mynotes/views/forgot_password_view.dart';
 import 'package:mynotes/views/home/home.dart';
-import 'package:mynotes/views/notes/notes_grid_view.dart';
 import 'package:mynotes/views/register_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mynotes/views/verify_email_view.dart';
 import 'package:mynotes/extentions/buildcontext/loc.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:path/path.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

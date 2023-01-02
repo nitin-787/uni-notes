@@ -1,9 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mynotes/config/size_config.dart';
@@ -11,7 +9,6 @@ import 'package:mynotes/constants/colors.dart';
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/utilities/dialogs/comming_soon.dart';
 import 'package:mynotes/views/profile/option_list.dart';
-import 'package:mynotes/views/profile/user_details.dart';
 
 import '../../utilities/edit_image.dart';
 
