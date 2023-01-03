@@ -15,25 +15,36 @@ class InternetSnackBar {
           right: 0,
           bottom: 0,
         ),
-        child: SafeArea(
-          child: ListTile(
-            leading: LottieBuilder.asset(
-              'assets/animations/internet.json',
-            ),
-            title: Text(
-              'No Internet Connection',
-              style: GoogleFonts.poppins(
-                color: AppColors.textColor1,
-                fontSize: screenWidth(11),
-                fontWeight: FontWeight.w500,
+        child: Container(
+          padding: EdgeInsets.only(
+            top: screenHeight(4),
+            bottom: screenHeight(7),
+          ),
+          child: SafeArea(
+            child: ListTile(
+              leading: LottieBuilder.asset(
+                'assets/animations/no-internet.json',
               ),
-            ),
-            trailing: IconButton(
-              icon: const Icon(
-                Icons.close,
-                color: Colors.black,
+              title: Text(
+                'No Internet Connection',
+                style: GoogleFonts.poppins(
+                  color: AppColors.textColor,
+                  fontSize: screenWidth(12),
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              onPressed: () => OverlaySupportEntry.of(context)?.dismiss(),
+              // add image
+              trailing: InkWell(
+                onTap: () {
+                  // close the snackbar
+                  OverlaySupportEntry.of(context)?.dismiss();
+                },
+                child: Image(
+                  height: screenWidth(30),
+                  width: screenWidth(30),
+                  image: const AssetImage('assets/icon/error.png'),
+                ),
+              ),
             ),
           ),
         ),
