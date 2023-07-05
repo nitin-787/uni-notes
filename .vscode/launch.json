@@ -13,7 +13,7 @@
             "name": "mynotes (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
         },
         {
             "name": "mynotes (release mode)",

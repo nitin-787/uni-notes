@@ -31,7 +31,6 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -42,39 +41,38 @@ dependencies:
   sqflite: ^2.0.3
   path_provider: ^2.0.11
   path: ^1.8.1
-  share_plus: ^6.0.1
+  share_plus: ^7.0.2
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
-  flutter_launcher_icons: ^0.10.0
-  intl: ^0.17.0
+  flutter_launcher_icons: ^0.13.1
+  intl: ^0.18.0
   file_picker: ^5.1.0
-  image_picker: ^0.8.5+3
+  image_picker: ^1.0.0
   fluttertoast: ^8.0.9
   firebase_storage: ^11.0.2
   sign_button: ^2.0.2
-  google_fonts: ^3.0.1
-  google_sign_in: ^5.4.2
+  google_fonts: ^5.1.0
+  google_sign_in: ^6.1.4
   provider: ^6.0.3
   font_awesome_flutter: ^10.2.1
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
   flutter_native_splash: ^2.2.10+1
-  connectivity_plus: ^3.0.2
+  connectivity_plus: ^4.0.1
   overlay_support: ^2.0.1
-  velocity_x: ^3.5.1
-  dio: ^4.0.6
-  passwordfield: ^0.1.0
-  lottie: ^1.4.2
+  velocity_x: ^4.1.0
+  dio: ^5.2.1+1
+  passwordfield: ^0.2.0
+  lottie: ^2.4.0
   flutter_iconly: ^1.0.2
   iconsax: ^0.0.8
-  flutter_quill: ^2.0.7
+  flutter_quill: ^7.2.11
   dotted_border: ^2.0.0+3
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.7
   page_transition: ^2.0.9
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

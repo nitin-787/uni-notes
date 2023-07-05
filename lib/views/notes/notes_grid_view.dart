@@ -43,11 +43,11 @@ class _NotesGridViewState extends State<NotesGridView> {
                         width: double.infinity,
                         alignment: Alignment.center,
                       ),
-                      Positioned(
+                      const Positioned(
                         left: 20,
                         bottom: 0,
                         child: Column(
-                          children: const [
+                          children: [
                             Center(
                               child: Text(
                                 "Note Title",
