@@ -52,6 +52,7 @@ class _NotesListViewState extends State<NotesListView> {
   Widget build(BuildContext context) {
     double listConatinerHeight;
     var height = MediaQuery.of(context).size.height;
+
     if (height < 600) {
       listConatinerHeight = screenHeight(112.34);
     } else {
@@ -116,7 +117,7 @@ class _NotesListViewState extends State<NotesListView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(
-                                      height: screenHeight(6),
+                                      height: screenHeight(5),
                                     ),
                                     Text(
                                       note.text,
@@ -129,9 +130,7 @@ class _NotesListViewState extends State<NotesListView> {
                                         color: AppColors.textColor,
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: screenHeight(6),
-                                    ),
+                                    const Spacer(),
                                     Text(
                                       "By: Nex-kun",
                                       style: GoogleFonts.poppins(
@@ -150,9 +149,7 @@ class _NotesListViewState extends State<NotesListView> {
                                             color: AppColors.textColor2,
                                           ),
                                         ),
-                                        SizedBox(
-                                          width: screenWidth(7),
-                                        ),
+                                        const Spacer(),
                                         IconButton(
                                           onPressed: () {
                                             showDialog(
