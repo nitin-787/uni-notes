@@ -88,9 +88,7 @@ class ChatRoom extends StatelessWidget {
                               color: AppColors.textColor1,
                             ),
                           ),
-                          SizedBox(
-                            width: screenWidth(40),
-                          ),
+                          const Spacer(),
                           IconButton(
                             onPressed: () {},
                             icon: Icon(
