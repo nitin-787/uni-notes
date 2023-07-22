@@ -43,7 +43,7 @@ class FirebaseCloudStorage {
     final document = await notes.add({
       ownerUserIdFieldName: ownerUserId,
       textFieldName: '',
-      timeFieldName: DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
+      timeFieldName: DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now()),
     });
     final fetchedNote = await document.get();
     return CloudNote(
