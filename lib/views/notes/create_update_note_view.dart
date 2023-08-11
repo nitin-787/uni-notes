@@ -552,10 +552,8 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
       var uploadTask = storageReference.putFile(_file!);
       var taskSnapshot = await uploadTask;
       taskSnapshot.ref.getDownloadURL().then(
-        (value) {
-          print('Done: $value');
-        },
-      );
+            (value) {},
+          );
 
       setState(() {
         loadingController.reverse();
@@ -667,6 +665,7 @@ class CustomSnackBar extends StatelessWidget {
                   'assets/icon/test.svg',
                   height: 48,
                   width: 40,
+                  // ignore: deprecated_member_use
                   color: Colors.transparent,
                 ),
               ],

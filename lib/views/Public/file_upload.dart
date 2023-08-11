@@ -10,14 +10,14 @@ class FileUpload extends StatefulWidget {
   const FileUpload({super.key});
 
   @override
-  _FileUploadState createState() => _FileUploadState();
+  FileUploadState createState() => FileUploadState();
 }
 
-class _FileUploadState extends State<FileUpload> {
+class FileUploadState extends State<FileUpload> {
   File? file;
   ImagePicker image = ImagePicker();
   String url = "";
-  var name;
+  var name = "";
   var color1 = Colors.redAccent[700];
 
   @override
@@ -111,7 +111,6 @@ class _FileUploadState extends State<FileUpload> {
       TaskSnapshot snapshot = await task;
       url = await snapshot.ref.getDownloadURL();
 
-      print(url);
       if (file != null) {
         Fluttertoast.showToast(
           msg: "file uloaded sucessfully",

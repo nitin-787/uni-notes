@@ -98,7 +98,7 @@ class SkeletonNotes extends StatelessWidget {
 class ShimmerWidget extends StatelessWidget {
   final double height;
   final double width;
-  final shapeBorder;
+  final dynamic shapeBorder;
 
   const ShimmerWidget.rectangular({
     super.key,
