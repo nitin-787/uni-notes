@@ -1,7 +1,7 @@
 # UNI-Share - A Media Sharing App for Students
 Welcome to UNI-Share,  the media sharing app that helps students share and access resources and materials with their fellow students at their institute.
 
-With UNI-Share, you can easily share notes, assignments, tutorials, notices, and more with your fellow students. The app supports a wide range of file formats, including PDF, Word documents, videos, and audio files, so you can share whatever resources you have on hand.
+With UNI-Share, you can easily share notes, assignments, tutorials, notices, and more with your fellow students. The app supports a wide range of file formats, including PDF, Word documents and audio files, so you can share whatever resources you have on hand.
 
 One of the key features of UNI-Share is the ability to notify all students at your institute whenever a new media content is uploaded. This ensures that everyone stays up-to-date with the latest resources and materials, and helps to foster a sense of community among students.
 
