@@ -1,3 +1,5 @@
+![hf10_banner_sponsors_1032x600](https://github.com/nitin-787/uni-notes/assets/76255199/17f95014-754b-4820-b16b-af3d9f73ad20)
+
 # UNI-Share - A Media Sharing App for Students
 Welcome to UNI-Share,  the media sharing app that helps students share and access resources and materials with the fellow students at their institute.
 
@@ -10,6 +12,9 @@ In addition to sharing resources with the entire institute, you can also use UNI
 To get started with UNI-Share, simply download the app from the App Store or Google Play, and create an account using your institute's email address. From there, you can start sharing resources and chatting with other students right away.
 
 Overall, UNI-Share is a powerful tool for students looking to share and access resources and materials with their fellow students. Give it a try today and see how it can help you succeed in your studies!
+
+
+# Ideas and suggestions are welcome, Connect with me on: [discord](https://discord.gg/MXZsKVYEyU)
 
 # Tech Stack
 
