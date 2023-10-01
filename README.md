@@ -14,7 +14,7 @@ To get started with UNI-Share, simply download the app from the App Store or Goo
 Overall, UNI-Share is a powerful tool for students looking to share and access resources and materials with their fellow students. Give it a try today and see how it can help you succeed in your studies!
 
 
-# Ideas and suggestions are welcome, Connect with me on: [discord](https://discord.gg/MXZsKVYEyU) Tag me: @benihimearatamee
+# Ideas and suggestions are welcome, Connect with me on: [discord](https://discord.gg/MXZsKVYEyU) Tag me: @benihimearatamee , Email - nitinsharmaa787@gmail.com
 
 # Tech Stack
 
