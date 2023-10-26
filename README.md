@@ -1,5 +1,3 @@
-![hf10_banner_sponsors_1032x600](https://github.com/nitin-787/uni-notes/assets/76255199/17f95014-754b-4820-b16b-af3d9f73ad20)
-
 # UNI-Share - A Media Sharing App for Students
 Welcome to UNI-Share,  the media sharing app that helps students share and access resources and materials with the fellow students at their institute.
 
