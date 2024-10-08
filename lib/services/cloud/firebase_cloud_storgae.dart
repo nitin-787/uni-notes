@@ -4,9 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
-import 'package:mynotes/services/cloud/cloud_note.dart';
-import 'package:mynotes/services/cloud/cloud_storage_constants.dart';
-import 'package:mynotes/services/cloud/cloud_storage_exception.dart';
+
+import '/services/cloud/cloud_note.dart';
+import '/services/cloud/cloud_storage_constants.dart';
+import '/services/cloud/cloud_storage_exception.dart';
 
 class FirebaseCloudStorage {
   final notes = FirebaseFirestore.instance.collection('notes');

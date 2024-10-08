@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/services/cloud/cloud_note.dart';
-import 'package:mynotes/helper/loading/shimmer_loading.dart';
-import 'package:mynotes/widget/download.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/services/cloud/cloud_note.dart';
+import '/helper/loading/shimmer_loading.dart';
+import '/widget/download.dart';
 
 typedef NoteCallback = void Function(CloudNote note);
 typedef NoteLongPressCallback = void Function(CloudNote note);

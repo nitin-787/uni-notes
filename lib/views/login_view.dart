@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/extentions/buildcontext/loc.dart';
-import 'package:mynotes/services/auth/auth_exception.dart';
-import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
-import 'package:mynotes/services/auth/bloc/auth_event.dart';
-import 'package:mynotes/services/auth/bloc/auth_state.dart';
-import 'package:mynotes/utilities/dialogs/error_dialog.dart';
-import 'package:mynotes/utilities/internet_snak_bar.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/extentions/buildcontext/loc.dart';
+import '/services/auth/auth_exception.dart';
+import '/services/auth/bloc/auth_bloc.dart';
+import '/services/auth/bloc/auth_event.dart';
+import '/services/auth/bloc/auth_state.dart';
+import '/utilities/dialogs/error_dialog.dart';
+import '/utilities/internet_snak_bar.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);

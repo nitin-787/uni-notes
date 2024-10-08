@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
 import 'package:overlay_support/overlay_support.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
 
 class InternetSnackBar {
   static void showTopSnackBar(BuildContext context) {

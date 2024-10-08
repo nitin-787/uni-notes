@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/constants/routes.dart';
-import 'package:mynotes/services/auth/auth_serivce.dart';
-import 'package:mynotes/services/cloud/cloud_note.dart';
-import 'package:mynotes/services/cloud/firebase_cloud_storgae.dart';
-import 'package:mynotes/views/notes/notes_list_view.dart';
-import 'package:mynotes/widget/popup.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/constants/routes.dart';
+import '/services/auth/auth_serivce.dart';
+import '/services/cloud/cloud_note.dart';
+import '/services/cloud/firebase_cloud_storgae.dart';
+import '/views/notes/notes_list_view.dart';
+import '/widget/popup.dart';
 
 extension Count<T extends Iterable> on Stream<T> {
   Stream<int> get getLength => map((event) => event.length);

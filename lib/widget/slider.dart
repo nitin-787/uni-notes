@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/views/chat/chat_home_page.dart';
-import 'package:mynotes/views/notes/note_data.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/views/chat/chat_home_page.dart';
+import '/views/notes/note_data.dart';
 
 class NotesSlider extends StatelessWidget {
   const NotesSlider({super.key});

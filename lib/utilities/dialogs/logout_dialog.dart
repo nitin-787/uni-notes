@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mynotes/extentions/buildcontext/loc.dart';
-import 'package:mynotes/utilities/dialogs/generic_dialog.dart';
+
+import '/extentions/buildcontext/loc.dart';
+import '/utilities/dialogs/generic_dialog.dart';
 
 Future<bool> showLogOutDialog(BuildContext context) {
   return showGenericDialog<bool>(
