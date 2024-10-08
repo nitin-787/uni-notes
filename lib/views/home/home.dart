@@ -2,14 +2,15 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/constants/routes.dart';
-import 'package:mynotes/services/auth/bloc/auth_event.dart';
-import 'package:mynotes/utilities/internet_snak_bar.dart';
-import 'package:mynotes/views/login_view.dart';
-import 'package:mynotes/widget/slider.dart';
-import '../../services/auth/bloc/auth_bloc.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/constants/routes.dart';
+import '/services/auth/bloc/auth_event.dart';
+import '/utilities/internet_snak_bar.dart';
+import '/views/login_view.dart';
+import '/widget/slider.dart';
+import '/services/auth/bloc/auth_bloc.dart';
 
 class NewNotesView extends StatefulWidget {
   const NewNotesView({super.key});

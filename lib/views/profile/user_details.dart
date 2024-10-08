@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/utilities/edit_image.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/utilities/edit_image.dart';
 
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});

@@ -1,10 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mynotes/firebase_options.dart';
-import 'package:mynotes/services/auth/auth_user.dart';
-import 'package:mynotes/services/auth/auth_provider.dart';
-import 'package:mynotes/services/auth/auth_exception.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     show FirebaseAuth, FirebaseAuthException;
+
+import '/services/auth/auth_user.dart';
+import '/services/auth/auth_provider.dart';
+import '/services/auth/auth_exception.dart';
 
 class FirebaseAuthProvider implements AuthProvider {
   @override

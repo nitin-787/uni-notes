@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
 
 class SkeletonNotes extends StatelessWidget {
   const SkeletonNotes({

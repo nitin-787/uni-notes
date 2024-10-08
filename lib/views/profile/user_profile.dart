@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/constants/routes.dart';
-import 'package:mynotes/utilities/dialogs/comming_soon.dart';
-import 'package:mynotes/views/profile/option_list.dart';
 
-import '../../utilities/edit_image.dart';
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/constants/routes.dart';
+import '/utilities/dialogs/comming_soon.dart';
+import '/views/profile/option_list.dart';
+import '/utilities/edit_image.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);

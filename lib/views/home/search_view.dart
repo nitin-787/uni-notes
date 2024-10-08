@@ -2,10 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/widget/download.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/widget/download.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});

@@ -8,15 +8,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/extentions/buildcontext/loc.dart';
-import 'package:mynotes/services/auth/auth_serivce.dart';
-import 'package:mynotes/utilities/dialogs/cannot_share_empty_not_dialog.dart';
-import 'package:mynotes/utilities/generic/get_argumnets.dart';
-import 'package:mynotes/services/cloud/cloud_note.dart';
-import 'package:mynotes/services/cloud/firebase_cloud_storgae.dart';
 import 'package:share_plus/share_plus.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/extentions/buildcontext/loc.dart';
+import '/services/auth/auth_serivce.dart';
+import '/utilities/dialogs/cannot_share_empty_not_dialog.dart';
+import '/utilities/generic/get_argumnets.dart';
+import '/services/cloud/cloud_note.dart';
+import '/services/cloud/firebase_cloud_storgae.dart';
 
 class CreateUpdateNoteView extends StatefulWidget {
   const CreateUpdateNoteView({Key? key}) : super(key: key);

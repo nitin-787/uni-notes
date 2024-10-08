@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
 
 class ChatRoom extends StatelessWidget {
   const ChatRoom({super.key});

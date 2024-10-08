@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:mynotes/views/chat/chat_room.dart';
-import 'package:mynotes/views/home/search_view.dart';
-import 'package:mynotes/views/notes/create_update_note_view.dart';
-import 'package:mynotes/views/profile/user_details.dart';
-import 'package:mynotes/views/profile/user_profile.dart';
+
+import '/views/chat/chat_room.dart';
+import '/views/home/search_view.dart';
+import '/views/notes/create_update_note_view.dart';
+import '/views/profile/user_details.dart';
+import '/views/profile/user_profile.dart';
 
 const createOrUpdateNoteRoute = '/notes/new-note';
 const searchRoute = '/constants/search-view';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mynotes/constants/colors.dart';
+
+import '/constants/colors.dart';
 
 class NotesGridView extends StatefulWidget {
   const NotesGridView({super.key});
