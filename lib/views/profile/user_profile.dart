@@ -13,7 +13,7 @@ import '/views/profile/option_list.dart';
 import '/utilities/edit_image.dart';
 
 class UserProfile extends StatefulWidget {
-  const UserProfile({Key? key}) : super(key: key);
+  const UserProfile({super.key});
 
   @override
   State<UserProfile> createState() => _UserProfileState();

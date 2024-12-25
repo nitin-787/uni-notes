@@ -15,7 +15,7 @@ import '/utilities/dialogs/error_dialog.dart';
 import '/utilities/internet_snak_bar.dart';
 
 class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+  const LoginView({super.key});
 
   @override
   State<LoginView> createState() => _LoginViewState();
@@ -224,7 +224,7 @@ class _LoginViewState extends State<LoginView> {
                                 final result =
                                     await Connectivity().checkConnectivity();
 
-                                bool hasInternet = connectivitySnackBar(result);
+                                bool hasInternet = connectivitySnackBar(result as ConnectivityResult);
 
                                 final email = _email.text;
                                 final password = _password.text;
@@ -296,7 +296,7 @@ class _LoginViewState extends State<LoginView> {
                                 final result =
                                     await Connectivity().checkConnectivity();
                                 if (!mounted) return;
-                                bool hasInternet = connectivitySnackBar(result);
+                                bool hasInternet = connectivitySnackBar(result as ConnectivityResult);
 
                                 hasInternet
                                     ? context.read<AuthBloc>().add(
@@ -348,7 +348,7 @@ class _LoginViewState extends State<LoginView> {
                                       await Connectivity().checkConnectivity();
 
                                   bool hasInternet =
-                                      connectivitySnackBar(result);
+                                      connectivitySnackBar(result as ConnectivityResult);
 
                                   if (!mounted) return;
                                   hasInternet

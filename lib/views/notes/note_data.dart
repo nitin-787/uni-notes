@@ -123,9 +123,11 @@ class _NoteDataState extends State<NoteData> {
 
   deleteNote(CloudNote note) async {
     await _notesService.deleteNote(documentId: note.documentId).then((value) {
+      if (!mounted) return;
       Navigator.pop(context);
       _noteDeleteSuccess();
     }).onError((error, stackTrace) {
+      if (!mounted) return;
       Navigator.pop(context);
       _noteDeleteFailed();
     });

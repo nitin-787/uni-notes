@@ -6,13 +6,13 @@ import '/constants/colors.dart';
 
 class OptionsList extends StatelessWidget {
   const OptionsList({
-    Key? key,
+    super.key,
     required this.icon,
     required this.icon2,
     this.iconSize2 = 22,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
   final String text;
   final IconData icon;
   final double iconSize2;

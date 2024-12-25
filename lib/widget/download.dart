@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
 class DownloadingDialog extends StatefulWidget {
-  const DownloadingDialog({Key? key}) : super(key: key);
+  const DownloadingDialog({super.key});
 
   @override
   DownloadingDialogState createState() => DownloadingDialogState();
@@ -16,11 +16,10 @@ class DownloadingDialogState extends State<DownloadingDialog> {
   void startDownloading() async {
     const String url =
         'https://firebasestorage.googleapis.com/v0/b/e-commerce-72247.appspot.com/o/195-1950216_led-tv-png-hd-transparent-png.png?alt=media&token=0f8a6dac-1129-4b76-8482-47a6dcc0cd3e';
-// In future here link will come firebase 
+// In future here link will come firebase
     const String fileName = "TV.jpg";
 
     String path = await _getFilePath(fileName);
-
     await dio.download(
       url,
       path,
@@ -28,10 +27,10 @@ class DownloadingDialogState extends State<DownloadingDialog> {
         setState(() {
           progress = recivedBytes / totalBytes;
         });
-
       },
       deleteOnError: true,
     ).then((_) {
+      if (!mounted) return;
       Navigator.pop(context);
     });
   }

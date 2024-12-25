@@ -7,8 +7,8 @@ import '/constants/colors.dart';
 
 class SkeletonNotes extends StatelessWidget {
   const SkeletonNotes({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -131,10 +131,10 @@ class ShimmerWidget extends StatelessWidget {
 
 class Skeleton extends StatelessWidget {
   const Skeleton({
-    Key? key,
+    super.key,
     required this.height,
     required this.width,
-  }) : super(key: key);
+  });
 
   final double? height, width;
   @override

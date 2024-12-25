@@ -20,7 +20,7 @@ import '/services/cloud/cloud_note.dart';
 import '/services/cloud/firebase_cloud_storgae.dart';
 
 class CreateUpdateNoteView extends StatefulWidget {
-  const CreateUpdateNoteView({Key? key}) : super(key: key);
+  const CreateUpdateNoteView({super.key});
 
   @override
   State<CreateUpdateNoteView> createState() => _CreateUpdateNoteViewState();
@@ -178,7 +178,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
                           width: double.infinity,
                           height: 150,
                           decoration: BoxDecoration(
-                              color: Colors.blue.shade50.withOpacity(.3),
+                              color: Colors.blue.shade50.withValues(),
                               borderRadius: BorderRadius.circular(10)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -362,7 +362,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
                         width: double.infinity,
                         height: 150,
                         decoration: BoxDecoration(
-                            color: Colors.blue.shade50.withOpacity(.3),
+                            color: Colors.blue.shade50.withValues(),
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -578,6 +578,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView>
       ));
       // add duration
       Future.delayed(const Duration(seconds: 3), () {
+        if (!mounted) return;
         Navigator.pop(context);
       });
     } else {

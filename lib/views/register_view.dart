@@ -13,7 +13,7 @@ import '/services/auth/bloc/auth_state.dart';
 import '/utilities/dialogs/error_dialog.dart';
 
 class RegisterView extends StatefulWidget {
-  const RegisterView({Key? key}) : super(key: key);
+  const RegisterView({super.key});
 
   @override
   State<RegisterView> createState() => _RegisterViewState();

@@ -13,12 +13,12 @@ typedef NoteLongPressCallback = void Function(CloudNote note);
 
 class NotesListView extends StatefulWidget {
   const NotesListView({
-    Key? key,
+    super.key,
     required this.notes,
     required this.onDeleteNote,
     required this.onTap,
     required this.onLongPress,
-  }) : super(key: key);
+  });
 
   final Iterable<CloudNote> notes;
   final NoteCallback onDeleteNote;

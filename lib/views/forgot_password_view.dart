@@ -12,7 +12,7 @@ import '/utilities/dialogs/error_dialog.dart';
 import '/utilities/dialogs/password_reset.dart';
 
 class ForgotPasswordView extends StatefulWidget {
-  const ForgotPasswordView({Key? key}) : super(key: key);
+  const ForgotPasswordView({super.key});
 
   @override
   State<ForgotPasswordView> createState() => _ForgotPasswordViewState();
@@ -43,7 +43,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
             await showPasswordResetSentDialog(context);
           }
           if (state.exception != null) {
-            if (!mounted) return;
             await showErrorDialog(
               context,
               context.loc.forgot_password_view_generic_error,

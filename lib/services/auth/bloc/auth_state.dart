@@ -14,12 +14,12 @@ abstract class AuthState {
 }
 
 class AuthStateUnitialized extends AuthState {
-  const AuthStateUnitialized({required bool isLoading})
-      : super(isLoading: isLoading);
+  const AuthStateUnitialized({required super.isLoading});
 }
 
 class AuthStateRegistering extends AuthState {
   final Exception? exception;
+  // ignore: use_super_parameters
   const AuthStateRegistering({
     required this.exception,
     required isLoading,
@@ -32,40 +32,37 @@ class AuthStateForgotPassword extends AuthState {
   const AuthStateForgotPassword({
     required this.exception,
     required this.hasSentEmail,
-    required bool isLoading,
-  }) : super(isLoading: isLoading);
+    required super.isLoading,
+  });
 }
 
 class AuthStateLoggedIn extends AuthState {
   final AuthUser user;
   const AuthStateLoggedIn({
     required this.user,
-    required bool isLoading,
-  }) : super(isLoading: isLoading);
+    required super.isLoading,
+  });
 }
 
 class AuthStateLoggedInWithGmail extends AuthState {
   const AuthStateLoggedInWithGmail({
-    required bool isLoading,
-  }) : super(isLoading: isLoading);
+    required super.isLoading,
+  });
 }
 
 class AuthStateNeedsVerification extends AuthState {
   const AuthStateNeedsVerification({
-    required bool isLoading,
-  }) : super(isLoading: isLoading);
+    required super.isLoading,
+  });
 }
 
 class AuthStateLoggedOut extends AuthState with EquatableMixin {
   final Exception? exception;
   const AuthStateLoggedOut({
     required this.exception,
-    required bool isLoading,
-    String? loadingText,
-  }) : super(
-          isLoading: isLoading,
-          loadingText: loadingText,
-        );
+    required super.isLoading,
+    super.loadingText = null,
+  });
 
   @override
   List<Object?> get props => [exception, isLoading];

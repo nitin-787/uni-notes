@@ -8,7 +8,6 @@ import '/constants/colors.dart';
 import '/constants/routes.dart';
 import '/services/auth/bloc/auth_event.dart';
 import '/utilities/internet_snak_bar.dart';
-import '/views/login_view.dart';
 import '/widget/slider.dart';
 import '/services/auth/bloc/auth_bloc.dart';
 
@@ -32,13 +31,14 @@ class _NewNotesViewState extends State<NewNotesView> {
             borderRadius: BorderRadius.circular(30),
           ),
           onPressed: () async {
-            final result = await Connectivity().checkConnectivity();
             if (!mounted) return;
-            bool hasInternet = connectivitySnackBar(result);
-
-            hasInternet
-                ? Navigator.of(context).pushNamed(createOrUpdateNoteRoute)
-                : InternetSnackBar.showTopSnackBar(context);
+            var connectivityResult = await (Connectivity().checkConnectivity());
+            if (connectivityResult == ConnectivityResult.none) {
+              InternetSnackBar.showTopSnackBar(context);
+              return;
+            } else {
+              Navigator.pushNamed(context, createOrUpdateNoteRoute);
+            }
           },
           child: Icon(
             Icons.add,

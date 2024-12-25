@@ -8,7 +8,7 @@ import '/services/auth/bloc/auth_bloc.dart';
 import '/services/auth/bloc/auth_event.dart';
 
 class VerifyEmailView extends StatefulWidget {
-  const VerifyEmailView({Key? key}) : super(key: key);
+  const VerifyEmailView({super.key});
 
   @override
   State<VerifyEmailView> createState() => _VerifyEmailViewState();
